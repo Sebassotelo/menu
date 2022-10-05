@@ -1,0 +1,36 @@
+.perfil {
+  width: 500px;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.logoUsuario {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  align-self: end;
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: rgb(88, 54, 54);
+}
+
+.usuario {
+  font-size: 20px;
+  margin-top: 10px;
+  align-self: end;
+}
+
+.redes {
+  align-self: start;
+}
+.redes__icon {
+  font-size: 25px;
+  margin: 0 5px 0 5px;
+  color: rgb(0, 0, 0);
+}

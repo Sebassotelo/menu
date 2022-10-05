@@ -1,0 +1,63 @@
+.carrito {
+  height: 600px;
+  width: 250px;
+  background-color: rgba(0, 0, 0, 0.623);
+  position: fixed;
+  margin: 15px 15px 0 0;
+  border-radius: 15px;
+  padding: 15px;
+  display: grid;
+  grid-template-rows: 80px 1fr 120px;
+  align-self: center;
+}
+
+.carrito__title {
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  margin-top: 5px;
+}
+
+.carrito__item {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+}
+
+.carrito__name {
+  font-size: 16px;
+  color: white;
+}
+
+.carrito__precio {
+  font-size: 18px;
+  color: white;
+  font-weight: 600;
+}
+
+.total__container {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-gap: 10px;
+}
+
+.total {
+  text-align: center;
+  font-size: 25px;
+  color: white;
+}
+
+.total__reset {
+  border: none;
+  padding: 5px 9px 5px 9px;
+  border-radius: 15px;
+  background-color: aliceblue;
+}
+
+.realizar__pedido {
+  border: none;
+  padding: 10px 15px 10px 15px;
+  border-radius: 15px;
+  background-color: aliceblue;
+  font-weight: 600;
+}

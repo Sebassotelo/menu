@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Perfil from "./componentes/perfil/perfil";
+import Menu from "./componentes/menu/menu";
+
+//CONTEXT
+import CarroState from "./context/carro/carroState";
+import Carrito from "./componentes/carrito/carrito";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CarroState>
+        <section id="carrito">
+          <Carrito />
+        </section>
+        <section id="perfil">
+          <Perfil />
+        </section>
+
+        <section id="menu">
+          <h2>Menu</h2>
+          <Menu />
+        </section>
+      </CarroState>
+      <section id="footer"></section>
     </div>
   );
 }

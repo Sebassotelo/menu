@@ -1,0 +1,57 @@
+.menu__item {
+  min-height: 120px;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: 1.9fr 1fr;
+}
+
+.item__info {
+  padding: 10px;
+}
+
+.item__precio {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  grid-gap: 10px;
+}
+
+.precio {
+  font-size: 40px;
+  justify-self: end;
+}
+
+.cantidad__container {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-gap: 10px;
+}
+.cantidad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-items: center;
+  background-color: rgba(240, 248, 255, 0.336);
+  border-radius: 15px;
+  padding: 5px 8px 5px 8px;
+}
+
+.cantidad p {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.precio__icon {
+  font-size: 30px;
+  justify-self: start;
+}
+
+.agregarItem {
+  border: none;
+  background-color: azure;
+  padding: 5px;
+  border-radius: 15px;
+}

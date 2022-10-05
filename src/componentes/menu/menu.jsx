@@ -7,9 +7,12 @@ function Menu() {
     <div className="menu">
       <div className="hambur">
         <p className="menu__title">Hamburguesas:</p>
-        <MenuItem title={"cheese"} precio={600} id={1} />
-        <MenuItem title={"bacon"} precio={650} id={2} />
-        <MenuItem title={"clasic"} precio={500} id={3} />
+        <MenuItem title={"Cheese"} precio={600} id={1} />
+        <MenuItem title={"Bacon"} precio={650} id={2} />
+        <MenuItem title={"Classic"} precio={500} id={3} />
+        <p className="menu__title">Bebidas:</p>
+        <MenuItem title={"Coca Cola"} precio={150} id={4} />
+        <MenuItem title={"Pepsi"} precio={130} id={5} />
       </div>
     </div>
   );

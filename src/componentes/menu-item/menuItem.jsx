@@ -47,7 +47,7 @@ function MenuItem({ title, precio, id }) {
   return (
     <div className="menu__item">
       <div className="item__info">
-        <h3>{title} Burger</h3>
+        <h3>{title}</h3>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
           explicabo eius nihil facere eos debitis ullam praesentium, unde

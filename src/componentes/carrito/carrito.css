@@ -1,14 +1,42 @@
+.carr {
+  display: grid;
+}
 .carrito {
   height: 600px;
   width: 250px;
-  background-color: rgba(0, 0, 0, 0.623);
+  background-color: rgba(0, 0, 0, 0.822);
+  backdrop-filter: blur(2px);
   position: fixed;
   margin: 15px 15px 0 0;
   border-radius: 15px;
   padding: 15px;
   display: grid;
   grid-template-rows: 80px 1fr 120px;
+  justify-self: end;
   align-self: center;
+}
+
+.show__carrito {
+  height: 80px;
+  width: 80px;
+  display: grid;
+  justify-self: start;
+  margin: 10px 0 0 5px;
+  background-color: black;
+  border-radius: 50%;
+  align-items: center;
+  justify-items: center;
+  position: fixed;
+}
+
+.show__icon {
+  font-size: 50px;
+  color: white;
+  position: absolute;
+}
+
+.close {
+  justify-self: end;
 }
 
 .carrito__title {

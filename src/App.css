@@ -37,7 +37,14 @@
 #carrito {
   height: 100vh;
   width: 300px;
+  justify-self: end;
   display: grid;
   position: absolute;
   justify-items: end;
+}
+
+@media (max-width: 900px) {
+  .App {
+    width: 100vw;
+  }
 }

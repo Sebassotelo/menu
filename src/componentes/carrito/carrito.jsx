@@ -70,6 +70,7 @@ function Carrito() {
       navigator.clipboard.writeText(pedidoCopy);
       toast.success("Pedido copiado al portapapeles");
       console.log(pedidoCopy);
+
       if (unidades > 0) {
         setConfirmacion(true);
       }
@@ -134,7 +135,7 @@ function Carrito() {
 
             {confirmacion ? (
               <div className="realizar__pedido wpp">
-                <a href="https://walink.co/861bf5" target={"_blank"}>
+                <a href="" target={"_blank"}>
                   Ir a Whastapp
                 </a>
               </div>

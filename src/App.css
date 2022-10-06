@@ -1,18 +1,18 @@
 .App {
   width: 100vw;
   height: 100%;
-  background-color: #999bff;
+  background-color: #ffda99;
   background-image: radial-gradient(
-      at 70% 21%,
-      hsla(80, 95%, 68%, 1) 0px,
+      at 73% 19%,
+      hsla(38, 74%, 76%, 1) 0px,
       transparent 50%
     ),
-    radial-gradient(at 83% 44%, hsla(340, 92%, 63%, 1) 0px, transparent 50%),
-    radial-gradient(at 61% 8%, hsla(191, 79%, 63%, 1) 0px, transparent 50%),
-    radial-gradient(at 70% 37%, hsla(321, 83%, 77%, 1) 0px, transparent 50%),
-    radial-gradient(at 7% 47%, hsla(355, 86%, 73%, 1) 0px, transparent 50%),
-    radial-gradient(at 86% 25%, hsla(324, 67%, 78%, 1) 0px, transparent 50%),
-    radial-gradient(at 31% 63%, hsla(349, 63%, 63%, 1) 0px, transparent 50%);
+    radial-gradient(at 41% 16%, hsla(31, 91%, 74%, 1) 0px, transparent 50%),
+    radial-gradient(at 12% 42%, hsla(32, 99%, 66%, 1) 0px, transparent 50%),
+    radial-gradient(at 73% 13%, hsla(212, 64%, 64%, 1) 0px, transparent 50%),
+    radial-gradient(at 38% 37%, hsla(23, 85%, 66%, 1) 0px, transparent 50%),
+    radial-gradient(at 31% 46%, hsla(87, 90%, 62%, 1) 0px, transparent 50%),
+    radial-gradient(at 62% 46%, hsla(249, 81%, 79%, 1) 0px, transparent 50%);
 }
 
 #perfil {

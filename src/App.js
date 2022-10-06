@@ -21,7 +21,14 @@ function App() {
           <Menu />
         </section>
       </CarroState>
-      <section id="footer"></section>
+      <section id="footer">
+        <p className="footer">
+          Creado por{" "}
+          <a href="https://portfolio-tan-delta.vercel.app/" target={"_blank"}>
+            <span>Sebas Sotelo</span>
+          </a>{" "}
+        </p>
+      </section>
     </div>
   );
 }

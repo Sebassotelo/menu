@@ -10,9 +10,8 @@ function App() {
   return (
     <div className="App">
       <CarroState>
-        <section id="carrito">
-          <Carrito />
-        </section>
+        <Carrito />
+
         <section id="perfil">
           <Perfil />
         </section>

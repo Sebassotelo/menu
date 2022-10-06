@@ -25,6 +25,7 @@ function MenuItem({ title, precio, id }) {
   const manejarCarrito = (ped) => {
     if (contexto.carrito.find((e) => e.id === id)) {
       contexto.carrito.find((e) => e.id === id).cant = cantidad;
+
       actuCarrito();
     } else {
       if (cantidad > 0) {

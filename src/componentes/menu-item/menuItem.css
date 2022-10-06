@@ -55,3 +55,22 @@
   padding: 5px;
   border-radius: 15px;
 }
+
+@media (max-width: 900px) {
+  .item__precio {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    grid-gap: 10px;
+  }
+
+  .precio {
+    font-size: 40px;
+    justify-self: center;
+  }
+
+  .cantidad__container {
+    margin-bottom: 10px;
+  }
+}

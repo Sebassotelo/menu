@@ -2,12 +2,13 @@
   display: grid;
 }
 .carrito {
+  top: 0;
   height: 600px;
   width: 250px;
   background-color: rgba(0, 0, 0, 0.822);
   backdrop-filter: blur(2px);
   position: fixed;
-  margin: 15px 15px 0 0;
+  margin: 30px 30px 0 0;
   border-radius: 15px;
   padding: 15px;
   display: grid;
@@ -17,11 +18,11 @@
 }
 
 .show__carrito {
-  height: 80px;
-  width: 80px;
+  height: 90px;
+  width: 90px;
   display: grid;
-  justify-self: start;
-  margin: 10px 0 0 5px;
+  justify-self: end;
+  margin: 30px 30px 0 0;
   background-color: black;
   border-radius: 50%;
   align-items: center;
@@ -35,8 +36,28 @@
   position: absolute;
 }
 
+.show__unidades {
+  height: 35px;
+  width: 35px;
+
+  align-self: end;
+  justify-self: start;
+  background-color: red;
+  border-radius: 50%;
+  z-index: 100;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.show__unidades p {
+  font-size: 25px;
+  color: white;
+}
+
 .close {
   justify-self: end;
+  margin: 10px 10px 0 0;
 }
 
 .carrito__title {
@@ -46,9 +67,21 @@
   margin-top: 5px;
 }
 
+.carrito__container {
+  display: grid;
+  grid-template-rows: repeat(auto-fit, 30px);
+  grid-gap: 10px;
+}
+
 .carrito__item {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+}
+
+.carrito__eliminar {
+  font-size: 23px;
+  color: white;
+  justify-self: center;
 }
 
 .carrito__name {
@@ -88,4 +121,29 @@
   border-radius: 15px;
   background-color: aliceblue;
   font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .carrito {
+    height: 700px;
+    width: 300px;
+  }
+  .show__carrito {
+    height: 70px;
+    width: 70px;
+  }
+  .carrito__container {
+    margin-top: 20px;
+    grid-gap: 20px;
+  }
+  .carrito__eliminar {
+    font-size: 30px;
+  }
+  .carrito__name {
+    font-size: 18px;
+  }
+
+  .carrito__precio {
+    font-size: 20px;
+  }
 }

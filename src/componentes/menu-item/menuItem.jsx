@@ -7,7 +7,7 @@ import {
 import CarroContext from "../../context/carro/carroContext";
 
 function MenuItem({ title, precio, id }) {
-  const [cantidad, setCantidad] = useState(0);
+  const [cantidad, setCantidad] = useState(1);
 
   const { addCarrito, actuCarrito } = useContext(CarroContext);
   const contexto = useContext(CarroContext);
@@ -24,12 +24,14 @@ function MenuItem({ title, precio, id }) {
 
   const manejarCarrito = (ped) => {
     if (contexto.carrito.find((e) => e.id === id)) {
-      contexto.carrito.find((e) => e.id === id).cant = cantidad;
+      contexto.carrito.find((e) => e.id === id).cant += cantidad;
+      setCantidad(1);
 
       actuCarrito();
     } else {
       if (cantidad > 0) {
         addCarrito(ped);
+        setCantidad(1);
         actuCarrito();
       }
     }

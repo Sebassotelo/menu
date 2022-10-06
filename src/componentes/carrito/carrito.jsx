@@ -28,7 +28,10 @@ function Carrito() {
     setTotal(totalPrecio);
     setUnidades(totalUnidades);
     setCuenta(context.carrito);
-    console.log(cuenta);
+
+    if (totalUnidades === 0) {
+      setConfirmacion(false);
+    }
   }, [context.actualizacion]);
 
   const reset = () => {
@@ -36,6 +39,7 @@ function Carrito() {
     setCarrito([]);
     setCuenta([]);
     setUnidades(0);
+    setConfirmacion(false);
     setShow(false);
   };
 
@@ -128,12 +132,14 @@ function Carrito() {
               </button>
             )}
 
-            {confirmacion && (
+            {confirmacion ? (
               <div className="realizar__pedido wpp">
                 <a href="https://walink.co/861bf5" target={"_blank"}>
                   Ir a Whastapp
                 </a>
               </div>
+            ) : (
+              ""
             )}
           </div>
         </div>

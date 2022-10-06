@@ -17,7 +17,7 @@ function MenuItem({ title, precio, id }) {
   };
 
   const restCantidad = () => {
-    if (cantidad > 0) {
+    if (cantidad > 1) {
       setCantidad(cantidad - 1);
     }
   };

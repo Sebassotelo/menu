@@ -66,8 +66,10 @@ function Carrito() {
             pedidoCopy +
             `${e.cant}X ${e.titulo} ----- $${e.precio * e.cant}  \n`)
       );
-      pedidoCopy = `${pedidoCopy} \nTotal: $${total}`;
+      pedidoCopy = `Hola, te pido esto:\n\n${pedidoCopy} \nTotal: $${total}`;
+
       navigator.clipboard.writeText(pedidoCopy);
+
       toast.success("Pedido copiado al portapapeles");
       console.log(pedidoCopy);
 

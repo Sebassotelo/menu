@@ -16,6 +16,7 @@
   grid-template-columns: 1.2fr 1fr;
   align-items: center;
   grid-gap: 10px;
+  margin-right: 5px;
 }
 
 .precio {
@@ -34,7 +35,7 @@
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-items: center;
-  background-color: rgba(240, 248, 255, 0.336);
+  background-color: rgba(0, 0, 0, 0.815);
   border-radius: 15px;
   padding: 5px 8px 5px 8px;
 }
@@ -42,18 +43,22 @@
 .cantidad p {
   font-size: 20px;
   font-weight: 600;
+  color: white;
 }
 
 .precio__icon {
   font-size: 30px;
   justify-self: start;
+  color: white;
 }
 
 .agregarItem {
   border: none;
-  background-color: azure;
-  padding: 5px;
+  background-color: rgb(172, 0, 0);
+  color: white;
+  padding: 7px;
   border-radius: 15px;
+  font-weight: 600;
 }
 
 @media (max-width: 900px) {
@@ -72,5 +77,12 @@
 
   .cantidad__container {
     margin-bottom: 10px;
+  }
+
+  .agregarItem {
+    padding: 7px;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 18px;
   }
 }

@@ -76,7 +76,7 @@ function MenuItem({ title, precio, id }) {
           </div>
 
           <button className="agregarItem" onClick={manejarPedido}>
-            Agregar
+            AGREGAR
           </button>
         </div>
       </div>

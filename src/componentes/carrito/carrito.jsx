@@ -25,6 +25,7 @@ function Carrito() {
       totalPrecio = totalPrecio + e.precio * e.cant;
       totalUnidades = totalUnidades + e.cant;
     });
+
     setTotal(totalPrecio);
     setUnidades(totalUnidades);
     setCuenta(context.carrito);

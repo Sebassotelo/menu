@@ -18,8 +18,8 @@
 }
 
 .show__carrito {
-  height: 90px;
-  width: 90px;
+  height: 70px;
+  width: 70px;
   display: grid;
   justify-self: end;
   margin: 30px 30px 0 0;
@@ -28,17 +28,18 @@
   align-items: center;
   justify-items: center;
   position: fixed;
+  cursor: pointer;
 }
 
 .show__icon {
-  font-size: 50px;
+  font-size: 30px;
   color: white;
   position: absolute;
 }
 
 .show__unidades {
-  height: 35px;
-  width: 35px;
+  height: 30px;
+  width: 30px;
 
   align-self: end;
   justify-self: start;
@@ -51,13 +52,15 @@
 }
 
 .show__unidades p {
-  font-size: 25px;
+  font-size: 20px;
   color: white;
 }
 
 .close {
+  font-size: 50px;
   justify-self: end;
   margin: 10px 10px 0 0;
+  cursor: pointer;
 }
 
 .carrito__title {
@@ -82,6 +85,7 @@
   font-size: 23px;
   color: white;
   justify-self: center;
+  cursor: pointer;
 }
 
 .carrito__name {
@@ -113,9 +117,11 @@
   padding: 5px 9px 5px 9px;
   border-radius: 15px;
   background-color: aliceblue;
+  cursor: pointer;
 }
 
 .realizar__pedido {
+  cursor: pointer;
   border: none;
   padding: 10px 15px 10px 15px;
   border-radius: 15px;
@@ -124,6 +130,7 @@
 }
 
 .confirmar {
+  cursor: pointer;
   background-color: brown;
   color: white;
 }
@@ -144,8 +151,8 @@
     width: 300px;
   }
   .show__carrito {
-    height: 70px;
-    width: 70px;
+    height: 60px;
+    width: 60px;
   }
   .carrito__container {
     margin-top: 20px;

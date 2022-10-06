@@ -9,9 +9,11 @@
 
 .item__info {
   padding: 10px;
+  user-select: none;
 }
 
 .item__precio {
+  user-select: none;
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   align-items: center;
@@ -41,18 +43,22 @@
 }
 
 .cantidad p {
+  user-select: none;
   font-size: 20px;
   font-weight: 600;
   color: white;
 }
 
 .precio__icon {
+  cursor: pointer;
   font-size: 30px;
   justify-self: start;
   color: white;
 }
 
 .agregarItem {
+  user-select: none;
+  cursor: pointer;
   border: none;
   background-color: rgb(172, 0, 0);
   color: white;

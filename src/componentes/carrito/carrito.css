@@ -12,7 +12,7 @@
   border-radius: 15px;
   padding: 15px;
   display: grid;
-  grid-template-rows: 80px 1fr 120px;
+  grid-template-rows: 80px 1fr 200px;
   justify-self: end;
   align-self: center;
 }
@@ -121,6 +121,21 @@
   border-radius: 15px;
   background-color: aliceblue;
   font-weight: 600;
+}
+
+.confirmar {
+  background-color: brown;
+  color: white;
+}
+
+.wpp {
+  background-color: #25d366;
+}
+
+.wpp a {
+  text-decoration: none;
+  color: white;
+  text-shadow: 1px 1px #000000;
 }
 
 @media (max-width: 900px) {

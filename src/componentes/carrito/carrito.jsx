@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import CarroContext from "../../context/carro/carroContext";
 import "./carrito.css";
 import { AiOutlineShoppingCart, AiFillCloseCircle } from "react-icons/ai";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import toast, { Toaster } from "react-hot-toast";
 
 function Carrito() {
   const context = useContext(CarroContext);
@@ -10,6 +12,8 @@ function Carrito() {
   const [show, setShow] = useState(false);
   const [total, setTotal] = useState(0);
   const [unidades, setUnidades] = useState(0);
+  const [realizarPedido, setRealizarPedido] = useState(true);
+  const [confirmacion, setConfirmacion] = useState(false);
 
   const { setCarrito, actuCarrito } = useContext(CarroContext);
 
@@ -44,6 +48,35 @@ function Carrito() {
     setShow(!show);
   };
 
+  let pedidoCopy = "";
+  const copiarAlPortapapeles = () => {
+    setRealizarPedido(false);
+  };
+
+  const confirmarPedido = () => {
+    if (unidades > 0) {
+      pedidoCopy = "";
+      context.carrito.map(
+        (e) =>
+          (pedidoCopy =
+            pedidoCopy +
+            `${e.cant}X ${e.titulo} ----- $${e.precio * e.cant}  \n`)
+      );
+      pedidoCopy = `${pedidoCopy} \nTotal: $${total}`;
+      navigator.clipboard.writeText(pedidoCopy);
+      toast.success("Pedido copiado al portapapeles");
+      console.log(pedidoCopy);
+      if (unidades > 0) {
+        setConfirmacion(true);
+      }
+
+      setRealizarPedido(true);
+    } else {
+      setRealizarPedido(true);
+      toast.error("Agrege items al carrito");
+    }
+  };
+
   return (
     <div className="carr">
       {show ? (
@@ -54,7 +87,7 @@ function Carrito() {
           />
           <h3 className="carrito__title">Carrito</h3>
 
-          <div className="carrito__container">
+          <div className="carrito__container" id="cuenta">
             {cuenta
               .filter((e) => e.cant != 0)
               .map((e, i) => (
@@ -77,7 +110,31 @@ function Carrito() {
               RESET
             </button>
             <h4 className="total">TOTAL: ${total}</h4>
-            <button className="realizar__pedido">Realizar Pedido</button>
+
+            {realizarPedido ? (
+              <button
+                className="realizar__pedido"
+                onClick={copiarAlPortapapeles}
+              >
+                Realizar Pedido
+              </button>
+            ) : (
+              <button
+                className="realizar__pedido confirmar"
+                onClick={confirmarPedido}
+              >
+                {" "}
+                Confirmar{" "}
+              </button>
+            )}
+
+            {confirmacion && (
+              <div className="realizar__pedido wpp">
+                <a href="https://walink.co/861bf5" target={"_blank"}>
+                  Ir a Whastapp
+                </a>
+              </div>
+            )}
           </div>
         </div>
       ) : (
@@ -92,6 +149,8 @@ function Carrito() {
           )}
         </div>
       )}
+
+      <Toaster position="bottom-center" className="notificacion" />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import CarroContext from "../../context/carro/carroContext";
 import "./carrito.css";
-import { AiOutlineShoppingCart, AiFillCloseCircle } from "react-icons/ai";
+import { AiOutlineShoppingCart, AiOutlineClose } from "react-icons/ai";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -51,6 +51,14 @@ function Carrito() {
 
   const mostrarCarrito = () => {
     setShow(!show);
+
+    if (show === true) {
+      document.body.style.overflow = "";
+    } else {
+      if (window.innerWidth < 900) {
+        document.body.style.overflow = "hidden";
+      }
+    }
   };
 
   let pedidoCopy = "";
@@ -88,8 +96,8 @@ function Carrito() {
   return (
     <div className="carr">
       {show ? (
-        <div className="carrito">
-          <AiFillCloseCircle
+        <div className={show ? "carrito hidden" : "carrito"}>
+          <AiOutlineClose
             className="show__icon close"
             onClick={mostrarCarrito}
           />
@@ -101,11 +109,11 @@ function Carrito() {
               .map((e, i) => (
                 <div className="carrito__item">
                   <p className="carrito__name">
-                    {e.cant}X {e.titulo}
+                    {e.cant}x {e.titulo}
                   </p>
-                  <p>-------</p>
+                  <p className="carrito__name">----</p>
                   <p className="carrito__precio">${e.precio * e.cant}</p>
-                  <AiFillCloseCircle
+                  <AiOutlineClose
                     className="carrito__eliminar"
                     onClick={() => eliminar(e.id)}
                   />
@@ -115,7 +123,7 @@ function Carrito() {
 
           <div className="total__container">
             <button onClick={reset} className="total__reset">
-              RESET
+              BORRAR
             </button>
             <h4 className="total">TOTAL: ${total}</h4>
 

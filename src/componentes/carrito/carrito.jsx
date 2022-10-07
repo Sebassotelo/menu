@@ -81,6 +81,7 @@ function Carrito() {
 
       navigator.clipboard.writeText(pedidoCopy);
 
+      toast.success("Pedido copiado al portapapeles");
       console.log(pedidoCopy);
 
       if (unidades > 0) {
@@ -90,6 +91,7 @@ function Carrito() {
       setRealizarPedido(true);
     } else {
       setRealizarPedido(true);
+      toast.error("Agrege items al carrito");
     }
   };
 
@@ -166,6 +168,8 @@ function Carrito() {
           )}
         </div>
       )}
+
+      <Toaster position="top-center" className="notificacion" />
     </div>
   );
 }

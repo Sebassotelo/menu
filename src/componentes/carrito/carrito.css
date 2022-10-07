@@ -15,6 +15,9 @@
   grid-template-rows: 80px 1fr 200px;
   justify-self: end;
   align-self: center;
+  box-shadow: rgb(38 50 56 / 16%) 0px 8px 16px,
+    rgb(0 0 0 / 30%) 0px 4px 5px -4px, rgb(255 255 255 / 50%) 0px 2px 5px inset,
+    rgb(0 0 0 / 20%) 0px -1px 3px inset;
 }
 
 .show__carrito {
@@ -29,6 +32,9 @@
   justify-items: center;
   position: fixed;
   cursor: pointer;
+  box-shadow: rgb(38 50 56 / 16%) 0px 8px 16px,
+    rgb(0 0 0 / 30%) 0px 4px 5px -4px, rgb(255 255 255 / 50%) 0px 2px 5px inset,
+    rgb(0 0 0 / 20%) 0px -1px 3px inset;
 }
 
 .show__icon {
@@ -40,6 +46,9 @@
 .show__unidades {
   height: 30px;
   width: 30px;
+  box-shadow: rgb(38 50 56 / 16%) 0px 8px 16px,
+    rgb(0 0 0 / 30%) 0px 4px 5px -4px, rgb(255 255 255 / 50%) 0px 2px 5px inset,
+    rgb(0 0 0 / 20%) 0px -1px 3px inset;
 
   align-self: end;
   justify-self: start;

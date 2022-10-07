@@ -4,7 +4,7 @@ import { FaWhatsapp, FaInstagram, FaMapMarkerAlt } from "react-icons/fa";
 
 function Perfil() {
   return (
-    <div className="perfil">
+    <div className="perfil" id="perfil">
       <div className="logoUsuario">
         <div className="logo"></div>
         <h1 className="usuario">@Ahafoer</h1>

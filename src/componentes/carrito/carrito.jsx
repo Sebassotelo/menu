@@ -147,9 +147,7 @@ function Carrito() {
 
             {confirmacion ? (
               <div className="realizar__pedido wpp">
-                <a href="" target={"_blank"}>
-                  Ir a Whatsapp
-                </a>
+                <a href="">Ir a Whatsapp</a>
               </div>
             ) : (
               ""

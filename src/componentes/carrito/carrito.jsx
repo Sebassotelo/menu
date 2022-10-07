@@ -97,10 +97,9 @@ function Carrito() {
     <div className="carr">
       {show ? (
         <div className={show ? "carrito hidden" : "carrito"}>
-          <AiOutlineClose
-            className="show__icon close"
-            onClick={mostrarCarrito}
-          />
+          <div className="close" onClick={mostrarCarrito}>
+            <p>Seguir Pidiendo</p>
+          </div>
           <h3 className="carrito__title">Carrito</h3>
 
           <div className="carrito__container" id="cuenta">

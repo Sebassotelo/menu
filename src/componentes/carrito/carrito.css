@@ -4,7 +4,7 @@
 .carrito {
   top: 0;
   height: 600px;
-  width: 250px;
+  width: 260px;
   background-color: rgba(0, 0, 0, 0.822);
   backdrop-filter: blur(2px);
   position: fixed;
@@ -12,7 +12,7 @@
   border-radius: 8px;
   padding: 15px;
   display: grid;
-  grid-template-rows: 80px 1fr 200px;
+  grid-template-rows: 80px 1fr 150px;
   justify-self: end;
   align-self: center;
   box-shadow: rgb(38 50 56 / 16%) 0px 8px 16px,
@@ -66,10 +66,27 @@
 }
 
 .close {
-  font-size: 40px;
-  justify-self: end;
-  margin: 10px 10px 0 0;
+  height: 50px;
+  width: 120px;
+  background-color: rgb(165, 10, 4);
+  font-size: 15px;
+  justify-self: center;
+  align-self: end;
   cursor: pointer;
+  bottom: -60px;
+  position: absolute;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  border-radius: 15px;
+  box-shadow: rgb(38 50 56 / 16%) 0px 8px 16px,
+    rgb(0 0 0 / 30%) 0px 4px 5px -4px, rgb(255 255 255 / 50%) 0px 2px 5px inset,
+    rgb(0 0 0 / 20%) 0px -1px 3px inset;
+}
+
+.close p {
+  color: white;
+  font-weight: 600;
 }
 
 .carrito__title {
@@ -87,7 +104,7 @@
 
 .carrito__item {
   display: grid;
-  grid-template-columns: 3fr 1fr 1fr 1fr;
+  grid-template-columns: 3.5fr 1fr 1fr 1fr;
 }
 
 .carrito__eliminar {
@@ -176,5 +193,11 @@
 
   .carrito__precio {
     font-size: 20px;
+  }
+}
+
+@media (max-height: 700px) {
+  .carrito {
+    height: 530px;
   }
 }

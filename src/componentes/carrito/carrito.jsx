@@ -170,7 +170,7 @@ function Carrito() {
         </div>
       )}
 
-      <Toaster position="bottom-center" className="notificacion" />
+      <Toaster position="top-center" className="notificacion" />
     </div>
   );
 }

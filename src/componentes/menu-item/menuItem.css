@@ -25,6 +25,7 @@
 .item__info {
   padding: 10px;
   user-select: none;
+  cursor: pointer;
 }
 
 .item__precio {

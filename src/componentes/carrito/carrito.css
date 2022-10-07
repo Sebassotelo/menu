@@ -178,15 +178,13 @@
 
 @media (max-width: 900px) {
   .carrito {
-    height: 660px;
-    width: 300px;
+    height: 80%;
+    width: 85%;
     margin: 15px 0 0 0;
     justify-self: center;
     box-shadow: 1px 1px 128px 117px rgba(23, 15, 0, 0.77);
     -webkit-box-shadow: 1px 1px 128px 117px rgba(23, 15, 0, 0.77);
     -moz-box-shadow: 1px 1px 128px 117px rgba(23, 15, 0, 0.77);
-  }
-  .carrito__item {
   }
   .show__carrito {
     height: 60px;

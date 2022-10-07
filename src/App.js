@@ -8,8 +8,8 @@ import Carrito from "./componentes/carrito/carrito";
 
 function App() {
   return (
-    <div className="App">
-      <CarroState>
+    <CarroState>
+      <div className="App">
         <Carrito />
 
         <section id="perfil">
@@ -19,16 +19,17 @@ function App() {
         <section id="menu">
           <Menu />
         </section>
-      </CarroState>
-      <section id="footer">
-        <p className="footer">
-          Creado por{" "}
-          <a href="https://portfolio-tan-delta.vercel.app/" target={"_blank"}>
-            <span>Sebas Sotelo</span>
-          </a>{" "}
-        </p>
-      </section>
-    </div>
+
+        <section id="footer">
+          <p className="footer">
+            Creado por{" "}
+            <a href="https://portfolio-tan-delta.vercel.app/" target={"_blank"}>
+              <span>Sebas Sotelo</span>
+            </a>{" "}
+          </p>
+        </section>
+      </div>
+    </CarroState>
   );
 }
 

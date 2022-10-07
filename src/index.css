@@ -4,6 +4,7 @@
   font-family: "Quicksand", sans-serif;
   scrollbar-width: thin;
   scrollbar-color: rgb(255, 255, 255) rgb(0, 0, 0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 /* Works on Firefox */
 

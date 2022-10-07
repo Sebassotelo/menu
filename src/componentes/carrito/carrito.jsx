@@ -30,6 +30,7 @@ function Carrito() {
     setUnidades(totalUnidades);
     setCuenta(context.carrito);
     setConfirmacion(false);
+    setRealizarPedido(true);
 
     if (totalUnidades === 0) {
       setConfirmacion(false);
@@ -42,7 +43,7 @@ function Carrito() {
     setCuenta([]);
     setUnidades(0);
     setConfirmacion(false);
-    setShow(false);
+    mostrarCarrito();
   };
 
   const eliminar = (id) => {

@@ -104,6 +104,7 @@
 
 .carrito__item {
   display: grid;
+  align-items: center;
   grid-template-columns: 3.5fr 1fr 1fr 1fr;
 }
 
@@ -181,6 +182,11 @@
     width: 300px;
     margin: 15px 0 0 0;
     justify-self: center;
+    box-shadow: 1px 1px 128px 117px rgba(23, 15, 0, 0.77);
+    -webkit-box-shadow: 1px 1px 128px 117px rgba(23, 15, 0, 0.77);
+    -moz-box-shadow: 1px 1px 128px 117px rgba(23, 15, 0, 0.77);
+  }
+  .carrito__item {
   }
   .show__carrito {
     height: 60px;

@@ -29,6 +29,7 @@ function Carrito() {
     setTotal(totalPrecio);
     setUnidades(totalUnidades);
     setCuenta(context.carrito);
+    setConfirmacion(false);
 
     if (totalUnidades === 0) {
       setConfirmacion(false);
@@ -128,7 +129,9 @@ function Carrito() {
 
             {realizarPedido ? (
               <button
-                className="realizar__pedido"
+                className={
+                  confirmacion ? "button__hidden " : "realizar__pedido"
+                }
                 onClick={copiarAlPortapapeles}
               >
                 Realizar Pedido

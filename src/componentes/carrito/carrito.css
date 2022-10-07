@@ -155,6 +155,10 @@
   font-weight: 600;
 }
 
+.button__hidden {
+  display: none;
+}
+
 .confirmar {
   cursor: pointer;
   background-color: brown;

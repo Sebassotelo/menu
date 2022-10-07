@@ -7,6 +7,7 @@ import { AiOutlineArrowUp } from "react-icons/ai";
 function Menu() {
   return (
     <div className="menu">
+      <h3 className="menu__h3">MENU</h3>
       <div className="menu__navbar">
         <Link
           className="menu__link"
@@ -51,7 +52,7 @@ function Menu() {
         <MenuItem title={"Pepsi"} precio={130} id={4} />
 
         <p className="menu__title" id="promos">
-          Promos
+          Promos:
         </p>
         <MenuItem title={"Cheese + Pepsi"} precio={700} id={5} />
         <MenuItem title={"Bacon + Coca"} precio={750} id={6} />

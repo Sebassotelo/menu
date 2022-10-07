@@ -17,7 +17,6 @@ function App() {
         </section>
 
         <section id="menu">
-          <h2>Menu</h2>
           <Menu />
         </section>
       </CarroState>

@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import CarroContext from "../../context/carro/carroContext";
 import "./carrito.css";
 import { AiOutlineShoppingCart, AiOutlineClose } from "react-icons/ai";
-import { CopyToClipboard } from "react-copy-to-clipboard";
 import toast, { Toaster } from "react-hot-toast";
 
 function Carrito() {
@@ -98,7 +97,7 @@ function Carrito() {
   return (
     <div className="carr">
       {show ? (
-        <div className="carro__contenedor" id="carro">
+        <div className="carro__contenedor">
           {" "}
           <div className={show ? "carrito hidden" : "carrito"}>
             <div className="close" onClick={mostrarCarrito}>

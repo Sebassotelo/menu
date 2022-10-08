@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import "./menuItem.css";
 
 import { MdAdd, MdRemove } from "react-icons/md";
@@ -11,9 +11,12 @@ import toast, { Toaster } from "react-hot-toast";
 function MenuItem({ title, precio, id, img }) {
   const [cantidad, setCantidad] = useState(1);
   const [popUp, setPopUp] = useState(false);
+  const [cerrarPop, setCerrarPop] = useState(false);
 
   const { addCarrito, actuCarrito } = useContext(CarroContext);
   const contexto = useContext(CarroContext);
+
+  const refOne = useRef(null);
 
   const sumCantidad = () => {
     setCantidad(cantidad + 1);
@@ -56,16 +59,26 @@ function MenuItem({ title, precio, id, img }) {
   };
 
   const showPopUp = () => {
+    setCerrarPop(!cerrarPop);
     if (popUp === false) {
       setPopUp(true);
     } else {
       setPopUp(false);
     }
+  };
 
-    if (popUp === true) {
+  useEffect(() => {
+    document.addEventListener("click", clickoutside, true);
+    if (popUp === false) {
       document.body.style.overflow = "";
     } else {
       document.body.style.overflow = "hidden";
+    }
+  }, [popUp]);
+
+  const clickoutside = (e) => {
+    if (!refOne.current.contains(e.target)) {
+      setPopUp(false);
     }
   };
 
@@ -99,7 +112,7 @@ function MenuItem({ title, precio, id, img }) {
         </div>
       </div>
       <div className={popUp ? "popup__container" : "popup__container_none"}>
-        <div className="popup" id="popup">
+        <div className="popup" id="popup" ref={refOne}>
           <div className="popup__img">
             {img ? <img src={img} alt="" /> : <p>Sin foto</p>}
           </div>

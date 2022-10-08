@@ -3,6 +3,7 @@ import "./menuItem.css";
 
 import { MdAdd, MdRemove } from "react-icons/md";
 import { BsCartPlus } from "react-icons/bs";
+import { AiOutlineClose } from "react-icons/ai";
 
 import CarroContext from "../../context/carro/carroContext";
 import toast, { Toaster } from "react-hot-toast";
@@ -72,7 +73,7 @@ function MenuItem({ title, precio, id, img }) {
     <>
       {" "}
       <div className="menu__item">
-        <div className="item__info" onClick={showPopUp}>
+        <div className="item__info" onClick={showPopUp} id="itemInfo">
           <h3>{title}</h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
@@ -97,32 +98,35 @@ function MenuItem({ title, precio, id, img }) {
           </div>
         </div>
       </div>
-      <div className={popUp ? "popup" : "popup__none"}>
-        <div className="popup__img">
-          {img ? <img src={img} alt="" /> : <p>Sin foto</p>}
-        </div>
-        <div className="popup__info">
-          <div className="popup__info__container">
-            <div className="">
-              <h3 className="popup__info__title">{title}</h3>
-              <p className="popup__precio">${precio}</p>
-            </div>
-            <div className=" popup__info__agregar" onClick={showPopUp}>
-              <button className="agregarItem" onClick={manejarPedido}>
-                <BsCartPlus className="precio__icon" />
-                <p>${precio}</p>
-              </button>
-            </div>
+      <div className={popUp ? "popup__container" : "popup__container_none"}>
+        <div className="popup" id="popup">
+          <div className="popup__img">
+            {img ? <img src={img} alt="" /> : <p>Sin foto</p>}
           </div>
-          <p>Descripcion:</p>
-          <p>
-            {" "}
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
-            explicabo eius nihil facere eos debitis ullam praesentium, unde
-          </p>
-        </div>
-        <div className="popup__close" onClick={showPopUp}>
-          <p>Cerrar</p>
+          <div className="popup__info">
+            <div className="popup__info__container">
+              <div className="">
+                <h3 className="popup__info__title">{title}</h3>
+                <p className="popup__precio">${precio}</p>
+              </div>
+              <div className=" popup__info__agregar" onClick={showPopUp}>
+                <button className="agregarItem" onClick={manejarPedido}>
+                  <BsCartPlus className="precio__icon" />
+                  <p>${precio}</p>
+                </button>
+              </div>
+            </div>
+            <p>Descripcion:</p>
+            <p>
+              {" "}
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Perferendis explicabo eius nihil facere eos debitis ullam
+              praesentium, unde
+            </p>
+          </div>
+          <div className="popup__close" onClick={showPopUp}>
+            <AiOutlineClose />
+          </div>
         </div>
       </div>
       <Toaster position="top-center" className="notificacion" />

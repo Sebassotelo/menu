@@ -1,6 +1,10 @@
 .carr {
   display: grid;
 }
+
+.carro__contenedor {
+  display: grid;
+}
 .carrito {
   top: 0;
   height: 600px;
@@ -18,7 +22,6 @@
   box-shadow: rgb(38 50 56 / 16%) 0px 8px 16px,
     rgb(0 0 0 / 30%) 0px 4px 5px -4px, rgb(255 255 255 / 50%) 0px 2px 5px inset,
     rgb(0 0 0 / 20%) 0px -1px 3px inset;
-  z-index: 100;
 }
 
 .show__carrito {
@@ -36,7 +39,6 @@
   box-shadow: rgb(38 50 56 / 16%) 0px 8px 16px,
     rgb(0 0 0 / 30%) 0px 4px 5px -4px, rgb(255 255 255 / 50%) 0px 2px 5px inset,
     rgb(0 0 0 / 20%) 0px -1px 3px inset;
-  z-index: 100;
 }
 
 .show__icon {
@@ -179,14 +181,21 @@
 }
 
 @media (max-width: 900px) {
+  .carro__contenedor {
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-items: center;
+    background-color: #050505a4;
+    position: fixed;
+    backdrop-filter: blur(2px);
+    z-index: 100;
+  }
   .carrito {
     height: 80%;
     width: 85%;
     margin: 15px 0 0 0;
     justify-self: center;
-    box-shadow: 1px 1px 128px 117px rgba(23, 15, 0, 0.77);
-    -webkit-box-shadow: 1px 1px 128px 117px rgba(23, 15, 0, 0.77);
-    -moz-box-shadow: 1px 1px 128px 117px rgba(23, 15, 0, 0.77);
   }
   .show__carrito {
     height: 60px;

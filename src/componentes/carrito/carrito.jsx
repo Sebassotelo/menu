@@ -98,66 +98,73 @@ function Carrito() {
   return (
     <div className="carr">
       {show ? (
-        <div className={show ? "carrito hidden" : "carrito"}>
-          <div className="close" onClick={mostrarCarrito}>
-            <p>Seguir Pidiendo</p>
-          </div>
-          <h3 className="carrito__title">Carrito</h3>
+        <div className="carro__contenedor" id="carro">
+          {" "}
+          <div className={show ? "carrito hidden" : "carrito"}>
+            <div className="close" onClick={mostrarCarrito}>
+              <p>Seguir Pidiendo</p>
+            </div>
+            <h3 className="carrito__title">Carrito</h3>
 
-          <div className="carrito__container" id="cuenta">
-            {cuenta
-              .filter((e) => e.cant != 0)
-              .map((e, i) => (
-                <div className="carrito__item">
-                  <p className="carrito__name">
-                    {e.cant}x {e.titulo}
-                  </p>
-                  <p className="carrito__name">----</p>
-                  <p className="carrito__precio">${e.precio * e.cant}</p>
-                  <AiOutlineClose
-                    className="carrito__eliminar"
-                    onClick={() => eliminar(e.id)}
-                  />
+            <div className="carrito__container" id="cuenta">
+              {cuenta
+                .filter((e) => e.cant != 0)
+                .map((e, i) => (
+                  <div className="carrito__item">
+                    <p className="carrito__name">
+                      {e.cant}x {e.titulo}
+                    </p>
+                    <p className="carrito__name">----</p>
+                    <p className="carrito__precio">${e.precio * e.cant}</p>
+                    <AiOutlineClose
+                      className="carrito__eliminar"
+                      onClick={() => eliminar(e.id)}
+                    />
+                  </div>
+                ))}
+            </div>
+
+            <div className="total__container">
+              <button onClick={reset} className="total__reset">
+                BORRAR
+              </button>
+              <h4 className="total">TOTAL: ${total}</h4>
+
+              {realizarPedido ? (
+                <button
+                  className={
+                    confirmacion ? "button__hidden " : "realizar__pedido"
+                  }
+                  onClick={copiarAlPortapapeles}
+                >
+                  Realizar Pedido
+                </button>
+              ) : (
+                <button
+                  className="realizar__pedido confirmar"
+                  onClick={confirmarPedido}
+                >
+                  {" "}
+                  Confirmar{" "}
+                </button>
+              )}
+
+              {confirmacion ? (
+                <div className="realizar__pedido wpp">
+                  <a href="">Ir a Whatsapp</a>
                 </div>
-              ))}
-          </div>
-
-          <div className="total__container">
-            <button onClick={reset} className="total__reset">
-              BORRAR
-            </button>
-            <h4 className="total">TOTAL: ${total}</h4>
-
-            {realizarPedido ? (
-              <button
-                className={
-                  confirmacion ? "button__hidden " : "realizar__pedido"
-                }
-                onClick={copiarAlPortapapeles}
-              >
-                Realizar Pedido
-              </button>
-            ) : (
-              <button
-                className="realizar__pedido confirmar"
-                onClick={confirmarPedido}
-              >
-                {" "}
-                Confirmar{" "}
-              </button>
-            )}
-
-            {confirmacion ? (
-              <div className="realizar__pedido wpp">
-                <a href="">Ir a Whatsapp</a>
-              </div>
-            ) : (
-              ""
-            )}
+              ) : (
+                ""
+              )}
+            </div>
           </div>
         </div>
       ) : (
-        <div onClick={mostrarCarrito} className="show__carrito">
+        <div
+          onClick={mostrarCarrito}
+          className="show__carrito"
+          id="showCarrito"
+        >
           <AiOutlineShoppingCart className="show__icon" />
           {unidades > 0 ? (
             <div className="show__unidades">

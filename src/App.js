@@ -9,7 +9,7 @@ import Carrito from "./componentes/carrito/carrito";
 function App() {
   return (
     <CarroState>
-      <div className="App">
+      <div className="App" id="app">
         <Carrito />
 
         <section id="perfil">

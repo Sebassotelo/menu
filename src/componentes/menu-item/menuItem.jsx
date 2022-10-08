@@ -1,9 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./menuItem.css";
-import {
-  IoIosAddCircleOutline,
-  IoIosRemoveCircleOutline,
-} from "react-icons/io";
+
+import { MdAdd, MdRemove } from "react-icons/md";
+
 import CarroContext from "../../context/carro/carroContext";
 
 function MenuItem({ title, precio, id, img }) {
@@ -81,15 +80,9 @@ function MenuItem({ title, precio, id, img }) {
           <p className="precio">${precio}</p>
           <div className="cantidad__container">
             <div className="cantidad">
-              <IoIosRemoveCircleOutline
-                className="precio__icon"
-                onClick={restCantidad}
-              />
+              <MdRemove className="precio__icon" onClick={restCantidad} />
               <p>{cantidad}</p>
-              <IoIosAddCircleOutline
-                className="precio__icon"
-                onClick={sumCantidad}
-              />
+              <MdAdd className="precio__icon" onClick={sumCantidad} />
             </div>
 
             <button className="agregarItem" onClick={manejarPedido}>

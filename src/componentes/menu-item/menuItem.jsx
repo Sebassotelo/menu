@@ -5,6 +5,7 @@ import { MdAdd, MdRemove } from "react-icons/md";
 import { BsCartPlus } from "react-icons/bs";
 
 import CarroContext from "../../context/carro/carroContext";
+import toast, { Toaster } from "react-hot-toast";
 
 function MenuItem({ title, precio, id, img }) {
   const [cantidad, setCantidad] = useState(1);
@@ -27,13 +28,18 @@ function MenuItem({ title, precio, id, img }) {
     if (contexto.carrito.find((e) => e.id === id)) {
       contexto.carrito.find((e) => e.id === id).cant += cantidad;
       setCantidad(1);
-
+      toast(`${cantidad} ${title} agregado al carrito`, {
+        icon: "🛒",
+      });
       actuCarrito();
     } else {
       if (cantidad > 0) {
         addCarrito(ped);
         setCantidad(1);
         actuCarrito();
+        toast(`${cantidad} ${title} agregado al carrito`, {
+          icon: "🛒",
+        });
       }
     }
   };
@@ -119,6 +125,7 @@ function MenuItem({ title, precio, id, img }) {
           <p>Cerrar</p>
         </div>
       </div>
+      <Toaster position="top-center" className="notificacion" />
     </>
   );
 }

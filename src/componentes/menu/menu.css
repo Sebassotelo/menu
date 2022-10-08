@@ -14,6 +14,7 @@
 }
 
 .menu__navbar {
+  border-top: 1px solid rgba(0, 0, 0, 0.281);
   height: 80px;
   width: 600px;
   margin-bottom: 15px;
@@ -27,7 +28,7 @@
 
 .menu__link {
   user-select: none;
-  border-radius: 15px;
+  border-radius: 5px;
   padding: 10px;
   height: 30px;
   width: 160px;
@@ -36,7 +37,7 @@
     rgb(0 0 0 / 20%) 0px -1px 3px inset;
   text-decoration: none;
   color: black;
-  font-size: 20px;
+  font-size: 17px;
   display: grid;
   align-items: center;
   justify-items: center;

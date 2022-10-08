@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import "./menuItem.css";
 
 import { MdAdd, MdRemove } from "react-icons/md";
+import { BsCartPlus } from "react-icons/bs";
 
 import CarroContext from "../../context/carro/carroContext";
 
@@ -77,16 +78,15 @@ function MenuItem({ title, precio, id, img }) {
         </div>
 
         <div className="item__precio">
-          <p className="precio">${precio}</p>
           <div className="cantidad__container">
             <div className="cantidad">
               <MdRemove className="precio__icon" onClick={restCantidad} />
               <p>{cantidad}</p>
               <MdAdd className="precio__icon" onClick={sumCantidad} />
             </div>
-
             <button className="agregarItem" onClick={manejarPedido}>
-              AGREGAR
+              <BsCartPlus className="precio__icon" />
+              <p>${precio}</p>
             </button>
           </div>
         </div>
@@ -102,9 +102,10 @@ function MenuItem({ title, precio, id, img }) {
               <p className="popup__precio">${precio}</p>
             </div>
             <div className=" popup__info__agregar" onClick={showPopUp}>
-              <div className="agregarItem" onClick={manejarPedido}>
-                AGREGAR
-              </div>
+              <button className="agregarItem" onClick={manejarPedido}>
+                <BsCartPlus className="precio__icon" />
+                <p>${precio}</p>
+              </button>
             </div>
           </div>
           <p>Descripcion:</p>

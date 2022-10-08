@@ -1,9 +1,9 @@
 .menu__item {
   min-height: 120px;
   width: 100%;
-  border-radius: 15px;
+  border-radius: 5px;
   display: grid;
-  grid-template-columns: 1.9fr 1fr;
+  grid-template-columns: 2.3fr 1fr;
   box-shadow: rgb(38 50 56 / 16%) 0px 8px 16px,
     rgb(0 0 0 / 30%) 0px 4px 5px -4px, rgb(255 255 255 / 50%) 0px 2px 5px inset,
     rgb(0 0 0 / 20%) 0px -1px 3px inset;
@@ -31,15 +31,17 @@
 .item__precio {
   user-select: none;
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1fr;
   align-items: center;
   grid-gap: 10px;
   margin-right: 5px;
+  border-left: 1px solid rgba(0, 0, 0, 0.13);
 }
 
 .precio {
-  font-size: 40px;
-  justify-self: end;
+  font-size: 30px;
+  justify-self: center;
+  font-weight: 600;
 }
 
 .cantidad__container {
@@ -49,8 +51,10 @@
   grid-gap: 10px;
 }
 .cantidad {
+  width: 70px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  justify-self: center;
   align-items: center;
   justify-items: center;
   background-color: rgba(0, 0, 0, 0.815);
@@ -73,6 +77,8 @@
 }
 
 .agregarItem {
+  height: 40px;
+  width: 90px;
   user-select: none;
   cursor: pointer;
   border: none;
@@ -80,7 +86,17 @@
   color: white;
   padding: 7px;
   border-radius: 15px;
+  font-size: 15px;
   font-weight: 600;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  align-items: center;
+}
+.agregarItem p {
+  font-size: 18px;
+}
+.agregarItem .precio__icon {
+  justify-self: end;
 }
 
 .popup {
@@ -120,6 +136,7 @@
 .popup__info__container {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.253);
 }
 
 .popup__info__title {
@@ -164,18 +181,16 @@
   .item__precio {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
     align-items: center;
     grid-gap: 10px;
   }
 
   .precio {
-    font-size: 40px;
+    font-size: 30px;
     justify-self: center;
   }
 
   .cantidad__container {
-    margin-bottom: 10px;
   }
 
   .agregarItem {
@@ -195,5 +210,11 @@
     -moz-box-shadow: 1px 1px 128px 117px rgba(23, 15, 0, 0.77);
     top: 0%;
     margin-top: 30px;
+  }
+}
+
+@media (max-height: 700px) {
+  .popup {
+    top: 10%;
   }
 }

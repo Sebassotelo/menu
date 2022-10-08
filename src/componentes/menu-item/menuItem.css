@@ -215,6 +215,15 @@
     font-weight: 600;
     font-size: 18px;
   }
+  .agregarItem:hover {
+    background-color: rgb(172, 0, 0);
+    color: rgb(253, 253, 253);
+    transform: scale(1);
+  }
+
+  .agregarItem:hover > .precio__icon {
+    color: rgb(253, 253, 253);
+  }
 
   .popup {
     height: 85%;

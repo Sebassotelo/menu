@@ -127,4 +127,7 @@
     align-items: center;
     justify-items: center;
   }
+  .menu__link:hover {
+    transform: scale(1);
+  }
 }

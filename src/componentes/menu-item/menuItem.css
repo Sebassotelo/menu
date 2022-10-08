@@ -91,12 +91,28 @@
   display: grid;
   grid-template-columns: 1fr 1.6fr;
   align-items: center;
+  transition-duration: 0.3s;
+}
+
+.agregarItem:hover {
+  background-color: rgb(253, 253, 253);
+  color: rgb(145, 9, 9);
+  transform: scale(1.05);
+}
+
+.agregarItem:active {
+  transform: scale(0.98);
 }
 .agregarItem p {
   font-size: 18px;
 }
 .agregarItem .precio__icon {
   justify-self: end;
+  transition-duration: 0.3s;
+}
+
+.agregarItem:hover > .precio__icon {
+  color: rgb(145, 9, 9);
 }
 
 .popup {

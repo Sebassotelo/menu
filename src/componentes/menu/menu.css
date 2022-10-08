@@ -43,6 +43,15 @@
   justify-items: center;
   font-weight: 600;
   cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+.menu__link:hover {
+  transform: scale(1.03);
+}
+
+.menu__link:active {
+  transform: scale(0.99);
 }
 
 .menu__navbar a p {

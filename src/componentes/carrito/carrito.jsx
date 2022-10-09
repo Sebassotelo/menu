@@ -101,9 +101,11 @@ function Carrito() {
           {" "}
           <div className={show ? "carrito hidden" : "carrito"}>
             <div className="close" onClick={mostrarCarrito}>
-              <p>Seguir Pidiendo</p>
+              <p className="close__p">Seguir Pidiendo</p>
             </div>
-            <h3 className="carrito__title">Carrito</h3>
+            <div className="carrito__title">
+              <h3>Carrito</h3>
+            </div>
 
             <div className="carrito__container" id="cuenta">
               {cuenta
@@ -113,7 +115,6 @@ function Carrito() {
                     <p className="carrito__name">
                       {e.cant}x {e.titulo}
                     </p>
-                    <p className="carrito__name">----</p>
                     <p className="carrito__precio">${e.precio * e.cant}</p>
                     <AiOutlineClose
                       className="carrito__eliminar"
@@ -127,7 +128,9 @@ function Carrito() {
               <button onClick={reset} className="total__reset">
                 BORRAR
               </button>
-              <h4 className="total">TOTAL: ${total}</h4>
+              <div className="total">
+                <h4>TOTAL: ${total}</h4>
+              </div>
 
               {realizarPedido ? (
                 <button

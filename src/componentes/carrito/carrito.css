@@ -108,6 +108,8 @@
 }
 
 .close:active {
+  -webkit-transform: scale(0.98);
+  -ms-transform: scale(0.98);
   transform: scale(0.98);
 }
 

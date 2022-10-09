@@ -10,6 +10,7 @@
   height: 600px;
   width: 260px;
   background-color: rgba(0, 0, 0, 0.904);
+  -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   position: fixed;
   margin: 30px 30px 0 0;
@@ -19,6 +20,9 @@
   grid-template-rows: 80px 1fr 150px;
   justify-self: end;
   align-self: center;
+  -webkit-box-shadow: rgb(38 50 56 / 16%) 0px 8px 16px,
+    rgb(0 0 0 / 30%) 0px 4px 5px -4px, rgb(255 255 255 / 50%) 0px 2px 5px inset,
+    rgb(0 0 0 / 20%) 0px -1px 3px inset;
   box-shadow: rgb(38 50 56 / 16%) 0px 8px 16px,
     rgb(0 0 0 / 30%) 0px 4px 5px -4px, rgb(255 255 255 / 50%) 0px 2px 5px inset,
     rgb(0 0 0 / 20%) 0px -1px 3px inset;
@@ -32,10 +36,15 @@
   margin: 30px 30px 0 0;
   background-color: black;
   border-radius: 50%;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   justify-items: center;
   position: fixed;
   cursor: pointer;
+  -webkit-box-shadow: rgb(38 50 56 / 16%) 0px 8px 16px,
+    rgb(0 0 0 / 30%) 0px 4px 5px -4px, rgb(255 255 255 / 50%) 0px 2px 5px inset,
+    rgb(0 0 0 / 20%) 0px -1px 3px inset;
   box-shadow: rgb(38 50 56 / 16%) 0px 8px 16px,
     rgb(0 0 0 / 30%) 0px 4px 5px -4px, rgb(255 255 255 / 50%) 0px 2px 5px inset,
     rgb(0 0 0 / 20%) 0px -1px 3px inset;
@@ -50,6 +59,9 @@
 .show__unidades {
   height: 30px;
   width: 30px;
+  -webkit-box-shadow: rgb(38 50 56 / 16%) 0px 8px 16px,
+    rgb(0 0 0 / 30%) 0px 4px 5px -4px, rgb(255 255 255 / 50%) 0px 2px 5px inset,
+    rgb(0 0 0 / 20%) 0px -1px 3px inset;
   box-shadow: rgb(38 50 56 / 16%) 0px 8px 16px,
     rgb(0 0 0 / 30%) 0px 4px 5px -4px, rgb(255 255 255 / 50%) 0px 2px 5px inset,
     rgb(0 0 0 / 20%) 0px -1px 3px inset;
@@ -60,6 +72,8 @@
   border-radius: 50%;
   z-index: 100;
   display: grid;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   justify-items: center;
 }
@@ -80,9 +94,14 @@
   bottom: -60px;
   position: absolute;
   display: grid;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   justify-items: center;
   border-radius: 15px;
+  -webkit-box-shadow: rgb(38 50 56 / 16%) 0px 8px 16px,
+    rgb(0 0 0 / 30%) 0px 4px 5px -4px, rgb(255 255 255 / 50%) 0px 2px 5px inset,
+    rgb(0 0 0 / 20%) 0px -1px 3px inset;
   box-shadow: rgb(38 50 56 / 16%) 0px 8px 16px,
     rgb(0 0 0 / 30%) 0px 4px 5px -4px, rgb(255 255 255 / 50%) 0px 2px 5px inset,
     rgb(0 0 0 / 20%) 0px -1px 3px inset;
@@ -108,6 +127,8 @@
 
 .carrito__item {
   display: grid;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   grid-template-columns: 3.5fr 1fr 1fr 1fr;
 }
@@ -132,6 +153,8 @@
 
 .total__container {
   display: grid;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   justify-items: center;
   grid-gap: 10px;
@@ -184,10 +207,13 @@
   .carro__contenedor {
     height: 100vh;
     width: 100vw;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     justify-items: center;
     background-color: #050505a4;
     position: fixed;
+    -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
     z-index: 100;
   }

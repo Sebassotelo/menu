@@ -153,7 +153,9 @@ function Carrito() {
 
               {confirmacion ? (
                 <div className="realizar__pedido wpp">
-                  <a href="">Ir a Whatsapp</a>
+                  <a href="https://walink.co/b4280e" target={"_blank"}>
+                    Ir a Whatsapp
+                  </a>
                 </div>
               ) : (
                 ""

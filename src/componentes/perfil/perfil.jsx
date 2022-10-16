@@ -7,7 +7,7 @@ function Perfil() {
     <div className="perfil" id="perfil">
       <div className="logoUsuario">
         <div className="logo"></div>
-        <h1 className="usuario">@eldev</h1>
+        <h1 className="usuario">@eldevv</h1>
       </div>
 
       <p className="direccion">Santa fe 326. Corrientes, Argentina</p>

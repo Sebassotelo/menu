@@ -1,34 +1,35 @@
 import "./App.css";
 import Perfil from "./componentes/perfil/perfil";
 import Menu from "./componentes/menu/menu";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 //CONTEXT
 import CarroState from "./context/carro/carroState";
 import Carrito from "./componentes/carrito/carrito";
 
+//Rutas
+import MenuView from "./routes/menuView/menuView";
+import HomeView from "./routes/homeView/homeView";
+import AccountView from "./routes/accountView/accountView";
+
 function App() {
   return (
     <CarroState>
-      <div className="App" id="app">
-        <Carrito />
-
-        <section id="perfil">
-          <Perfil />
-        </section>
-
-        <section id="menu">
-          <Menu />
-        </section>
-
-        <section id="footer">
-          <p className="footer">
-            Creado por{" "}
-            <a href="https://portfolio-tan-delta.vercel.app/" target={"_blank"}>
-              <span>Sebas Sotelo</span>
-            </a>{" "}
-          </p>
-        </section>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomeView />} />
+          <Route path="menu" element={<MenuView />} />
+          <Route path="account" element={<AccountView />} />
+        </Routes>
+      </BrowserRouter>
+      <section id="footer">
+        <p className="footer">
+          Creado por{" "}
+          <a href="https://portfolio-tan-delta.vercel.app/" target={"_blank"}>
+            <span>Sebas Sotelo</span>
+          </a>{" "}
+        </p>
+      </section>
     </CarroState>
   );
 }

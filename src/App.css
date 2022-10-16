@@ -44,14 +44,17 @@
   align-items: center;
   justify-items: center;
 }
-
+#footer {
+  background-color: black;
+  color: white;
+}
 .footer {
   padding: 10px 0 10px 0;
   text-align: center;
 }
 .footer a {
   text-decoration: none;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 span {

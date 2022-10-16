@@ -1,11 +1,8 @@
 import "./App.css";
-import Perfil from "./componentes/perfil/perfil";
-import Menu from "./componentes/menu/menu";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 //CONTEXT
 import CarroState from "./context/carro/carroState";
-import Carrito from "./componentes/carrito/carrito";
 
 //Rutas
 import MenuView from "./routes/menuView/menuView";

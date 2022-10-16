@@ -4,7 +4,6 @@ import MenuItem from "../menu-item/menuItem";
 import { Link, animateScroll as scroll } from "react-scroll";
 import { AiOutlineArrowUp } from "react-icons/ai";
 
-import CarroContext from "../../context/carro/carroContext";
 function Menu() {
   return (
     <div className="menu">

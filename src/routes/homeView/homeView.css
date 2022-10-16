@@ -11,6 +11,12 @@
   align-self: start;
 }
 
+.home button {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+}
+
 .lds-ripple {
   display: inline-block;
   position: relative;

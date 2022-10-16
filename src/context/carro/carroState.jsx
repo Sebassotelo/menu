@@ -1,6 +1,12 @@
-import React, { useReducer, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import carroReducer from "./carroReducer";
 import CarroContext from "./carroContext";
+import {
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signInWithPopup,
+} from "firebase/auth";
+import { auth } from "../../firebase/firebase";
 
 function CarroState(props) {
   const [carrito, setCarrito] = useState([]);
@@ -14,11 +20,19 @@ function CarroState(props) {
     setActu(!actu);
   };
 
-  const delCarrito = (e) => {};
+  const handleOnClick = async () => {
+    const googleProvider = new GoogleAuthProvider();
+    await signInWithGoogle(googleProvider);
+  };
 
-  const getCarrito = () => {};
-
-  const getTotal = () => {};
+  const signInWithGoogle = async (googleProvider) => {
+    try {
+      const res = await signInWithPopup(auth, googleProvider);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <CarroContext.Provider
@@ -26,11 +40,9 @@ function CarroState(props) {
         carrito: carrito,
         actualizacion: actu,
         addCarrito,
-        delCarrito,
-        getCarrito,
-        getTotal,
         actuCarrito,
         setCarrito,
+        handleOnClick,
       }}
     >
       {props.children}

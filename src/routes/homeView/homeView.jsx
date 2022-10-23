@@ -48,7 +48,7 @@ function HomeView() {
       ) : (
         <button
           type="submit"
-          onClick={() => signInWithRedirect(context.auth, googleProvider)}
+          onClick={() => signInWithPopup(context.auth, googleProvider)}
           className="loggin"
         >
           Acceder con Google

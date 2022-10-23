@@ -8,6 +8,7 @@ import CarroState from "./context/carro/carroState";
 import MenuView from "./routes/menuView/menuView";
 import HomeView from "./routes/homeView/homeView";
 import AccountView from "./routes/accountView/accountView";
+import AccountConfigView from "./routes/accountConfigView/accountConfigView";
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomeView />} />
-          <Route path="menu" element={<MenuView />} />
+          <Route path=":username" element={<MenuView />} />
           <Route path="account" element={<AccountView />} />
+          <Route path="account/config" element={<AccountConfigView />} />
         </Routes>
       </BrowserRouter>
       <section id="footer">

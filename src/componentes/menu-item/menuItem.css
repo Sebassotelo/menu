@@ -180,6 +180,17 @@
   display: grid;
   grid-template-rows: 1.8fr 1fr;
 }
+.popup__sinFoto {
+  min-height: 200px;
+  width: 400px;
+  border-radius: 15px;
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  justify-self: center;
+  top: 20%;
+  display: grid;
+  grid-template-rows: 1fr;
+}
 
 .popup__none {
   display: none;

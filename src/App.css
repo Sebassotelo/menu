@@ -1,6 +1,7 @@
 .App {
   width: 100%;
   height: 100%;
+  padding-top: 50px;
   background-color: #ffda99;
   background-image: -o-radial-gradient(
       at 73% 19%,

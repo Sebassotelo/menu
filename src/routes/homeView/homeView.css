@@ -11,10 +11,10 @@
   align-self: start;
 }
 
-.home button {
-  position: absolute;
-  top: 2%;
-  right: 2%;
+.loggin {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
 }
 
 .lds-ripple {

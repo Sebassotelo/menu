@@ -1,0 +1,40 @@
+.navbar {
+  height: 60px;
+  width: 100%;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.navbar__none {
+  display: none;
+}
+
+.navbar__img {
+  height: 40px;
+  width: 100px;
+  display: grid;
+  align-items: center;
+}
+
+.botonera {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  align-items: center;
+  grid-gap: 10px;
+  list-style: none;
+}
+
+.botonera li {
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.botonera li:hover {
+  color: aqua;
+}

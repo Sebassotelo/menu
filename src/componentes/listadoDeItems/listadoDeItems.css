@@ -1,0 +1,51 @@
+.arrayContainer {
+  display: grid;
+  justify-items: center;
+}
+
+.arrayitem {
+  min-width: 600px;
+  padding: 15px;
+  border-radius: 10px;
+  color: black;
+  margin-top: 10px;
+  background-color: aliceblue;
+  width: 50%;
+  display: grid;
+  justify-items: center;
+}
+
+.agregar__item {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(117, 196, 196);
+  border-radius: 15px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  cursor: pointer;
+}
+.add__show {
+  display: grid;
+}
+.add__hidden {
+  display: none;
+}
+
+.delete__seccion {
+  height: 40px;
+  width: 120px;
+  border: none;
+  background-color: brown;
+  border-radius: 15px;
+  color: white;
+  margin: 10px 0 10px 0;
+}
+
+.agregar__item__button {
+  height: 100px;
+  width: 100%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}

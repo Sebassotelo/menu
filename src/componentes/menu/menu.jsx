@@ -1,106 +1,72 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./menu.css";
+import CarroContext from "../../context/carro/carroContext";
 import MenuItem from "../menu-item/menuItem";
 import { Link, animateScroll as scroll } from "react-scroll";
 import { AiOutlineArrowUp } from "react-icons/ai";
+import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import { onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import firebaseApp from "../../firebase/firebase";
 
 function Menu() {
+  const navigate = useNavigate();
+  const context = useContext(CarroContext);
+  const firestore = getFirestore(firebaseApp);
+  const { setUser, setMenuCompleto } = useContext(CarroContext);
+  const [menu, setMenu] = useState(null);
+
+  useEffect(() => {
+    console.log("menu", context.infoPublica.items);
+    setMenu(context.infoPublica.items);
+  }, [context]);
+
   return (
     <div className="menu">
       <h3 className="menu__h3">MENU</h3>
       <div className="menu__navbar">
-        <Link
-          className="menu__link"
-          to="hambur"
-          spy={true}
-          smooth={true}
-          duration={500}
-        >
-          Hamburguesas
-        </Link>
-        <Link
-          className="menu__link"
-          to="bebidas"
-          spy={true}
-          smooth={true}
-          duration={500}
-        >
-          Bebidas
-        </Link>
-        <Link
-          className="menu__link"
-          to="promos"
-          spy={true}
-          smooth={true}
-          duration={500}
-        >
-          Promos
-        </Link>
+        {menu &&
+          menu.map((a, i) => {
+            return (
+              <Link
+                className="menu__link"
+                to={a.seccion}
+                spy={true}
+                smooth={true}
+                duration={500}
+              >
+                {a.seccion}
+              </Link>
+            );
+          })}
       </div>
       <div className="hambur">
-        <p className="menu__title" id="burger">
-          Hamburguesas:
-        </p>
-        <MenuItem
-          title={"Cheese"}
-          precio={600}
-          id={0}
-          img={
-            "https://laopinion.com/wp-content/uploads/sites/3/2021/09/Hamburguesa-Jonathan-Borba-en-Pexels.jpg?quality=80&strip=all&w=1200"
-          }
-        />
-        <MenuItem
-          title={"Bacon"}
-          precio={650}
-          id={1}
-          img={
-            "https://i.pinimg.com/736x/10/b7/70/10b770b563cd3d43f90b4cc6d82edae8.jpg"
-          }
-        />
-        <MenuItem
-          title={"Classic"}
-          precio={500}
-          id={2}
-          img={
-            "https://media-cdn.tripadvisor.com/media/photo-s/22/1e/fb/58/streat-burger.jpg"
-          }
-        />
-
-        <p className="menu__title" id="bebidas">
-          Bebidas:
-        </p>
-        <MenuItem
-          title={"Coca Cola"}
-          precio={150}
-          id={3}
-          img={
-            "https://laopinion.com/wp-content/uploads/sites/3/2019/10/coca-cola-sabor-botella-vidrio.jpg?quality=60&strip=all&w=768&h=512&crop=1"
-          }
-        />
-        <MenuItem
-          title={"Pepsi"}
-          precio={130}
-          id={4}
-          img={
-            "https://st3.depositphotos.com/1063437/18649/i/450/depositphotos_186494780-stock-photo-plastic-bottles-of-carbonated-soft.jpg"
-          }
-        />
-
-        <p className="menu__title" id="promos">
-          Promos:
-        </p>
-        <MenuItem
-          title={"Cheese + Pepsi"}
-          precio={700}
-          id={5}
-          img={"https://i.imgur.com/YbaXTqU.jpg"}
-        />
-        <MenuItem
-          title={"Bacon + Coca"}
-          precio={750}
-          id={6}
-          img={"https://i.imgur.com/ehKJ5NV.jpg"}
-        />
+        {menu &&
+          menu.map((item, i) => {
+            return (
+              <div id={item.seccion}>
+                <p className="menu__title" id="burger">
+                  {item.seccion}:
+                </p>
+                <div className="menu__seccionItems">
+                  {item.seccionItems &&
+                    item.seccionItems.map((item, i) => {
+                      return (
+                        <>
+                          <MenuItem
+                            title={item.title}
+                            precio={item.precio}
+                            desc={item.desc}
+                            img={item.img}
+                            id={item.id}
+                          />
+                        </>
+                      );
+                    })}
+                </div>
+              </div>
+            );
+          })}
       </div>
 
       <Link

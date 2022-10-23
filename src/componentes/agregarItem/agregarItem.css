@@ -1,0 +1,48 @@
+.account__form {
+  display: grid;
+  grid-gap: 10px;
+  justify-items: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 15px;
+  width: 100%;
+}
+
+.account__form__input {
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  outline: none;
+}
+
+.input__desc {
+  min-height: 50px;
+}
+
+.input__precio {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+  grid-gap: 25px;
+}
+
+.form__agregar {
+  height: 40px;
+  width: 120px;
+  border-radius: 5px;
+  border: none;
+}
+
+.add__item__form {
+  width: 90%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.account__form__h2 {
+  color: white;
+  text-align: center;
+}

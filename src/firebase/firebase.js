@@ -29,14 +29,6 @@ const firebaseConfig = {
   measurementId: process.env.REACT_APP_APIKEY_MEASUREMENTID,
 };
 
-export const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const db = getFirestore(app);
-export const storage = getStorage(app);
+const firebaseApp = initializeApp(firebaseConfig);
 
-export const userExists = async (uid) => {
-  const docRef = doc(db, "users", uid);
-  const res = await getDoc(docRef);
-  console.log(res);
-  return res.exists();
-};
+export default firebaseApp;

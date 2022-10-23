@@ -112,10 +112,18 @@ function MenuItem({ title, precio, id, img }) {
         </div>
       </div>
       <div className={popUp ? "popup__container" : "popup__container_none"}>
-        <div className="popup" id="popup" ref={refOne}>
-          <div className="popup__img">
-            {img ? <img src={img} alt="" /> : <p>Sin foto</p>}
-          </div>
+        <div
+          className={img ? "popup" : "popup__sinFoto"}
+          id="popup"
+          ref={refOne}
+        >
+          {img ? (
+            <div className="popup__img">
+              <img src={img} alt="" />
+            </div>
+          ) : (
+            ""
+          )}
           <div className="popup__info">
             <div className="popup__info__container">
               <div className="">

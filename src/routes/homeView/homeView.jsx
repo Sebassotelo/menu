@@ -7,6 +7,7 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithPopup,
+  signInWithRedirect,
   signOut,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -47,7 +48,7 @@ function HomeView() {
       ) : (
         <button
           type="submit"
-          onClick={() => signInWithPopup(context.auth, googleProvider)}
+          onClick={() => signInWithRedirect(context.auth, googleProvider)}
           className="loggin"
         >
           Acceder con Google

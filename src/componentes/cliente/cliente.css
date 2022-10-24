@@ -1,0 +1,41 @@
+.cliente {
+  height: 200px;
+  width: 600px;
+  background-color: rgba(37, 37, 37, 0.349);
+  border-radius: 15px;
+  position: relative;
+  display: grid;
+  justify-items: center;
+}
+
+.cliente__title {
+  height: 40px;
+  width: 300px;
+  border-radius: 15px;
+  background-color: brown;
+  position: absolute;
+  top: -20px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 40;
+  color: white;
+  text-decoration: none;
+}
+
+.cliente__img {
+  height: 200px;
+  width: 600px;
+}
+
+.cliente__img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 5;
+  border-radius: 15px;
+  filter: blur(2px) brightness(0.5);
+}

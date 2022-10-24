@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import Navbar from "../../componentes/navbar/navbar";
 import Tarjeta from "../../componentes/tarjeta/tarjeta";
+import Cliente from "../../componentes/cliente/cliente";
 
 function HomeView() {
   const navigate = useNavigate();
@@ -158,7 +159,8 @@ function HomeView() {
       </section>
 
       <section id="clientes" className="home__clientes">
-        <p>Seccion Clientes</p>
+        <h3 className="about__h3">Algunos de nuestros menus</h3>
+        <Cliente />
       </section>
     </div>
   );

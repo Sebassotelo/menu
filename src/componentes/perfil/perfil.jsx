@@ -37,7 +37,10 @@ function Perfil() {
             >
               <FaWhatsapp className="redes__icon" />
             </a>
-            <a href="www.instagram.com" target={"_blank"}>
+            <a
+              href={`https://www.instagram.com/${perfil.usuarioInstagram}/`}
+              target={"_blank"}
+            >
               <FaInstagram className="redes__icon" />
             </a>
             <a href="">

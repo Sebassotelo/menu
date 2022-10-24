@@ -24,7 +24,7 @@ function App() {
       <section id="footer">
         <p className="footer">
           Creado por{" "}
-          <a href="https://portfolio-tan-delta.vercel.app/" target={"_blank"}>
+          <a href="https://www.sebassotelo.com.ar/" target={"_blank"}>
             <span>Sebas Sotelo</span>
           </a>{" "}
         </p>

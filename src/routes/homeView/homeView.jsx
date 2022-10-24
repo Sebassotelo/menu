@@ -10,9 +10,11 @@ import {
   signInWithRedirect,
   signOut,
 } from "firebase/auth";
+import { Link, animateScroll as scroll } from "react-scroll";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import Navbar from "../../componentes/navbar/navbar";
+import Tarjeta from "../../componentes/tarjeta/tarjeta";
 
 function HomeView() {
   const navigate = useNavigate();
@@ -56,6 +58,35 @@ function HomeView() {
 
       {context.estadoUsuario === 0 ? (
         <div className="navbar__noAuth">
+          <ul className="nabvar__ul">
+            <Link
+              className="navbar__item"
+              to={"header"}
+              spy={true}
+              smooth={true}
+              duration={500}
+            >
+              Home
+            </Link>
+            <Link
+              className="navbar__item"
+              to={"about"}
+              spy={true}
+              smooth={true}
+              duration={500}
+            >
+              ¿Como funciona?
+            </Link>
+            <Link
+              className="navbar__item"
+              to={"clientes"}
+              spy={true}
+              smooth={true}
+              duration={500}
+            >
+              Clientes
+            </Link>
+          </ul>
           <div
             onClick={() => signInWithPopup(context.auth, googleProvider)}
             className="loggin"
@@ -70,7 +101,62 @@ function HomeView() {
       )}
 
       <section id="header" className="home__header">
-        <h1>En desarrollo</h1>
+        <div className="header__container">
+          <div className="header__title">
+            <h1 className="title__h1">Menus</h1>
+            <h3 className="title__h3">Tu menu online</h3>
+            <p className="title__p"> Encargate de la comida </p>
+            <p className="title__p"> Nosotros nos encargamos de los pedidos</p>
+          </div>
+          <div className="header__img">
+            <img src="https://i.imgur.com/DYPel8f.png" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <section id="about" className="home__about">
+        <h3 className="about__h3">¿Como Funciona Menus?</h3>
+        <div className="about__tarjeta">
+          <Tarjeta
+            numero={1}
+            title={"Accede con Google"}
+            desc={"Accede con cualquier cuenta de Google"}
+            extra={
+              <div
+                onClick={() => signInWithPopup(context.auth, googleProvider)}
+                className="loggin"
+              >
+                <FcGoogle className="loggin__google" />
+                <p>Acceder con Google</p>
+              </div>
+            }
+          />
+          <Tarjeta
+            numero={2}
+            title={"Configura tu Usuario y Perfil"}
+            desc={
+              "El nombre de usuario va a ser tu direccion url (menus.com.ar/usuario). Completa tu perfil con numeros, direccion y logo."
+            }
+          />
+          <Tarjeta
+            numero={3}
+            title={"Agrega las Comidas"}
+            desc={
+              "Crea las secciones que necesites, y dentro te va a dejar agregar las comidas"
+            }
+          />
+          <Tarjeta
+            numero={4}
+            title={"Listo! Recibe los pedidos"}
+            desc={
+              "Tus clientes al terminar, les va a copiar el pedido y les va a aparecer un link a tu WhatsApp. Solo tienen que entrar y pegar el pedido"
+            }
+          />
+        </div>
+      </section>
+
+      <section id="clientes" className="home__clientes">
+        <p>Seccion Clientes</p>
       </section>
     </div>
   );

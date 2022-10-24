@@ -1,0 +1,51 @@
+.tarjeta {
+  height: 300px;
+  width: 250px;
+  border-radius: 15px;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.959);
+  backdrop-filter: blur(2px);
+  display: grid;
+  grid-template-rows: 130px 1.5fr 1fr;
+}
+
+.tarjeta__numero__container {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: brown;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  justify-self: center;
+  top: -30px;
+  position: absolute;
+  user-select: none;
+}
+
+.tarjeta__numero__container p {
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.tarjeta__title {
+  height: 130px;
+  padding: 0 20px 0 20px;
+  text-align: center;
+  color: rgb(199, 0, 0);
+  font-weight: 900;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.486);
+  font-size: 25px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.tarjeta__text {
+  margin-top: 20px;
+  align-items: start;
+  color: black;
+  font-size: 16px;
+  text-align: center;
+  padding: 10px 20px 10px 20px;
+}

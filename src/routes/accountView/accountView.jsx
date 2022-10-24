@@ -74,21 +74,7 @@ function AccountView() {
     }
   };
 
-  const fake = [
-    {
-      seccion: "Seccion Titulo",
-      seccionItems: [
-        {
-          title: "Item de Ejemplo",
-          desc: " aasdasfagasgxczxc",
-          precio: "630",
-          id: 1,
-          img: "",
-        },
-      ],
-      id: 0,
-    },
-  ];
+  const fake = [];
 
   const configGenerico = {
     usuarioInstagram: "",

@@ -160,6 +160,7 @@ function AccountConfigView() {
           <input
             type="text"
             className="account__form__input__edit"
+            placeholder="Nombre de Usuario"
             onChange={inputUsername}
             defaultValue={context.usuario}
           />

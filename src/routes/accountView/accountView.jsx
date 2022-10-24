@@ -35,11 +35,17 @@ import Perfil from "../../componentes/perfil/perfil";
 function AccountView() {
   const navigate = useNavigate();
   const context = useContext(CarroContext);
-  const { setUser, setMenuCompleto, setUsuario, setInfoPublica } =
-    useContext(CarroContext);
+  const {
+    setUser,
+    setMenuCompleto,
+    setUsuario,
+    setInfoPublica,
+    setEstadoUsuario,
+  } = useContext(CarroContext);
 
   const [array, setArray] = useState(null);
   const [containerSeccion, setContainerSeccion] = useState("");
+  const [loader, setLoader] = useState(false);
 
   const firestore = getFirestore(firebaseApp);
 
@@ -47,6 +53,7 @@ function AccountView() {
   useEffect(() => {
     onAuthStateChanged(context.auth, inspectorSesion);
     fetchTareas();
+    console.log(context.estadoCliente);
   }, [context.user]);
 
   const fetchTareas = async () => {
@@ -59,6 +66,7 @@ function AccountView() {
     //en caso de que haya seison iniciada
     if (usuarioFirebase) {
       setUser(usuarioFirebase);
+      setEstadoUsuario(1);
     } else {
       //en caso de que haya seison iniciada
       navigate("/");
@@ -97,9 +105,15 @@ function AccountView() {
     if (consulta.exists()) {
       const infoDocu = consulta.data();
       setUsuario(infoDocu.username);
+      setEstadoUsuario(2);
+      setLoader(true);
       setInfoPublica(infoDocu);
+      if (context.infoPublica.instagram !== "") {
+        setEstadoUsuario(3);
+      }
       if (infoDocu.username === "generico") {
         setUsuario(null);
+        setEstadoUsuario(1);
       }
       return infoDocu;
     } else {
@@ -107,11 +121,13 @@ function AccountView() {
         items: [...fake],
         username: "generico",
         perfil: configGenerico,
+        urlFoto: "generico",
       });
       setUsuario(null);
+      setEstadoUsuario(1);
+      setLoader(true);
       const consulta = await getDoc(docRef);
       const infoDocu = consulta.data();
-
       setInfoPublica(infoDocu);
       return infoDocu;
     }
@@ -139,93 +155,113 @@ function AccountView() {
     }
   };
 
-  return (
-    <div className="account">
-      {context.user ? <Navbar /> : ""}
-
-      {context.user ? <Perfil /> : ""}
-
-      {context.user ? (
-        <>
-          {context.usuario ? (
-            <div className="account__info">
-              <div></div>
-              <h2>Informacion:</h2>
-              <p>
-                <span>Correo de inicio de Sesion: </span> {context.user.email}
-              </p>
-              <p>
-                <span>Usuario:</span> {context.usuario}
-              </p>
-              <p>
-                <span>Instagram:</span>{" "}
-                {context.infoPublica.perfil.usuarioInstagram}
-              </p>
-              <p>
-                <span>WhatsApp:</span> {context.infoPublica.perfil.whatsapp}
-              </p>
-              <p>
-                <span>Direccion:</span> {context.infoPublica.perfil.direccion}
-              </p>
-              <p>
-                <span>Ciudad:</span> {context.infoPublica.perfil.ciudad}
-              </p>
-              <p>
-                <span>Pais:</span> {context.infoPublica.perfil.pais}
-              </p>
-              <button
-                className="account__info__button"
-                onClick={() => {
-                  navigate("/account/config");
-                }}
-              >
-                Editar
-              </button>
-            </div>
+  if (loader) {
+    return (
+      <div className="account">
+        {context.user ? <Navbar /> : ""}
+        {context.estadoUsuario > 2 ? <Perfil /> : ""}
+        <div className="account__container">
+          {context.estadoUsuario > 0 ? (
+            <>
+              {context.usuario ? (
+                <div className="account__info">
+                  <div></div>
+                  <h2>Informacion:</h2>
+                  <p>
+                    <span>Correo de inicio de Sesion: </span>{" "}
+                    {context.user.email}
+                  </p>
+                  <p>
+                    <span>Usuario:</span> {context.usuario}
+                  </p>
+                  <p>
+                    <span>Instagram:</span>{" "}
+                    {context.infoPublica.perfil.usuarioInstagram}
+                  </p>
+                  <p>
+                    <span>WhatsApp:</span> {context.infoPublica.perfil.whatsapp}
+                  </p>
+                  <p>
+                    <span>Direccion:</span>{" "}
+                    {context.infoPublica.perfil.direccion}
+                  </p>
+                  <p>
+                    <span>Ciudad:</span> {context.infoPublica.perfil.ciudad}
+                  </p>
+                  <p>
+                    <span>Pais:</span> {context.infoPublica.perfil.pais}
+                  </p>
+                  <button
+                    className="account__info__button"
+                    onClick={() => {
+                      navigate("/account/config");
+                    }}
+                  >
+                    Editar
+                  </button>
+                </div>
+              ) : (
+                <div className="seccion__container">
+                  <h2>Configure su Perfil</h2>
+                  <button
+                    className="seccion__button"
+                    onClick={() => {
+                      navigate("/account/config");
+                    }}
+                  >
+                    Configurar Perfil
+                  </button>
+                </div>
+              )}
+            </>
           ) : (
-            <div className="account__info">
-              <p>Configure su Perfil</p>
-              <button
-                onClick={() => {
-                  navigate("/account/config");
-                }}
-              >
-                Configurar Perfil
-              </button>
+            <p>"CARGANDO"</p>
+          )}
+
+          {context.user ? (
+            <>
+              <div className="seccion__container">
+                <h2>Agregar Seccion</h2>
+                <form
+                  action=""
+                  className="seccion__form"
+                  onSubmit={agregarSeccion}
+                >
+                  <input
+                    className="account__form__input"
+                    type="text"
+                    placeholder="Nombre de Seccion"
+                    onChange={manejarSeccion}
+                  />
+                  <button className="seccion__button">Agregar Seccion</button>
+                </form>
+              </div>
+              <ListadoDeItems arrayItems={array} setArray={setArray} />
+            </>
+          ) : (
+            <div className="loader">
+              <div class="lds-ripple">
+                <div></div>
+                <div></div>
+              </div>
             </div>
           )}
-        </>
-      ) : (
-        <p>"CARGANDO"</p>
-      )}
-
-      {context.user ? (
-        <>
-          <div className="seccion__container">
-            <h2>Agregar Seccion</h2>
-            <form action="" className="seccion__form" onSubmit={agregarSeccion}>
-              <input
-                className="account__form__input"
-                type="text"
-                placeholder="Nombre de Seccion"
-                onChange={manejarSeccion}
-              />
-              <button className="seccion__button">Agregar Seccion</button>
-            </form>
-          </div>
-          <ListadoDeItems arrayItems={array} setArray={setArray} />
-        </>
-      ) : (
+          <Toaster position="top-center" className="notificacion" />
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="cargando">
         <div className="loader">
           <div class="lds-ripple">
             <div></div>
             <div></div>
           </div>
         </div>
-      )}
-      <Toaster position="top-center" className="notificacion" />
-    </div>
-  );
+      </div>
+    );
+  }
 }
 
 export default AccountView;

@@ -25,9 +25,10 @@ function MenuView() {
   const { username } = useParams();
   const context = useContext(CarroContext);
   const firestore = getFirestore(firebaseApp);
-
   const { setMenuCompleto, setPerfilPublico, setUser, setInfoPublica } =
     useContext(CarroContext);
+
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
     onAuthStateChanged(context.auth, inspectorSesion);
@@ -54,23 +55,37 @@ function MenuView() {
 
     const comoQuieras = await getDocs(q);
     comoQuieras.forEach((doc) => setInfoPublica(doc.data()));
+    setLoader(true);
   };
 
-  return (
-    <div className="App" id="app">
-      {context.user ? <Navbar /> : ""}
+  if (loader) {
+    return (
+      <div className="App" id="app">
+        {context.user ? <Navbar /> : ""}
 
-      <Carrito />
+        <Carrito />
 
-      <section id="perfil">
-        <Perfil />
-      </section>
+        <section id="perfil">
+          <Perfil />
+        </section>
 
-      <section id="menu">
-        <Menu />
-      </section>
-    </div>
-  );
+        <section id="menu">
+          <Menu />
+        </section>
+      </div>
+    );
+  } else {
+    return (
+      <div className="cargando">
+        <div className="loader">
+          <div class="lds-ripple">
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default MenuView;

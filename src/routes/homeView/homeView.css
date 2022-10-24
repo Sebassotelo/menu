@@ -7,14 +7,45 @@
   align-items: center;
   justify-items: center;
 }
-.home h1 {
-  align-self: start;
+
+.navbar__noAuth {
+  height: 60px;
+  width: 100%;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
 }
 
 .loggin {
-  padding: 10px;
-  border: none;
+  grid-column: 3/4;
+  background-color: white;
   border-radius: 5px;
+  border: 1px solid white;
+  padding: 5px 10px 5px 10px;
+  color: black;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+  align-items: center;
+  justify-items: center;
+  font-weight: 600;
+}
+
+.loggin__google {
+  font-size: 20px;
+}
+
+.home__header {
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(179, 112, 162);
+  display: grid;
+  justify-items: center;
+  align-items: center;
 }
 
 .lds-ripple {

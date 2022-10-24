@@ -14,19 +14,24 @@ import {
   where,
   getDocs,
 } from "firebase/firestore";
-
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
 
 import firebaseApp from "../../firebase/firebase";
 
 import Navbar from "../../componentes/navbar/navbar";
+import Perfil from "../../componentes/perfil/perfil";
 
 function AccountConfigView() {
   const navigate = useNavigate();
+  const storage = getStorage();
   const context = useContext(CarroContext);
-  const { setUser, setMenuCompleto, setUsuario } = useContext(CarroContext);
+  const { setUser, setMenuCompleto, setUsuario, setEstadoUsuario } =
+    useContext(CarroContext);
 
   const [array, setArray] = useState(null);
+  const [url, setUrl] = useState(null);
+  const [carga, setCarga] = useState(true);
 
   const firestore = getFirestore(firebaseApp);
   useEffect(() => {
@@ -51,12 +56,14 @@ function AccountConfigView() {
   let existe;
   const usuarioExiste = async (e) => {
     e.preventDefault();
+    setCarga(false);
     const docRef = collection(firestore, `users`);
     const q = query(docRef, where("username", "==", context.usuario));
     const comoQuieras = await getDocs(q);
     comoQuieras.forEach((doc) => (existe = doc.data()));
     console.log("existe", existe);
     usernameContinue();
+    setCarga(true);
   };
 
   const usernameContinue = async (e) => {
@@ -66,6 +73,7 @@ function AccountConfigView() {
       const docRefer = doc(firestore, `users/${context.user.email}`);
       await updateDoc(docRefer, { username: context.usuario });
       toast.success("Nombre de usuario Actualizado");
+      setEstadoUsuario(2);
     }
   };
 
@@ -89,58 +97,141 @@ function AccountConfigView() {
     };
     //updateamos la base de datos
     const docRefer = doc(firestore, `users/${context.user.email}`);
-
+    setEstadoUsuario(3);
     await updateDoc(docRefer, { perfil: configNueva });
     toast.success("Perfil Actualizado");
+  };
+
+  const subirFoto = async (e) => {
+    e.preventDefault();
+    if (url) {
+      const docRefer = doc(firestore, `users/${context.user.email}`);
+      await updateDoc(docRefer, { urlFoto: url });
+      toast.success("Foto de Perfil Subida");
+    } else {
+      toast.error("Seleccione una Foto para subir");
+    }
+  };
+
+  const fileHandler = async (e) => {
+    setCarga(null);
+    //detectar el archivo
+    const archivoLocal = e.target.files[0];
+    //cargarlo a firebase storage
+    const archivoRef = ref(storage, `documentos/${archivoLocal.name}`);
+    await uploadBytes(archivoRef, archivoLocal);
+    //obtener URL
+    const urlImg = await getDownloadURL(archivoRef);
+    setUrl(urlImg);
+    setCarga(true);
   };
 
   return (
     <div className="account">
       <Navbar />
       <div className="account__config">
-        <form action="" className="account__form" onSubmit={usuarioExiste}>
+        <Perfil />
+        <form action="" className="account__form__edit" onSubmit={subirFoto}>
+          <p>Suba su foto de perfil:</p>
+          <input
+            type="file"
+            className="account__form__input__edit"
+            onChange={fileHandler}
+            id="inputFile"
+          />
+          {carga ? (
+            <button type="submit" className="button__editPerfil">
+              Guardar
+            </button>
+          ) : (
+            <div class="lds-ellipsis">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          )}
+        </form>
+        <form
+          action=""
+          className="account__form__edit"
+          onSubmit={usuarioExiste}
+        >
           <p>Ingrese su nombre de usuario:</p>
           <input
             type="text"
-            className="account__form__input"
+            className="account__form__input__edit"
             onChange={inputUsername}
             defaultValue={context.usuario}
           />
-          <button type="submit">Guardar</button>
+          {carga ? (
+            <button type="submit" className="button__editPerfil">
+              Guardar
+            </button>
+          ) : (
+            <div class="lds-ellipsis">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          )}
         </form>
 
-        <form action="" className="account__form" onSubmit={setearPerfil}>
+        <form action="" className="account__form__edit" onSubmit={setearPerfil}>
+          <p>Usuario Instagram:</p>
           <input
             type="text"
-            className="account__form__input"
+            className="account__form__input__edit"
             placeholder="Perfil de Instagram"
             id="inputInstagram"
+            defaultValue={context.infoPublica.perfil.usuarioInstagram}
           />
+          <p>Numero de WhatsApp:</p>
           <input
             type="text"
-            className="account__form__input"
+            className="account__form__input__edit"
             placeholder="WhatsApp"
             id="inputWhatsapp"
+            defaultValue={context.infoPublica.perfil.whatsapp}
           />
+          <p>Direccion:</p>
           <input
             type="text"
-            className="account__form__input"
+            className="account__form__input__edit"
             placeholder="Direccion"
             id="inputDireccion"
+            defaultValue={context.infoPublica.perfil.direccion}
           />
+          <p>Ciudad:</p>
           <input
             type="text"
-            className="account__form__input"
+            className="account__form__input__edit"
             placeholder="Ciudad"
             id="inputCiudad"
+            defaultValue={context.infoPublica.perfil.ciudad}
           />
+          <p>Pais:</p>
           <input
             type="text"
-            className="account__form__input"
+            className="account__form__input__edit"
             placeholder="Pais"
             id="inputPais"
+            defaultValue={context.infoPublica.perfil.pais}
           />
-          <button type="submit">Guardar</button>
+
+          {carga ? (
+            <button type="submit" className="button__editPerfil">
+              Guardar
+            </button>
+          ) : (
+            <div class="lds-ellipsis">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          )}
         </form>
       </div>
       <Toaster position="top-center" className="notificacion" />

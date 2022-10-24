@@ -8,15 +8,26 @@ function Perfil() {
 
   const perfil = context.infoPublica.perfil;
 
+  const foto = context.infoPublica.urlFoto;
+
   return (
     <>
       {perfil ? (
         <div className="perfil" id="perfil">
           <div className="logoUsuario">
-            <div className="logo"></div>
+            <div className="logo">
+              {foto !== "generico" ? (
+                <img
+                  src={context.infoPublica.urlFoto}
+                  alt=""
+                  className="logo__img"
+                />
+              ) : (
+                ""
+              )}
+            </div>
             <h1 className="usuario">@{perfil.usuarioInstagram}</h1>
           </div>
-          {console.log("fafaffa", perfil)}
           <p className="direccion">
             {perfil.direccion}. {perfil.ciudad}, {perfil.pais}
           </p>
@@ -26,10 +37,7 @@ function Perfil() {
             >
               <FaWhatsapp className="redes__icon" />
             </a>
-            <a
-              href={`www.instagram.com/${perfil.usuarioInstagram}`}
-              target={"_blank"}
-            >
+            <a href="www.instagram.com" target={"_blank"}>
               <FaInstagram className="redes__icon" />
             </a>
             <a href="">
@@ -38,7 +46,10 @@ function Perfil() {
           </div>
         </div>
       ) : (
-        ""
+        <div class="lds-ripple">
+          <div></div>
+          <div></div>
+        </div>
       )}
     </>
   );

@@ -11,7 +11,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-
+import { FcGoogle } from "react-icons/fc";
 import Navbar from "../../componentes/navbar/navbar";
 
 function HomeView() {
@@ -19,51 +19,59 @@ function HomeView() {
   const [estaRegistrandose, setEstaRegistrandose] = useState(false);
 
   const context = useContext(CarroContext);
-  const { setUser } = useContext(CarroContext);
+  const { setUser, setEstadoUsuario } = useContext(CarroContext);
 
   const googleProvider = new GoogleAuthProvider();
 
   useEffect(() => {
+    setEstadoUsuario(0);
     onAuthStateChanged(context.auth, inspectorSesion);
+    console.log("estado usuario", context.estadoUsuario);
   }, []);
 
   const inspectorSesion = (usuarioFirebase) => {
     //en caso de que haya seison iniciada
     if (usuarioFirebase) {
-      console.log(usuarioFirebase);
       setUser(usuarioFirebase);
-      navigate("/account");
+      setEstadoUsuario(1);
     } else {
       //en caso de que haya seison iniciada
       setUser(null);
+      setEstadoUsuario(0);
     }
   };
 
+  /*
+
+  ESTADO CLIENTE
+  0 = No esta Auth
+  1 = Authenticado pero no creo nombre de usuario
+  2 = Auth y creo nombre de usuario
+  3 = Todo el 2 y completo la seccion perfil.
+  */
+
   return (
     <div className="home">
-      {context.user ? <Navbar /> : ""}
+      {/* {context.estadoUsuario > 0 ?  : ""} */}
 
-      {context.user ? (
-        ""
+      {context.estadoUsuario === 0 ? (
+        <div className="navbar__noAuth">
+          <div
+            onClick={() => signInWithPopup(context.auth, googleProvider)}
+            className="loggin"
+          >
+            {" "}
+            <FcGoogle className="loggin__google" />
+            <p>Acceder con Google</p>
+          </div>
+        </div>
       ) : (
-        <button
-          type="submit"
-          onClick={() => signInWithPopup(context.auth, googleProvider)}
-          className="loggin"
-        >
-          Acceder con Google
-        </button>
+        <Navbar />
       )}
 
-      <div class="lds-ripple">
-        <div></div>
-        <div></div>
-      </div>
-      <h1>
-        {context.user
-          ? `Bienvenido ${context.user.displayName}`
-          : "No esta logueado"}
-      </h1>
+      <section id="header" className="home__header">
+        <h1>En desarrollo</h1>
+      </section>
     </div>
   );
 }

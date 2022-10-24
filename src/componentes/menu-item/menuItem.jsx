@@ -8,7 +8,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import CarroContext from "../../context/carro/carroContext";
 import toast, { Toaster } from "react-hot-toast";
 
-function MenuItem({ title, precio, id, img }) {
+function MenuItem({ title, precio, id, img, desc }) {
   const [cantidad, setCantidad] = useState(1);
   const [popUp, setPopUp] = useState(false);
   const [cerrarPop, setCerrarPop] = useState(false);
@@ -88,10 +88,7 @@ function MenuItem({ title, precio, id, img }) {
       <div className="menu__item">
         <div className="item__info" onClick={showPopUp} id="itemInfo">
           <h3>{title}</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
-            explicabo eius nihil facere eos debitis ullam praesentium, unde
-          </p>
+          <p>{desc}</p>
           <p>
             <span> </span>
           </p>
@@ -138,12 +135,7 @@ function MenuItem({ title, precio, id, img }) {
               </div>
             </div>
             <p>Descripcion:</p>
-            <p>
-              {" "}
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Perferendis explicabo eius nihil facere eos debitis ullam
-              praesentium, unde
-            </p>
+            <p> {desc}</p>
           </div>
           <div className="popup__close" onClick={showPopUp}>
             <AiOutlineClose />

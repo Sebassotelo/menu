@@ -18,20 +18,31 @@ function Navbar() {
 
   const googleProvider = new GoogleAuthProvider();
 
-  return (
-    <div className={context.user ? "navbar" : "navbar__none"}>
-      <div className="navbar__img">
-        {/* <img src={context.user.photoURL} alt="" /> */}
-        <p>{context.user ? context.user.displayName : ""}</p>
+  const usuarioCreado = () => {
+    console.log(context.estadoUsuario);
+    if (context.estadoUsuario > 1) {
+      navigate(`/${context.usuario}`);
+    }
+  };
+
+  useEffect(() => {}, []);
+
+  if (context.estadoUsuario > 0) {
+    return (
+      <div className={context.user ? "navbar" : "navbar__none"}>
+        <div className="navbar__img">
+          {/* <img src={context.user.photoURL} alt="" /> */}
+          <p>{context.user ? context.user.displayName : ""}</p>
+        </div>
+        <ul className="botonera">
+          <li onClick={() => navigate("/")}>Home</li>
+          <li onClick={usuarioCreado}>Menu</li>
+          <li onClick={() => navigate("/account")}>Mi Cuenta</li>
+          <li onClick={() => signOut(context.auth)}>Cerrar Sesion</li>
+        </ul>
       </div>
-      <ul className="botonera">
-        <li onClick={() => navigate("/")}>Home</li>
-        <li onClick={() => navigate(`/${context.usuario}`)}>Menu</li>
-        <li onClick={() => navigate("/account")}>Mi Cuenta</li>
-        <li onClick={() => signOut(context.auth)}>Cerrar Sesion</li>
-      </ul>
-    </div>
-  );
+    );
+  }
 }
 
 export default Navbar;

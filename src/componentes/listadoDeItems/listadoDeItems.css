@@ -18,7 +18,7 @@
 .agregar__item {
   height: 100%;
   width: 100%;
-  background-color: rgb(117, 196, 196);
+  background-color: rgba(48, 7, 49, 0.753);
   border-radius: 15px;
   display: grid;
   align-items: center;

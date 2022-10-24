@@ -132,7 +132,12 @@ function AgregarItem({ array, id, setArray, setAddShow }) {
             Agregar
           </button>
         ) : (
-          ""
+          <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
         )}
 
         <Toaster position="top-center" className="notificacion" />

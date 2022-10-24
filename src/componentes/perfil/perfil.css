@@ -22,8 +22,16 @@
   width: 100px;
   border-radius: 50%;
   background-color: rgb(88, 54, 54);
+  display: grid;
+  align-items: center;
+  justify-items: center;
 }
-
+.logo__img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
 .usuario {
   font-size: 20px;
   margin-top: 10px;

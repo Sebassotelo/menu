@@ -19,7 +19,7 @@ function CarroState(props) {
   const [usuario, setUsuario] = useState(null);
   const [perfilPublico, setPerfilPublico] = useState("");
   const [infoPublica, setInfoPublica] = useState([]);
-  const [agregarItem, setAgregarItem] = useState([]);
+  const [estadoUsuario, setEstadoUsuario] = useState(0);
 
   const auth = getAuth(firebaseApp);
   const firestore = getFirestore(firebaseApp);
@@ -42,7 +42,7 @@ function CarroState(props) {
         perfilPublico: perfilPublico,
         menuCompleto: menuCompleto,
         infoPublica: infoPublica,
-        agregarItem: agregarItem,
+        estadoUsuario: estadoUsuario,
         carrito: carrito,
         actualizacion: actu,
         addCarrito,
@@ -53,7 +53,7 @@ function CarroState(props) {
         setUsuario,
         setPerfilPublico,
         setInfoPublica,
-        setAgregarItem,
+        setEstadoUsuario,
       }}
     >
       {props.children}

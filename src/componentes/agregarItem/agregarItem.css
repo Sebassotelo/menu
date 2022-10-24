@@ -3,9 +3,9 @@
   grid-gap: 10px;
   justify-items: center;
   align-items: center;
-  padding: 10px;
   border-radius: 15px;
   width: 100%;
+  padding: 15px;
 }
 
 .account__form__input {
@@ -21,11 +21,20 @@
 }
 
 .input__precio {
+  width: 102%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
-  justify-items: center;
+  justify-items: start;
   grid-gap: 25px;
+}
+.input__precio input {
+  width: 90%;
+}
+
+.form__agregar__container {
+  display: grid;
+  align-items: center;
 }
 
 .form__agregar {
@@ -45,4 +54,61 @@
 .account__form__h2 {
   color: white;
   text-align: center;
+}
+
+.lds-ellipsis {
+  transform: scale(0.7);
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 40px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
 }

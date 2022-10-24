@@ -38,6 +38,9 @@ function HomeView() {
     if (usuarioFirebase) {
       setUser(usuarioFirebase);
       setEstadoUsuario(1);
+      if (context.usuario !== "generico") {
+        setEstadoUsuario(2);
+      }
     } else {
       //en caso de que haya seison iniciada
       setUser(null);

@@ -61,7 +61,6 @@ function AccountConfigView() {
     const q = query(docRef, where("username", "==", context.usuario));
     const comoQuieras = await getDocs(q);
     comoQuieras.forEach((doc) => (existe = doc.data()));
-    console.log("existe", existe);
     usernameContinue();
     setCarga(true);
   };

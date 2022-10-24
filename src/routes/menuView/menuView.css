@@ -1,0 +1,22 @@
+.navbar__home {
+  width: 100%;
+  grid-column: 2/3;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.navbar__home__item {
+  width: 50%;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.usuario_no_encontrado {
+  align-self: center;
+  justify-self: center;
+}

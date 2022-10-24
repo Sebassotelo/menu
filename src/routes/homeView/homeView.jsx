@@ -29,6 +29,7 @@ function HomeView() {
     setEstadoUsuario(0);
     onAuthStateChanged(context.auth, inspectorSesion);
     console.log("estado usuario", context.estadoUsuario);
+    document.title = "Menus | Tu menu online";
   }, []);
 
   const inspectorSesion = (usuarioFirebase) => {

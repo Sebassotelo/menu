@@ -28,6 +28,8 @@
 .cliente__img {
   height: 200px;
   width: 600px;
+  position: absolute;
+  z-index: 30;
 }
 
 .cliente__img img {
@@ -38,4 +40,10 @@
   z-index: 5;
   border-radius: 15px;
   filter: blur(2px) brightness(0.5);
+  position: absolute;
+}
+
+.cliente__info {
+  z-index: 70;
+  align-self: center;
 }

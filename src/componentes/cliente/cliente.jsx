@@ -17,6 +17,10 @@ function Cliente() {
       <div className="cliente__img">
         <img src="https://i.imgur.com/ldjkKuf.jpg" alt="" />
       </div>
+
+      <div className="cliente__info">
+        <h3>Menu de Ejemplo</h3>
+      </div>
     </div>
   );
 }

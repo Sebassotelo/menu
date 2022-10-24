@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect, useRef } from "react";
 import CarroContext from "../../context/carro/carroContext";
 import "./listadoDeItems.css";
 import firebaseApp from "../../firebase/firebase";
+import { Link, animateScroll as scroll } from "react-scroll";
 import {
   getFirestore,
   doc,
@@ -13,6 +14,7 @@ import {
 import MenuItem from "../menu-item/menuItem";
 import AgregarItem from "../agregarItem/agregarItem";
 import toast, { Toaster } from "react-hot-toast";
+
 function ListadoDeItems({ arrayItems, setArray }) {
   const context = useContext(CarroContext);
   const { setMenuCompleto } = useContext(CarroContext);
@@ -24,6 +26,25 @@ function ListadoDeItems({ arrayItems, setArray }) {
   return (
     <div className="arrayContainer">
       {/*Mapeamos el items entero */}
+
+      <div className="menu__navbar">
+        {arrayItems &&
+          arrayItems.map((a, i) => {
+            return (
+              <Link
+                className="menu__link"
+                style={{ backgroundColor: "white" }}
+                to={a.seccion}
+                spy={true}
+                smooth={true}
+                duration={500}
+              >
+                {a.seccion}
+              </Link>
+            );
+          })}
+      </div>
+
       {arrayItems &&
         arrayItems.map((item, i) => {
           const deleteItem = async (e) => {
@@ -82,8 +103,8 @@ function ListadoDeItems({ arrayItems, setArray }) {
             /* Mapeamos los items individuales */
           }
           return (
-            <div className="arrayitem">
-              <h2>{item.seccion}:</h2>
+            <div className="arrayitem" id={item.seccion}>
+              <h2 className="arrayitem__title">{item.seccion}:</h2>
               {item.seccionItems &&
                 item.seccionItems.map((item, i) => {
                   return (
@@ -96,7 +117,7 @@ function ListadoDeItems({ arrayItems, setArray }) {
                         id={item.id}
                       />
                       <button
-                        className="delete__seccion"
+                        className="delete__item"
                         onClick={() => deleteItem(item.id)}
                       >
                         Eliminar Item

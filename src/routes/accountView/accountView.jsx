@@ -53,7 +53,6 @@ function AccountView() {
   useEffect(() => {
     onAuthStateChanged(context.auth, inspectorSesion);
     fetchTareas();
-    document.title = `Menus | ${context.user.displayName}`;
   }, [context.user]);
 
   const fetchTareas = async () => {
@@ -67,6 +66,7 @@ function AccountView() {
     if (usuarioFirebase) {
       setUser(usuarioFirebase);
       setEstadoUsuario(1);
+      document.title = `Menus | ${context.user.displayName}`;
     } else {
       //en caso de que haya seison iniciada
       navigate("/");

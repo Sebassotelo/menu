@@ -10,7 +10,7 @@
 
 .account__form__input {
   padding: 5px;
-  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.404);
   border-radius: 5px;
   width: 100%;
   outline: none;
@@ -40,8 +40,10 @@
 .form__agregar {
   height: 40px;
   width: 120px;
-  border-radius: 5px;
-  border: none;
+  border-radius: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.445);
+  background-color: white;
+  color: black;
 }
 
 .add__item__form {
@@ -52,7 +54,7 @@
 }
 
 .account__form__h2 {
-  color: white;
+  color: black;
   text-align: center;
 }
 

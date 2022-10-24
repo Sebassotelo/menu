@@ -125,6 +125,7 @@ function HomeView() {
               <div
                 onClick={() => signInWithPopup(context.auth, googleProvider)}
                 className="loggin"
+                style={{ border: "1px solid black", margin: "0 8px 0 8px" }}
               >
                 <FcGoogle className="loggin__google" />
                 <p>Acceder con Google</p>

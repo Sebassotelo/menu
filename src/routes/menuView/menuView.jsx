@@ -32,6 +32,7 @@ function MenuView() {
 
   useEffect(() => {
     onAuthStateChanged(context.auth, inspectorSesion);
+    document.title = `Menus | ${username}`;
     llamada();
   }, []);
 

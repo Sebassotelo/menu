@@ -53,7 +53,7 @@ function AccountView() {
   useEffect(() => {
     onAuthStateChanged(context.auth, inspectorSesion);
     fetchTareas();
-    console.log(context.estadoCliente);
+    document.title = `Menus | ${context.user.displayName}`;
   }, [context.user]);
 
   const fetchTareas = async () => {

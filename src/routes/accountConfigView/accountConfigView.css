@@ -65,3 +65,27 @@
   width: 120px;
   border: none;
 }
+
+@media (max-width: 900px) {
+  .account__config {
+    display: grid;
+    grid-gap: 40px;
+    background-color: rgba(0, 0, 0, 0.678);
+    min-width: 200px;
+    width: 82%;
+    padding: 25px;
+    margin: 25px;
+    border-radius: 15px;
+    border: 1px solid white;
+  }
+  .account__info {
+    min-width: 200px;
+    display: grid;
+    grid-gap: 10px;
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.699);
+    width: 92%;
+  }
+}

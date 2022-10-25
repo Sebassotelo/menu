@@ -43,6 +43,7 @@ function MenuView() {
 
   const [loader, setLoader] = useState(false);
   const [existe, setExiste] = useState(null);
+  const [padding, setPadding] = useState("0px");
   let busqueda;
 
   useEffect(() => {
@@ -56,6 +57,7 @@ function MenuView() {
     if (usuarioFirebase) {
       setUser(usuarioFirebase);
       setEstadoUsuario(1);
+      setPadding("60px");
       if (username === "null") {
         navigate("/account");
       }
@@ -85,7 +87,7 @@ function MenuView() {
   if (loader) {
     if (existe) {
       return (
-        <div className="App" id="app">
+        <div className="App" style={{ paddingTop: padding }} id="app">
           {context.user ? <Navbar /> : ""}
 
           <Carrito />

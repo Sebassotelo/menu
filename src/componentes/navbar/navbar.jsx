@@ -24,16 +24,16 @@ function Navbar() {
       navigate(`/${context.usuario}`);
     }
   };
+  // <div className="navbar__img">
+  //   {/* <img src={context.user.photoURL} alt="" /> */}
+  //   <p>{context.user ? context.user.displayName : ""}</p>
+  // </div>;
 
   useEffect(() => {}, []);
 
   if (context.estadoUsuario > 0) {
     return (
       <div className={context.user ? "navbar" : "navbar__none"}>
-        <div className="navbar__img">
-          {/* <img src={context.user.photoURL} alt="" /> */}
-          <p>{context.user ? context.user.displayName : ""}</p>
-        </div>
         <ul className="botonera">
           <li onClick={() => navigate("/")}>Home</li>
           <li onClick={usuarioCreado}>Menu</li>

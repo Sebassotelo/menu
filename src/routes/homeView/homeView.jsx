@@ -98,7 +98,11 @@ function HomeView() {
           >
             {" "}
             <FcGoogle className="loggin__google" />
-            <p>Acceder con Google</p>
+            {window.innerWidth > 900 ? (
+              <p>Acceder con Google</p>
+            ) : (
+              <p>Acceder</p>
+            )}
           </div>
         </div>
       ) : (
@@ -113,9 +117,9 @@ function HomeView() {
             <p className="title__p"> Encargate de la comida </p>
             <p className="title__p"> Nosotros nos encargamos de los pedidos</p>
           </div>
-          <div className="header__img">
+          {/* <div className="header__img">
             <img src="https://i.imgur.com/DYPel8f.png" alt="" />
-          </div>
+          </div> */}
         </div>
       </section>
 

@@ -67,6 +67,7 @@ span {
 @media (max-width: 900px) {
   .App {
     width: 100vw;
+    padding-top: 0;
   }
 
   #perfil {

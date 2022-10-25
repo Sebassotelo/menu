@@ -114,3 +114,6 @@
     transform: translate(24px, 0);
   }
 }
+
+@media (max-width: 900px) {
+}

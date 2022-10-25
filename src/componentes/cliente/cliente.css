@@ -47,3 +47,25 @@
   z-index: 70;
   align-self: center;
 }
+
+@media (max-width: 900px) {
+  .cliente {
+    height: 140px;
+    width: 80%;
+    background-color: rgba(37, 37, 37, 0.349);
+    border-radius: 15px;
+    position: relative;
+    display: grid;
+    justify-items: center;
+  }
+  .cliente__title {
+    height: 40px;
+    width: 220px;
+  }
+  .cliente__img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 30;
+  }
+}

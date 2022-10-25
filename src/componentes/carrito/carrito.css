@@ -255,7 +255,7 @@
     align-items: center;
     justify-items: center;
     background-color: #050505a4;
-    position: fixed;
+    position: fixed relative;
     -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
     z-index: 100;

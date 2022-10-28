@@ -6,6 +6,9 @@
   border-radius: 15px;
   width: 100%;
   padding: 15px;
+  max-width: 600px;
+  background-color: white;
+  position: relative;
 }
 
 .account__form__input {
@@ -56,6 +59,51 @@
 .account__form__h2 {
   color: black;
   text-align: center;
+}
+
+.account__form__p {
+  justify-self: start;
+  font-weight: 600;
+}
+
+.add__item__container {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.76);
+  backdrop-filter: blur(2px);
+  position: fixed;
+  top: 0;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.add__item__popup {
+  height: 80px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  cursor: pointer;
+}
+.add__item__popup p {
+  font-size: 18px;
+  font-weight: 800;
+  color: white;
+}
+
+.add__item__close {
+  position: absolute;
+  bottom: -60px;
+  align-self: end;
+  background-color: brown;
+  color: white;
+  height: 40px;
+  width: 100px;
+  border-radius: 15px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  cursor: pointer;
 }
 
 .lds-ellipsis {
@@ -116,4 +164,16 @@
 }
 
 @media (max-width: 900px) {
+  .account__form {
+    display: grid;
+    grid-gap: 10px;
+    justify-items: center;
+    align-items: center;
+    border-radius: 15px;
+    width: 90%;
+    padding: 15px;
+    max-width: 600px;
+    background-color: white;
+    position: relative;
+  }
 }

@@ -19,7 +19,6 @@ function ListadoDeItems({ arrayItems, setArray }) {
   const context = useContext(CarroContext);
   const { setMenuCompleto } = useContext(CarroContext);
   const firestore = getFirestore(firebaseApp);
-  const [addShow, setAddShow] = useState(false);
 
   useEffect(() => {}, []);
 
@@ -27,22 +26,25 @@ function ListadoDeItems({ arrayItems, setArray }) {
     <div className="arrayContainer">
       {/*Mapeamos el items entero */}
 
-      <div className="menu__navbar">
-        {arrayItems &&
-          arrayItems.map((a, i) => {
-            return (
-              <Link
-                className="menu__link"
-                style={{ backgroundColor: "white" }}
-                to={a.seccion}
-                spy={true}
-                smooth={true}
-                duration={500}
-              >
-                {a.seccion}
-              </Link>
-            );
-          })}
+      <div className="navbar__secciones">
+        <h3>Secciones</h3>
+        <div className="menu__navbar secciones">
+          {arrayItems &&
+            arrayItems.map((a, i) => {
+              return (
+                <Link
+                  className="menu__link"
+                  style={{ backgroundColor: "white" }}
+                  to={a.seccion}
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                >
+                  {a.seccion}
+                </Link>
+              );
+            })}
+        </div>
       </div>
 
       {arrayItems &&
@@ -120,17 +122,13 @@ function ListadoDeItems({ arrayItems, setArray }) {
                         className="delete__item"
                         onClick={() => deleteItem(item.id)}
                       >
-                        Eliminar Item
+                        Eliminar Producto
                       </button>
                     </>
                   );
                 })}
               <div className="agregar__item">
-                <AgregarItem
-                  array={item}
-                  setArray={setArray}
-                  setAddShow={setAddShow}
-                />
+                <AgregarItem array={item} setArray={setArray} />
               </div>
               <div>
                 <button className="delete__seccion" onClick={deleteSeccion}>

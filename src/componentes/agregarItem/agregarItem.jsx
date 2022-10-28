@@ -13,7 +13,7 @@ import {
 
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
-function AgregarItem({ array, id, setArray, setAddShow }) {
+function AgregarItem({ array, id, setArray }) {
   const firestore = getFirestore(firebaseApp);
   const storage = getStorage(firebaseApp);
   const context = useContext(CarroContext);
@@ -21,6 +21,7 @@ function AgregarItem({ array, id, setArray, setAddShow }) {
 
   const [url, setUrl] = useState(null);
   const [carga, setCarga] = useState(true);
+  const [add, setAdd] = useState(false);
 
   const addItem = async (e) => {
     e.preventDefault(e);
@@ -69,6 +70,7 @@ function AgregarItem({ array, id, setArray, setAddShow }) {
     setArray(arrayOrdenado);
     updateDoc(docRef, { items: [...newArray] });
     toast.success("Item Agregado");
+    popup();
     //limpiar Form
     setUrl(null);
     e.target.inputTitle.value = "";
@@ -90,58 +92,91 @@ function AgregarItem({ array, id, setArray, setAddShow }) {
     setCarga(true);
   };
 
+  const popup = () => {
+    setAdd(!add);
+    if (add) {
+      document.body.style.overflow = "";
+    } else {
+      document.body.style.overflow = "hidden";
+    }
+  };
+
   useEffect(() => {
     setCarga(true);
   }, [array]);
   return (
     <div className="add__item__form">
-      <form action="" className="account__form" onSubmit={addItem}>
-        <h2 className="account__form__h2">Agregar items</h2>
-        <input
-          type="text"
-          placeholder="Titulo"
-          className="account__form__input"
-          id="inputTitle"
-          required
-        />
-        <input
-          type="text"
-          placeholder="Descripcion"
-          className="account__form__input input__desc"
-          id="inputDesc"
-          required
-        />
-        <div className="input__precio">
-          <input
-            type="number"
-            placeholder="Precio"
-            className="account__form__input"
-            id="inputPrecio"
-            required
-          />
-          <input
-            type="file"
-            className="account__form__input"
-            onChange={fileHandler}
-            id="inputFile"
-          />
-        </div>
+      {add ? (
+        <>
+          <div className="add__item__container">
+            <form action="" className="account__form" onSubmit={addItem}>
+              <h2 className="account__form__h2">Agregar Producto</h2>
+              <p className="account__form__p">Titulo:</p>
+              <input
+                type="text"
+                placeholder="Titulo"
+                className="account__form__input"
+                id="inputTitle"
+                required
+              />
+              <p className="account__form__p">Descripcion:</p>
+              <input
+                type="text"
+                placeholder="Descripcion"
+                className="account__form__input input__desc"
+                id="inputDesc"
+                required
+              />
+              <div className="input__precio">
+                <div>
+                  <p className="account__form__p">Precio:</p>
+                  <input
+                    type="number"
+                    placeholder="Precio"
+                    className="account__form__input"
+                    id="inputPrecio"
+                    required
+                  />
+                </div>
+                <div>
+                  <p className="account__form__p">Foto del Producto:</p>
+                  <input
+                    type="file"
+                    className="account__form__input"
+                    onChange={fileHandler}
+                    id="inputFile"
+                  />
+                </div>
+              </div>
 
-        {carga ? (
-          <button type="submit" className="form__agregar">
-            Agregar
-          </button>
-        ) : (
-          <div class="lds-ellipsis">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+              {carga ? (
+                <button type="submit" className="form__agregar">
+                  Agregar
+                </button>
+              ) : (
+                <div class="lds-ellipsis">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              )}
+
+              <div className="add__item__close" onClick={popup}>
+                <p>Cerrar</p>
+              </div>
+              <Toaster position="top-center" className="notificacion" />
+            </form>
           </div>
-        )}
-
-        <Toaster position="top-center" className="notificacion" />
-      </form>
+          <div className="add__item__popup">
+            <p>Agregar Producto</p>
+          </div>
+        </>
+      ) : (
+        <div className="add__item__popup" onClick={popup}>
+          <p>Agregar Producto</p>
+        </div>
+      )}
     </div>
   );
 }

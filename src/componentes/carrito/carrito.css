@@ -255,7 +255,7 @@
     align-items: center;
     justify-items: center;
     background-color: #050505a4;
-    position: fixed relative;
+    position: fixed;
     -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
     z-index: 100;
@@ -269,6 +269,7 @@
   .show__carrito {
     height: 60px;
     width: 60px;
+    z-index: 10000;
   }
   .carrito__container {
     margin-top: 20px;

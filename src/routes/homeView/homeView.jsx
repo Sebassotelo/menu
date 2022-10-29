@@ -14,6 +14,7 @@ import { Link, animateScroll as scroll } from "react-scroll";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import Navbar from "../../componentes/navbar/navbar";
+import NavbarMobile from "../../componentes/navbarMobile/navbarMobile";
 import Tarjeta from "../../componentes/tarjeta/tarjeta";
 import Cliente from "../../componentes/cliente/cliente";
 
@@ -106,7 +107,10 @@ function HomeView() {
           </div>
         </div>
       ) : (
-        <Navbar />
+        <>
+          <Navbar />
+          <NavbarMobile />
+        </>
       )}
 
       <section id="header" className="home__header">

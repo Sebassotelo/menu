@@ -31,6 +31,7 @@ import Navbar from "../../componentes/navbar/navbar";
 import ListadoDeItems from "../../componentes/listadoDeItems/listadoDeItems";
 import AgregarItem from "../../componentes/agregarItem/agregarItem";
 import Perfil from "../../componentes/perfil/perfil";
+import NavbarMobile from "../../componentes/navbarMobile/navbarMobile";
 
 function AccountView() {
   const navigate = useNavigate();
@@ -145,6 +146,7 @@ function AccountView() {
     return (
       <div className="account">
         {context.user ? <Navbar /> : ""}
+        {context.user ? <NavbarMobile /> : ""}
         {context.estadoUsuario > 2 ? <Perfil /> : ""}
         <div className="account__container">
           {context.estadoUsuario > 0 ? (

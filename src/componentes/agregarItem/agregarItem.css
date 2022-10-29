@@ -50,6 +50,7 @@
 }
 
 .add__item__form {
+  position: relative;
   width: 90%;
   display: grid;
   align-items: center;
@@ -72,23 +73,29 @@
   background-color: rgba(0, 0, 0, 0.76);
   backdrop-filter: blur(2px);
   position: fixed;
+  left: 0;
   top: 0;
   display: grid;
   align-items: center;
   justify-items: center;
+  z-index: 150;
 }
 
 .add__item__popup {
-  height: 80px;
+  height: 40px;
+  width: 140px;
   display: grid;
   align-items: center;
   justify-items: center;
   cursor: pointer;
+  background-color: white;
+  border-radius: 15px;
+  border: 1px solid red;
 }
 .add__item__popup p {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 800;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .add__item__close {

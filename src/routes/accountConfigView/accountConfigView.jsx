@@ -20,6 +20,7 @@ import { useNavigate } from "react-router-dom";
 import firebaseApp from "../../firebase/firebase";
 
 import Navbar from "../../componentes/navbar/navbar";
+import NavbarMobile from "../../componentes/navbarMobile/navbarMobile";
 import Perfil from "../../componentes/perfil/perfil";
 
 function AccountConfigView() {
@@ -128,6 +129,7 @@ function AccountConfigView() {
   return (
     <div className="account">
       <Navbar />
+      {context.user ? <NavbarMobile /> : ""}
       <div className="account__config">
         <Perfil />
         <form action="" className="account__form__edit" onSubmit={subirFoto}>

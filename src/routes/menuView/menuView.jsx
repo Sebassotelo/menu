@@ -6,6 +6,7 @@ import Carrito from "../../componentes/carrito/carrito";
 import Perfil from "../../componentes/perfil/perfil";
 import Menu from "../../componentes/menu/menu";
 import Navbar from "../../componentes/navbar/navbar";
+import NavbarMobile from "../../componentes/navbarMobile/navbarMobile";
 import {
   onAuthStateChanged,
   signInWithPopup,
@@ -89,6 +90,7 @@ function MenuView() {
       return (
         <div className="App" style={{ paddingTop: padding }} id="app">
           {context.user ? <Navbar /> : ""}
+          {context.user ? <NavbarMobile /> : ""}
 
           <Carrito />
 

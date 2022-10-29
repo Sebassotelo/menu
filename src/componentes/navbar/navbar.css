@@ -53,6 +53,7 @@
     align-items: center;
     justify-items: center;
     z-index: 100;
+    display: none;
   }
   .botonera {
     width: 95%;

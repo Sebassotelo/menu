@@ -1,0 +1,31 @@
+.array__verMas {
+  height: 30px;
+  width: 200px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 40px 1fr;
+  margin-bottom: 15px;
+  color: rgb(2, 1, 1);
+  border-radius: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.295);
+  cursor: pointer;
+}
+.array__verMas:hover {
+  background-color: black;
+  color: white;
+}
+.array__verMas h3 {
+  font-size: 16px;
+}
+
+.array__arrow {
+  font-size: 30px;
+}
+
+@media (max-width: 900px) {
+  .array__verMas:hover {
+    background-color: white;
+    color: black;
+  }
+}

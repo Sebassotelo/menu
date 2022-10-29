@@ -13,6 +13,7 @@ function Carrito() {
   const [unidades, setUnidades] = useState(0);
   const [realizarPedido, setRealizarPedido] = useState(true);
   const [confirmacion, setConfirmacion] = useState(false);
+  const [ped, setPed] = useState("");
 
   const { setCarrito, actuCarrito } = useContext(CarroContext);
 
@@ -67,6 +68,32 @@ function Carrito() {
     setRealizarPedido(false);
   };
 
+  // const confirmarPedido = () => {
+  //   if (unidades > 0) {
+  //     pedidoCopy = "";
+  //     context.carrito.map(
+  //       (e) =>
+  //         (pedidoCopy =
+  //           pedidoCopy +
+  //           `${e.cant}X ${e.titulo} ----- $${e.precio * e.cant}  \n`)
+  //     );
+  //     pedidoCopy = `Hola, te pido esto:\n\n${pedidoCopy} \nTotal: $${total}`;
+
+  //     navigator.clipboard.writeText(pedidoCopy);
+
+  //     toast.success("Pedido copiado al portapapeles");
+  //     console.log(pedidoCopy);
+
+  //     if (unidades > 0) {
+  //       setConfirmacion(true);
+  //     }
+
+  //     setRealizarPedido(true);
+  //   } else {
+  //     setRealizarPedido(true);
+  //     toast.error("Agrege items al carrito");
+  //   }
+  // };
   const confirmarPedido = () => {
     if (unidades > 0) {
       pedidoCopy = "";
@@ -74,14 +101,16 @@ function Carrito() {
         (e) =>
           (pedidoCopy =
             pedidoCopy +
-            `${e.cant}X ${e.titulo} ----- $${e.precio * e.cant}  \n`)
+            `${e.cant}X%20${e.titulo}%20-----%20$${e.precio * e.cant}%20%0A`)
       );
-      pedidoCopy = `Hola, te pido esto:\n\n${pedidoCopy} \nTotal: $${total}`;
+      setPed(
+        `Hola,%20te%20pido%20esto:%0A%0A${pedidoCopy}%0ATotal:%20$${total}`
+      );
 
       navigator.clipboard.writeText(pedidoCopy);
 
       toast.success("Pedido copiado al portapapeles");
-      console.log(pedidoCopy);
+      console.log(ped);
 
       if (unidades > 0) {
         setConfirmacion(true);
@@ -153,7 +182,10 @@ function Carrito() {
 
               {confirmacion ? (
                 <div className="realizar__pedido wpp">
-                  <a href="https://walink.co/b4280e" target={"_blank"}>
+                  <a
+                    href={`https://api.whatsapp.com/send?phone=54${context.infoPublica.perfil.whatsapp}&text=${ped}`}
+                    target={"_blank"}
+                  >
                     Ir a Whatsapp
                   </a>
                 </div>

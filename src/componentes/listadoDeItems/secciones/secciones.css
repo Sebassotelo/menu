@@ -24,11 +24,35 @@
 }
 
 .edit__delete__item {
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 150px);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 15px;
   align-items: center;
   justify-items: center;
+}
+
+.edit__item__container {
+  margin: 10px 0 10px 0;
+  grid-column: 2/3;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 15px;
+  align-items: center;
+  justify-items: center;
+}
+
+.cancelar__edit {
+  background-color: white;
+  border-radius: 15px;
+  border: 1px solid black;
+  font-weight: 800;
+  width: 80px;
+  height: 30px;
+}
+.edit__precio {
+  width: 150px;
 }
 
 .edit__precio input {

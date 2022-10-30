@@ -1,13 +1,16 @@
 .home {
-  background-color:hsla(289,0%,0%,1);
-background-image:
-radial-gradient(at 44% 40%, hsla(272,95%,71%,1) 0px, transparent 50%),
-radial-gradient(at 30% 25%, hsla(285,70%,71%,1) 0px, transparent 50%),
-radial-gradient(at 85% 96%, hsla(186,0%,0%,1) 0px, transparent 50%),
-radial-gradient(at 10% 49%, hsla(44,81%,78%,1) 0px, transparent 50%),
-radial-gradient(at 85% 70%, hsla(313,86%,61%,1) 0px, transparent 50%),
-radial-gradient(at 43% 39%, hsla(240,37%,30%,1) 0px, transparent 50%),
-radial-gradient(at 84% 78%, hsla(309,94%,69%,1) 0px, transparent 50%);
+  background-color: hsla(289, 0%, 0%, 1);
+  background-image: radial-gradient(
+      at 44% 40%,
+      hsla(272, 95%, 71%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 30% 25%, hsla(285, 70%, 71%, 1) 0px, transparent 50%),
+    radial-gradient(at 85% 96%, hsla(186, 0%, 0%, 1) 0px, transparent 50%),
+    radial-gradient(at 10% 49%, hsla(44, 81%, 78%, 1) 0px, transparent 50%),
+    radial-gradient(at 85% 70%, hsla(313, 86%, 61%, 1) 0px, transparent 50%),
+    radial-gradient(at 43% 39%, hsla(240, 37%, 30%, 1) 0px, transparent 50%),
+    radial-gradient(at 84% 78%, hsla(309, 94%, 69%, 1) 0px, transparent 50%);
   color: white;
 
   width: 100%;
@@ -90,6 +93,12 @@ radial-gradient(at 84% 78%, hsla(309,94%,69%,1) 0px, transparent 50%);
   justify-self: center;
   text-align: center;
 }
+.title__div {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  position: relative;
+}
 
 .title__h1 {
   font-size: 120px;
@@ -97,6 +106,26 @@ radial-gradient(at 84% 78%, hsla(309,94%,69%,1) 0px, transparent 50%);
   color: rgb(255, 255, 255);
   text-shadow: 1px 4px 5px rgba(0, 0, 0, 0.29);
   font-family: "Manrope", sans-serif;
+}
+
+.title__beta {
+  width: 80px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  border-radius: 15px;
+  position: absolute;
+  font-size: 32px;
+  font-weight: 900;
+  justify-self: end;
+  align-self: end;
+  color: rgb(226, 7, 7);
+  margin-bottom: 20px;
+}
+
+.title__beta img {
+  height: 60px;
+  opacity: 0.9;
 }
 
 .title__h3 {

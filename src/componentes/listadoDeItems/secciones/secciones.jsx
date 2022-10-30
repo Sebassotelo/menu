@@ -15,6 +15,7 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import MenuItem from "../../menu-item/menuItem";
 import AgregarItem from "../../agregarItem/agregarItem";
 import toast, { Toaster } from "react-hot-toast";
+import ItemSeccion from "./itemSeccion/itemSeccion";
 
 function Secciones({ item, setArray }) {
   const context = useContext(CarroContext);
@@ -33,10 +34,10 @@ function Secciones({ item, setArray }) {
     const itemFiltrado = item.seccionItems.filter((item, i) => item.id === e);
     const otrosItems = item.seccionItems.filter((item, i) => item.id !== e);
 
-    if(precioNuevo){
+    if (precioNuevo) {
       itemFiltrado[0].precio = precioNuevo;
     }
-    
+
     console.log(itemFiltrado);
 
     const newArray = [...otrosItems, itemFiltrado[0]];
@@ -64,13 +65,11 @@ function Secciones({ item, setArray }) {
         }
       });
       setPrecioNuevo(null);
-      setEditarPrecio(!editarPrecio);
-
       setArray(arrayOrdenado);
       toast.success("Precio Actualizado");
     } else {
       setPrecioNuevo(null);
-      console.log(precioNuevo)
+      console.log(precioNuevo);
       toast.error("Ingrese un Precio valido");
     }
   };
@@ -155,8 +154,17 @@ function Secciones({ item, setArray }) {
       {show &&
         item.seccionItems.map((item, i) => {
           return (
-            <>
-              <MenuItem
+            <ItemSeccion
+              item={item}
+              setArray={setArray}
+              deleteItem={deleteItem}
+              editPrecio={editPrecio}
+              setPrecioNuevo={setPrecioNuevo}
+            />
+          );
+
+          {
+            /* <MenuItem
                 title={item.title}
                 precio={item.precio}
                 desc={item.desc}
@@ -205,8 +213,8 @@ function Secciones({ item, setArray }) {
                   </button>
                 </div>
               )}
-            </>
-          );
+            </> */
+          }
         })}
       <div className="agregar__item">
         <button className="delete__seccion" onClick={deleteSeccion}>

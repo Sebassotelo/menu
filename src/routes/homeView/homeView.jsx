@@ -116,7 +116,16 @@ function HomeView() {
       <section id="header" className="home__header">
         <div className="header__container">
           <div className="header__title">
-            <h1 className="title__h1">Menus</h1>
+            <div className="title__div">
+              <h1 className="title__h1">Menus</h1>
+              <div className="title__beta">
+                <img
+                  src="https://www.keyshapeapp.com/images/blog/2017-02-12-beta.png"
+                  alt=""
+                />
+              </div>
+            </div>
+
             <h3 className="title__h3">Tu menu online</h3>
             <p className="title__p"> Encargate de la comida </p>
             <p className="title__p"> Nosotros nos encargamos de los pedidos</p>

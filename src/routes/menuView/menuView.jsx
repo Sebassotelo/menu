@@ -23,7 +23,7 @@ import {
   where,
   getDocs,
 } from "firebase/firestore";
-
+import { AiOutlineHome } from "react-icons/ai";
 import firebaseApp from "../../firebase/firebase";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
@@ -32,6 +32,7 @@ function MenuView() {
   const googleProvider = new GoogleAuthProvider();
   const navigate = useNavigate();
   const { username } = useParams();
+
   const context = useContext(CarroContext);
   const firestore = getFirestore(firebaseApp);
   const {
@@ -112,12 +113,9 @@ function MenuView() {
             <>
               <div className="navbar__noAuth">
                 <ul className="navbar__home">
-                  <p
-                    className="navbar__home__item"
-                    onClick={() => navigate("/")}
-                  >
-                    Home
-                  </p>
+                  
+                    <AiOutlineHome className="home__noAuth" onClick={() => navigate("/")}/>
+                  
                 </ul>
                 <div
                   onClick={() => {

@@ -17,7 +17,7 @@
   display: grid;
   grid-gap: 40px;
   background-color: rgba(0, 0, 0, 0.678);
-  min-width: 600px;
+  min-width: 500px;
   padding: 25px;
   margin: 25px;
   border-radius: 15px;
@@ -43,7 +43,7 @@
 }
 
 .account__info {
-  min-width: 600px;
+  min-width: 500px;
   display: grid;
   grid-gap: 10px;
   border: 1px solid white;

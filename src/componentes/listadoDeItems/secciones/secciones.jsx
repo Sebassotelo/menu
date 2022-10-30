@@ -22,7 +22,7 @@ function Secciones({ item, setArray }) {
   const firestore = getFirestore(firebaseApp);
   const [show, setShow] = useState(false);
   const [editarPrecio, setEditarPrecio] = useState(false);
-  const [precioNuevo, setPrecioNuevo] = useState(250);
+  const [precioNuevo, setPrecioNuevo] = useState(null);
 
   const editPrecio = async (e) => {
     //traemos los datos de base de datos
@@ -33,7 +33,10 @@ function Secciones({ item, setArray }) {
     const itemFiltrado = item.seccionItems.filter((item, i) => item.id === e);
     const otrosItems = item.seccionItems.filter((item, i) => item.id !== e);
 
-    itemFiltrado[0].precio = precioNuevo;
+    if(precioNuevo){
+      itemFiltrado[0].precio = precioNuevo;
+    }
+    
     console.log(itemFiltrado);
 
     const newArray = [...otrosItems, itemFiltrado[0]];
@@ -66,6 +69,8 @@ function Secciones({ item, setArray }) {
       setArray(arrayOrdenado);
       toast.success("Precio Actualizado");
     } else {
+      setPrecioNuevo(null);
+      console.log(precioNuevo)
       toast.error("Ingrese un Precio valido");
     }
   };
@@ -167,6 +172,7 @@ function Secciones({ item, setArray }) {
                       type="number"
                       placeholder="Precio"
                       onChange={cambioPrecio}
+                     
                     />
                     <button
                       onClick={() => editPrecio(item.id)}

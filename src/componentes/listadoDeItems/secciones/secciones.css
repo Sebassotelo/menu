@@ -23,6 +23,35 @@
   font-size: 30px;
 }
 
+.edit__delete__item {
+  display: grid;
+  grid-template-columns: repeat(2, 150px);
+  grid-gap: 15px;
+  align-items: center;
+  justify-items: center;
+}
+
+.edit__precio input {
+  width: 80px;
+  height: 30px;
+  border: none;
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+  padding: 0 0 0 10px;
+}
+.guardar__edit {
+  height: 32px;
+  width: 60px;
+  border: none;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+.edit__precio {
+}
+
 @media (max-width: 900px) {
   .array__verMas:hover {
     background-color: white;

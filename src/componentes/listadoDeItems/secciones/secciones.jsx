@@ -21,6 +21,54 @@ function Secciones({ item, setArray }) {
   const { setMenuCompleto } = useContext(CarroContext);
   const firestore = getFirestore(firebaseApp);
   const [show, setShow] = useState(false);
+  const [editarPrecio, setEditarPrecio] = useState(false);
+  const [precioNuevo, setPrecioNuevo] = useState(250);
+
+  const editPrecio = async (e) => {
+    //traemos los datos de base de datos
+    const docRef = doc(firestore, `users/${context.user.email}`);
+    const consulta = await getDoc(docRef);
+    const infoDocu = consulta.data();
+
+    const itemFiltrado = item.seccionItems.filter((item, i) => item.id === e);
+    const otrosItems = item.seccionItems.filter((item, i) => item.id !== e);
+
+    itemFiltrado[0].precio = precioNuevo;
+    console.log(itemFiltrado);
+
+    const newArray = [...otrosItems, itemFiltrado[0]];
+    const otraSecciones = infoDocu.items.filter(
+      (a, i) => a.seccion !== item.seccion
+    );
+
+    const newSeccion = [
+      ...otraSecciones,
+      {
+        seccion: item.seccion,
+        seccionItems: newArray,
+        id: item.id,
+      },
+    ];
+    if (precioNuevo) {
+      updateDoc(docRef, { items: [...newSeccion] });
+      const arrayOrdenado = newSeccion.sort((a, b) => {
+        if (a.seccion < b.seccion) {
+          return -1;
+        } else if (a.seccion > b.seccion) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
+      setPrecioNuevo(null);
+      setEditarPrecio(!editarPrecio);
+
+      setArray(arrayOrdenado);
+      toast.success("Precio Actualizado");
+    } else {
+      toast.error("Ingrese un Precio valido");
+    }
+  };
 
   const deleteItem = async (e) => {
     //traemos los datos de base de datos
@@ -74,6 +122,11 @@ function Secciones({ item, setArray }) {
     setShow(!show);
   };
 
+  const cambioPrecio = (e) => {
+    setPrecioNuevo(e.target.value);
+    console.log(precioNuevo);
+  };
+
   {
     /* Mapeamos los items individuales */
   }
@@ -105,12 +158,47 @@ function Secciones({ item, setArray }) {
                 img={item.img}
                 id={item.id}
               />
-              <button
-                className="delete__item"
-                onClick={() => deleteItem(item.id)}
-              >
-                Eliminar Producto
-              </button>
+
+              {editarPrecio ? (
+                <div className="edit__delete__item">
+                  <div className="edit__precio">
+                    {" "}
+                    <input
+                      type="number"
+                      placeholder="Precio"
+                      onChange={cambioPrecio}
+                    />
+                    <button
+                      onClick={() => editPrecio(item.id)}
+                      className="guardar__edit"
+                    >
+                      Guardar
+                    </button>
+                  </div>
+
+                  <button
+                    className="delete__item"
+                    onClick={() => setEditarPrecio(!editarPrecio)}
+                  >
+                    Cancelar
+                  </button>
+                </div>
+              ) : (
+                <div className="edit__delete__item">
+                  <button
+                    className="delete__item"
+                    onClick={() => deleteItem(item.id)}
+                  >
+                    Eliminar Producto
+                  </button>
+                  <button
+                    className="delete__item"
+                    onClick={() => setEditarPrecio(!editarPrecio)}
+                  >
+                    Editar Precio
+                  </button>
+                </div>
+              )}
             </>
           );
         })}

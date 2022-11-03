@@ -27,6 +27,7 @@ import { AiOutlineHome } from "react-icons/ai";
 import firebaseApp from "../../firebase/firebase";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
+import EditarMenu from "../../componentes/editarMenu/editarMenu";
 
 function MenuView() {
   const googleProvider = new GoogleAuthProvider();
@@ -41,13 +42,17 @@ function MenuView() {
     setUser,
     setInfoPublica,
     setEstadoUsuario,
+    setStyle,
+    setLetraCarrito,
+    setLetraCompMayor,
   } = useContext(CarroContext);
 
   const [loader, setLoader] = useState(false);
   const [existe, setExiste] = useState(null);
   const [padding, setPadding] = useState("0px");
-  let busqueda;
 
+  let busqueda;
+  let edit = false;
   useEffect(() => {
     onAuthStateChanged(context.auth, inspectorSesion);
     document.title = `Menus | ${username}`;
@@ -60,11 +65,13 @@ function MenuView() {
       setUser(usuarioFirebase);
       setEstadoUsuario(1);
       setPadding("60px");
+      //Si hay usuario logueado, edit pasa a true
+      edit = true;
       if (username === "null") {
         navigate("/account");
       }
     } else {
-      //en caso de que haya seison iniciada
+      //en caso de que no haya seison iniciada
       setUser(null);
       setEstadoUsuario(0);
     }
@@ -76,25 +83,35 @@ function MenuView() {
     const q = query(docRef, where("username", "==", username));
     const comoQuieras = await getDocs(q);
     comoQuieras.forEach((doc) => setInfoPublica(doc.data()));
+
     comoQuieras.forEach((doc) => (busqueda = doc.data()));
     if (busqueda) {
+      setStyle(busqueda.style);
+      setLetraCarrito(busqueda.style.carrito.color);
+      setLetraCompMayor(busqueda.style.compMayor.color);
       setExiste(true);
+      //Edit se pasa a true si encuentra un usuario logueado, y corrobora si el usuario tiene premium
+      if (edit) {
+        if (busqueda.premium) {
+          setEstadoUsuario(4);
+        }
+      }
       setLoader(true);
     } else {
       setExiste(false);
       setLoader(true);
     }
   };
-
+  //  { paddingTop: padding }
   if (loader) {
     if (existe) {
       return (
-        <div className="App" style={{ paddingTop: padding }} id="app">
+        <div className="App" style={context.style.fondo} id="app">
           {context.user ? <Navbar /> : ""}
           {context.user ? <NavbarMobile /> : ""}
 
+          {context.estadoUsuario === 4 ? <EditarMenu /> : null}
           <Carrito />
-
           <section id="perfil">
             <Perfil />
           </section>
@@ -113,9 +130,10 @@ function MenuView() {
             <>
               <div className="navbar__noAuth">
                 <ul className="navbar__home">
-                  
-                    <AiOutlineHome className="home__noAuth" onClick={() => navigate("/")}/>
-                  
+                  <AiOutlineHome
+                    className="home__noAuth"
+                    onClick={() => navigate("/")}
+                  />
                 </ul>
                 <div
                   onClick={() => {

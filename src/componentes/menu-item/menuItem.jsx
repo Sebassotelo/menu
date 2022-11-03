@@ -14,7 +14,7 @@ function MenuItem({ title, precio, id, img, desc }) {
   const [cerrarPop, setCerrarPop] = useState(false);
 
   const { addCarrito, actuCarrito } = useContext(CarroContext);
-  const contexto = useContext(CarroContext);
+  const context = useContext(CarroContext);
 
   const refOne = useRef(null);
 
@@ -29,8 +29,8 @@ function MenuItem({ title, precio, id, img, desc }) {
   };
 
   const manejarCarrito = (ped) => {
-    if (contexto.carrito.find((e) => e.id === id)) {
-      contexto.carrito.find((e) => e.id === id).cant += cantidad;
+    if (context.carrito.find((e) => e.id === id)) {
+      context.carrito.find((e) => e.id === id).cant += cantidad;
       setCantidad(1);
       toast(`${cantidad} ${title} agregado al carrito`, {
         icon: "🛒",
@@ -77,7 +77,7 @@ function MenuItem({ title, precio, id, img, desc }) {
   }, [popUp]);
 
   const clickoutside = (e) => {
-    if (!refOne.current.contains(e.target)) {
+    if (!refOne?.current.contains(e.target)) {
       setPopUp(false);
     }
   };
@@ -85,7 +85,7 @@ function MenuItem({ title, precio, id, img, desc }) {
   return (
     <>
       {" "}
-      <div className="menu__item">
+      <div className="menu__item" style={context.style.compProd}>
         <div className="item__info" onClick={showPopUp} id="itemInfo">
           <h3>{title}</h3>
           <p>{desc}</p>

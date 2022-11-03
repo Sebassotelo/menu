@@ -17,13 +17,17 @@ function Menu() {
   const [menu, setMenu] = useState(null);
 
   useEffect(() => {
-    console.log("menu", context.infoPublica.items);
     setMenu(context.infoPublica.items);
   }, [context]);
 
   return (
-    <div className="menu">
-      <h3 className="menu__h3">MENU</h3>
+    <div className="menu" style={context.style.compMayor}>
+      <h3
+        className="menu__h3"
+        style={{ borderBottom: `1px solid ${context.letraCompMayor}` }}
+      >
+        MENU
+      </h3>
       <div className="menu__navbar">
         {menu &&
           menu.map((a, i) => {
@@ -34,6 +38,7 @@ function Menu() {
                 spy={true}
                 smooth={true}
                 duration={500}
+                style={context.style.compMayor}
               >
                 {a.seccion}
               </Link>

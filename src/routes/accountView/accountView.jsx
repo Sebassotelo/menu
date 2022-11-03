@@ -95,13 +95,18 @@ function AccountView() {
       setEstadoUsuario(2);
       setLoader(true);
       setInfoPublica(infoDocu);
-      if (context.infoPublica.instagram !== "") {
-        setEstadoUsuario(3);
-      }
       if (infoDocu.username === "generico") {
         setUsuario(null);
         setEstadoUsuario(1);
       }
+      if (context.infoPublica.instagram !== "") {
+        setEstadoUsuario(3);
+      }
+
+      if (context.infoPublica.premium) {
+        setEstadoUsuario(4);
+      }
+      console.log("estado usuario", context.estadoUsuario);
       return infoDocu;
     } else {
       await setDoc(docRef, {
@@ -109,6 +114,8 @@ function AccountView() {
         username: "generico",
         perfil: configGenerico,
         urlFoto: "generico",
+        premium: false,
+        style: {},
       });
       setUsuario(null);
       setEstadoUsuario(1);

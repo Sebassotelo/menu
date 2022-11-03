@@ -13,7 +13,7 @@ function Perfil() {
   return (
     <>
       {perfil ? (
-        <div className="perfil" id="perfil">
+        <div className="perfil" id="perfil" style={context.style.perfil}>
           <div className="logoUsuario">
             <div className="logo">
               {foto !== "generico" ? (
@@ -35,17 +35,26 @@ function Perfil() {
             <a
               href={`https://wa.me/549${perfil.whatsapp}?text=Pega%20aqui%20tu%20pedido!`}
             >
-              <FaWhatsapp className="redes__icon" />
+              <FaWhatsapp
+                className="redes__icon"
+                style={context.style.perfil}
+              />
             </a>
             <a
               href={`https://www.instagram.com/${perfil.usuarioInstagram}/`}
               target={"_blank"}
             >
-              <FaInstagram className="redes__icon" />
+              <FaInstagram
+                className="redes__icon"
+                style={context.style.perfil}
+              />
             </a>
-            <a href="">
-              <FaMapMarkerAlt className="redes__icon" />
-            </a>
+            {/* <a href="">
+              <FaMapMarkerAlt
+                className="redes__icon"
+                style={context.style.perfil}
+              />
+            </a> */}
           </div>
         </div>
       ) : (

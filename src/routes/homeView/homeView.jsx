@@ -17,6 +17,7 @@ import Navbar from "../../componentes/navbar/navbar";
 import NavbarMobile from "../../componentes/navbarMobile/navbarMobile";
 import Tarjeta from "../../componentes/tarjeta/tarjeta";
 import Cliente from "../../componentes/cliente/cliente";
+import CartPremium from "../../componentes/cartPremium/cartPremium";
 
 function HomeView() {
   const navigate = useNavigate();
@@ -49,6 +50,12 @@ function HomeView() {
     }
   };
 
+  const premiumDesc = [
+    { text: "Poder subir la foto del Producto" },
+    { text: "Personalizacion de Fondo de menu" },
+    { text: "Personalizacion de Colores del Menu" },
+  ];
+
   /*
 
   ESTADO CLIENTE
@@ -56,6 +63,7 @@ function HomeView() {
   1 = Authenticado pero no creo nombre de usuario
   2 = Auth y creo nombre de usuario
   3 = Todo el 2 y completo la seccion perfil.
+  4 = Usuario Premium
   */
 
   return (
@@ -175,6 +183,28 @@ function HomeView() {
               "Tus clientes al terminar, les va a copiar el pedido y les va a aparecer un link a tu WhatsApp. Solo tienen que entrar y pegar el pedido"
             }
           />
+        </div>
+      </section>
+
+      <section id="precio" className="precio">
+        <h3 className="about__h3">Precios</h3>
+        <div className="precio__cart">
+          <CartPremium
+            title={"FREE"}
+            precio={"0"}
+            extra={
+              <div
+                onClick={() => signInWithPopup(context.auth, googleProvider)}
+                className="loggin"
+                style={{ border: "1px solid black", margin: "0 8px 0 8px" }}
+              >
+                <FcGoogle className="loggin__google" />
+                <p>Acceder con Google</p>
+              </div>
+            }
+          />
+
+          <CartPremium title={"PREMIUM"} precio={"699"} premium={true} />
         </div>
       </section>
 

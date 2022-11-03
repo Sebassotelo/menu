@@ -20,6 +20,9 @@ function CarroState(props) {
   const [perfilPublico, setPerfilPublico] = useState("");
   const [infoPublica, setInfoPublica] = useState([]);
   const [estadoUsuario, setEstadoUsuario] = useState(0);
+  const [style, setStyle] = useState({});
+  const [letraCarrito, setLetraCarrito] = useState({});
+  const [letraCompMayor, setLetraCompMayor] = useState({});
 
   const auth = getAuth(firebaseApp);
   const firestore = getFirestore(firebaseApp);
@@ -45,6 +48,9 @@ function CarroState(props) {
         estadoUsuario: estadoUsuario,
         carrito: carrito,
         actualizacion: actu,
+        style: style,
+        letraCompMayor: letraCompMayor,
+        letraCarrito: letraCarrito,
         addCarrito,
         actuCarrito,
         setCarrito,
@@ -54,6 +60,9 @@ function CarroState(props) {
         setPerfilPublico,
         setInfoPublica,
         setEstadoUsuario,
+        setStyle,
+        setLetraCarrito,
+        setLetraCompMayor,
       }}
     >
       {props.children}

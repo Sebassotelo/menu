@@ -190,6 +190,22 @@
   justify-items: center;
 }
 
+.precio {
+  min-height: 500px;
+}
+.precio h3 {
+  text-align: center;
+}
+
+.precio__cart {
+  width: 600px;
+  margin: 30px 0 30px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
 @media (max-width: 900px) {
   .navbar__noAuth {
     grid-template-columns: 2fr 1fr;
@@ -265,6 +281,16 @@
     font-size: 25px;
     border-bottom: 1px solid white;
     padding: 15px;
+  }
+  .precio__cart {
+    width: 280px;
+    margin: 30px 0 30px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 25px;
+    align-items: center;
+    justify-items: center;
   }
   .home__clientes {
     min-height: 300px;

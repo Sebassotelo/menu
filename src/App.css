@@ -5,28 +5,18 @@
   display: grid;
   padding-top: 50px;
   background-color: #ffda99;
-  background-image: -o-radial-gradient(
-      at 73% 19%,
-      hsla(38, 74%, 76%, 1) 0px,
-      transparent 50%
-    ),
-    -o-radial-gradient(at 41% 16%, hsla(31, 91%, 74%, 1) 0px, transparent 50%),
-    -o-radial-gradient(at 12% 42%, hsla(32, 99%, 66%, 1) 0px, transparent 50%),
-    -o-radial-gradient(at 73% 13%, hsla(212, 64%, 64%, 1) 0px, transparent 50%),
-    -o-radial-gradient(at 38% 37%, hsla(23, 85%, 66%, 1) 0px, transparent 50%),
-    -o-radial-gradient(at 31% 46%, hsla(87, 90%, 62%, 1) 0px, transparent 50%),
-    -o-radial-gradient(at 62% 46%, hsla(249, 81%, 79%, 1) 0px, transparent 50%);
+  background-color: #ff99a8;
   background-image: radial-gradient(
-      at 73% 19%,
-      hsla(38, 74%, 76%, 1) 0px,
+      at 97% 90%,
+      hsla(260, 98%, 64%, 1) 0px,
       transparent 50%
     ),
-    radial-gradient(at 41% 16%, hsla(31, 91%, 74%, 1) 0px, transparent 50%),
-    radial-gradient(at 12% 42%, hsla(32, 99%, 66%, 1) 0px, transparent 50%),
-    radial-gradient(at 73% 13%, hsla(212, 64%, 64%, 1) 0px, transparent 50%),
-    radial-gradient(at 38% 37%, hsla(23, 85%, 66%, 1) 0px, transparent 50%),
-    radial-gradient(at 31% 46%, hsla(87, 90%, 62%, 1) 0px, transparent 50%),
-    radial-gradient(at 62% 46%, hsla(249, 81%, 79%, 1) 0px, transparent 50%);
+    radial-gradient(at 62% 94%, hsla(201, 61%, 66%, 1) 0px, transparent 50%),
+    radial-gradient(at 80% 77%, hsla(240, 99%, 65%, 1) 0px, transparent 50%),
+    radial-gradient(at 77% 56%, hsla(333, 77%, 79%, 1) 0px, transparent 50%),
+    radial-gradient(at 43% 23%, hsla(56, 70%, 78%, 1) 0px, transparent 50%),
+    radial-gradient(at 60% 8%, hsla(256, 88%, 78%, 1) 0px, transparent 50%),
+    radial-gradient(at 57% 31%, hsla(308, 87%, 79%, 1) 0px, transparent 50%);
 }
 
 #perfil {
@@ -67,7 +57,7 @@ span {
 @media (max-width: 900px) {
   .App {
     width: 100vw;
-    padding-top: 0;
+    padding-top: 50px;
   }
 
   #perfil {

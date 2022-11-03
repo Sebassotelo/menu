@@ -128,11 +128,20 @@ function Carrito() {
       {show ? (
         <div className="carro__contenedor">
           {" "}
-          <div className={show ? "carrito hidden" : "carrito"}>
+          <div
+            className={show ? "carrito hidden" : "carrito"}
+            style={context.style.carrito}
+          >
             <div className="close" onClick={mostrarCarrito}>
               <p className="close__p">Seguir Pidiendo</p>
             </div>
-            <div className="carrito__title">
+            <div
+              className="carrito__title"
+              style={{
+                color: `${context.letraCarrito}`,
+                borderBottom: `1px solid ${context.letraCarrito}`,
+              }}
+            >
               <h3>Carrito</h3>
             </div>
 
@@ -141,13 +150,22 @@ function Carrito() {
                 .filter((e) => e.cant != 0)
                 .map((e, i) => (
                   <div className="carrito__item">
-                    <p className="carrito__name">
+                    <p
+                      className="carrito__name"
+                      style={{ color: `${context.letraCarrito}` }}
+                    >
                       {e.cant}x {e.titulo}
                     </p>
-                    <p className="carrito__precio">${e.precio * e.cant}</p>
+                    <p
+                      className="carrito__precio"
+                      style={{ color: `${context.letraCarrito}` }}
+                    >
+                      ${e.precio * e.cant}
+                    </p>
                     <AiOutlineClose
                       className="carrito__eliminar"
                       onClick={() => eliminar(e.id)}
+                      style={{ color: `${context.letraCarrito}` }}
                     />
                   </div>
                 ))}
@@ -157,8 +175,13 @@ function Carrito() {
               <button onClick={reset} className="total__reset">
                 BORRAR
               </button>
-              <div className="total">
-                <h4>TOTAL: ${total}</h4>
+              <div
+                className="total"
+                style={{ borderTop: `1px solid ${context.letraCarrito}` }}
+              >
+                <h4 style={{ color: `${context.letraCarrito}` }}>
+                  TOTAL: ${total}
+                </h4>
               </div>
 
               {realizarPedido ? (

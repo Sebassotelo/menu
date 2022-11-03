@@ -189,7 +189,7 @@ function AccountConfigView() {
             id="inputInstagram"
             defaultValue={context.infoPublica.perfil.usuarioInstagram}
           />
-          <p>Numero de WhatsApp:</p>
+          <p>Numero de WhatsApp: (ej: 3794215489)</p>
           <input
             type="text"
             className="account__form__input__edit"

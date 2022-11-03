@@ -84,7 +84,10 @@ function AgregarItem({ array, id, setArray }) {
     //detectar el archivo
     const archivoLocal = e.target.files[0];
     //cargarlo a firebase storage
-    const archivoRef = ref(storage, `documentos/${archivoLocal.name}`);
+    const archivoRef = ref(
+      storage,
+      `${context.user.email}/${archivoLocal.name}`
+    );
     await uploadBytes(archivoRef, archivoLocal);
     //obtener URL
     const urlImg = await getDownloadURL(archivoRef);
@@ -138,15 +141,17 @@ function AgregarItem({ array, id, setArray }) {
                     required
                   />
                 </div>
-                <div>
-                  <p className="account__form__p">Foto del Producto:</p>
-                  <input
-                    type="file"
-                    className="account__form__input"
-                    onChange={fileHandler}
-                    id="inputFile"
-                  />
-                </div>
+                {context.estadoUsuario === 4 && (
+                  <div>
+                    <p className="account__form__p">Foto del Producto:</p>
+                    <input
+                      type="file"
+                      className="account__form__input"
+                      onChange={fileHandler}
+                      id="inputFile"
+                    />
+                  </div>
+                )}
               </div>
 
               {carga ? (

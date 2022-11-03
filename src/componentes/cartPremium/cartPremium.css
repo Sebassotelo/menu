@@ -1,0 +1,42 @@
+p {
+  font-size: 16px;
+}
+.cart__premium {
+  height: 520px;
+  width: 280px;
+  border-radius: 15px;
+  background-color: white;
+}
+
+.cart__title {
+  height: 100px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.349);
+}
+
+.cart__h3 {
+  color: black;
+  margin-top: 15px;
+}
+
+.cart__p {
+  color: black;
+  font-size: 18px;
+  text-align: center;
+}
+
+.body__cart {
+  padding: 15px;
+}
+
+.body__cart__item {
+  color: black;
+  font-size: 16px;
+}
+
+.body__cart__item span {
+  font-size: 22px;
+}
+
+.loggin__cart {
+  margin-top: 25px;
+}

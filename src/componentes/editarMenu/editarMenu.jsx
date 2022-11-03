@@ -174,7 +174,7 @@ function EditarMenu() {
     const docRef = doc(firestore, `users/${context.user.email}`);
     updateDoc(docRef, { style: style });
     setShow(!show);
-    toast.success("Foto de Perfil Subida");
+    toast.success("Configuracion Guardada");
   };
 
   if (show) {

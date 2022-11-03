@@ -109,6 +109,7 @@ function AccountView() {
       console.log("estado usuario", context.estadoUsuario);
       return infoDocu;
     } else {
+      const fecha = new Date();
       await setDoc(docRef, {
         items: [...fake],
         username: "generico",
@@ -116,6 +117,10 @@ function AccountView() {
         urlFoto: "generico",
         premium: true,
         style: {},
+        styleNoPremium: {},
+        fechaDeCreacion: `${fecha.getDate()}/${
+          fecha.getMonth() + 1
+        }/${fecha.getFullYear()} ${fecha.getHours()}:${fecha.getMinutes() + 1}`,
       });
       setUsuario(null);
       setEstadoUsuario(1);
@@ -185,6 +190,10 @@ function AccountView() {
                   </p>
                   <p>
                     <span>Pais:</span> {context.infoPublica.perfil.pais}
+                  </p>
+                  <p>
+                    <span>Premium:</span>{" "}
+                    {context.infoPublica.premium ? "Si" : "No"}
                   </p>
                   <button
                     className="account__info__button"

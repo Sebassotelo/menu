@@ -7,11 +7,23 @@ import { AiOutlineClose } from "react-icons/ai";
 
 import CarroContext from "../../context/carro/carroContext";
 import toast, { Toaster } from "react-hot-toast";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  query,
+  collection,
+  where,
+  getDocs,
+} from "firebase/firestore";
 
 function MenuItem({ title, precio, id, img, desc }) {
+  const firestore = getFirestore();
   const [cantidad, setCantidad] = useState(1);
   const [popUp, setPopUp] = useState(false);
   const [cerrarPop, setCerrarPop] = useState(false);
+  const [showImg, setShowImg] = useState(null);
 
   const { addCarrito, actuCarrito } = useContext(CarroContext);
   const context = useContext(CarroContext);
@@ -74,11 +86,29 @@ function MenuItem({ title, precio, id, img, desc }) {
     } else {
       document.body.style.overflow = "hidden";
     }
+    mostrarImg();
   }, [popUp]);
 
   const clickoutside = (e) => {
     if (!refOne?.current.contains(e.target)) {
       setPopUp(false);
+    }
+  };
+
+  let mostrar;
+
+  const mostrarImg = async () => {
+    const docRef = collection(firestore, `users`);
+    const q = query(
+      docRef,
+      where("username", "==", context.infoPublica.username)
+    );
+    const comoQuieras = await getDocs(q);
+    comoQuieras.forEach((doc) => (mostrar = doc.data()));
+    if (img) {
+      if (mostrar.premium) {
+        setShowImg(true);
+      }
     }
   };
 
@@ -110,11 +140,11 @@ function MenuItem({ title, precio, id, img, desc }) {
       </div>
       <div className={popUp ? "popup__container" : "popup__container_none"}>
         <div
-          className={img ? "popup" : "popup__sinFoto"}
+          className={showImg ? "popup" : "popup__sinFoto"}
           id="popup"
           ref={refOne}
         >
-          {img ? (
+          {showImg ? (
             <div className="popup__img">
               <img src={img} alt="" />
             </div>

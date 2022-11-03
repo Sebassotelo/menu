@@ -54,9 +54,9 @@ function MenuView() {
   let busqueda;
   let edit = false;
   useEffect(() => {
+    llamada();
     onAuthStateChanged(context.auth, inspectorSesion);
     document.title = `Menus | ${username}`;
-    llamada();
   }, []);
 
   const inspectorSesion = (usuarioFirebase) => {
@@ -86,9 +86,14 @@ function MenuView() {
 
     comoQuieras.forEach((doc) => (busqueda = doc.data()));
     if (busqueda) {
-      setStyle(busqueda.style);
-      setLetraCarrito(busqueda.style.carrito.color);
-      setLetraCompMayor(busqueda.style.compMayor.color);
+      if (busqueda.premium) {
+        setStyle(busqueda.style);
+        if (busqueda.style.carrito) {
+          setLetraCarrito(busqueda.style.carrito.color);
+          setLetraCompMayor(busqueda.style.compMayor.color);
+        }
+      }
+
       setExiste(true);
       //Edit se pasa a true si encuentra un usuario logueado, y corrobora si el usuario tiene premium
       if (edit) {

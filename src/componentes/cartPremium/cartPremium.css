@@ -14,8 +14,9 @@ p {
 }
 
 .cart__h3 {
-  color: black;
+  color: rgb(117, 15, 177);
   margin-top: 15px;
+  font-family: "Manrope", sans-serif;
 }
 
 .cart__p {

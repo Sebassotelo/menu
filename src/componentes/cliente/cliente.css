@@ -12,7 +12,8 @@
   height: 40px;
   width: 300px;
   border-radius: 15px;
-  background-color: brown;
+  background-color: rgb(117, 15, 177);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   position: absolute;
   top: -20px;
   display: grid;

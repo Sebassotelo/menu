@@ -13,7 +13,7 @@
   height: 60px;
   width: 60px;
   border-radius: 50%;
-  background-color: brown;
+  background-color: rgb(117, 15, 177);
   display: grid;
   align-items: center;
   justify-items: center;
@@ -32,7 +32,7 @@
   height: 130px;
   padding: 0 20px 0 20px;
   text-align: center;
-  color: rgb(199, 0, 0);
+  color: rgb(117, 15, 177);
   font-weight: 900;
   border-bottom: 1px solid rgba(0, 0, 0, 0.486);
   font-size: 25px;

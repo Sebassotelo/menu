@@ -114,7 +114,7 @@ function AccountView() {
         username: "generico",
         perfil: configGenerico,
         urlFoto: "generico",
-        premium: false,
+        premium: true,
         style: {},
       });
       setUsuario(null);

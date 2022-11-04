@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect, useRef } from "react";
 import CarroContext from "../../../context/carro/carroContext";
 import "./secciones.css";
 import firebaseApp from "../../../firebase/firebase";
+import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import { Link, animateScroll as scroll } from "react-scroll";
 import {
   getFirestore,
@@ -162,59 +163,6 @@ function Secciones({ item, setArray }) {
               setPrecioNuevo={setPrecioNuevo}
             />
           );
-
-          {
-            /* <MenuItem
-                title={item.title}
-                precio={item.precio}
-                desc={item.desc}
-                img={item.img}
-                id={item.id}
-              />
-
-              {editarPrecio ? (
-                <div className="edit__delete__item">
-                  <div className="edit__precio">
-                    {" "}
-                    <input
-                      type="number"
-                      placeholder="Precio"
-                      onChange={cambioPrecio}
-                     
-                    />
-                    <button
-                      onClick={() => editPrecio(item.id)}
-                      className="guardar__edit"
-                    >
-                      Guardar
-                    </button>
-                  </div>
-
-                  <button
-                    className="delete__item"
-                    onClick={() => setEditarPrecio(!editarPrecio)}
-                  >
-                    Cancelar
-                  </button>
-                </div>
-              ) : (
-                <div className="edit__delete__item">
-                  <button
-                    className="delete__item"
-                    onClick={() => deleteItem(item.id)}
-                  >
-                    Eliminar Producto
-                  </button>
-                  <button
-                    className="delete__item"
-                    onClick={() => setEditarPrecio(!editarPrecio)}
-                  >
-                    Editar Precio
-                  </button>
-                </div>
-              )}
-            </> */
-          }
         })}
       <div className="agregar__item">
         <button className="delete__seccion" onClick={deleteSeccion}>

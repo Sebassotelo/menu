@@ -20,56 +20,6 @@
   justify-items: center;
 }
 
-.navbar__noAuth {
-  height: 60px;
-  width: 100%;
-  background-color: black;
-  position: fixed;
-  top: 0;
-  display: grid;
-  grid-template-columns: 250px 1fr 250px;
-  align-items: center;
-  justify-items: center;
-  z-index: 100;
-}
-.nabvar__ul {
-  min-width: 400px;
-  width: 50%;
-  grid-column: 2/3;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center;
-  justify-items: center;
-}
-
-.navbar__item {
-  width: 100%;
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  text-align: center;
-}
-
-.loggin {
-  grid-column: 3/4;
-  background-color: white;
-  border-radius: 5px;
-  border: 1px solid white;
-  padding: 5px 10px 5px 10px;
-  color: black;
-  cursor: pointer;
-  display: grid;
-  grid-template-columns: 0.2fr 1fr;
-  align-items: center;
-  justify-items: center;
-  font-weight: 600;
-}
-
-.loggin__google {
-  font-size: 20px;
-}
-
 .home__header {
   height: 100vh;
   width: 100%;
@@ -156,7 +106,7 @@
 }
 
 .home__about {
-  min-height: 400px;
+  min-height: 600px;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.438);
   display: grid;
@@ -207,40 +157,6 @@
 }
 
 @media (max-width: 900px) {
-  .navbar__noAuth {
-    grid-template-columns: 2fr 1fr;
-  }
-  .nabvar__ul {
-    min-width: 200px;
-    width: 100%;
-    grid-column: 1/2;
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .navbar__item {
-    width: 100%;
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-    cursor: pointer;
-    text-align: center;
-  }
-  .loggin {
-    grid-column: 2/3;
-    background-color: white;
-    border-radius: 5px;
-    border: 1px solid white;
-    padding: 5px 10px 5px 10px;
-    color: black;
-    cursor: pointer;
-    display: grid;
-    grid-template-columns: 0.2fr 1fr;
-    align-items: center;
-    justify-items: center;
-    font-weight: 600;
-  }
-  .loggin p {
-    font-size: 12px;
-  }
   .header__container {
     height: 100%;
     width: 100%;
@@ -275,7 +191,7 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 1fr);
-    grid-gap: 20px;
+    grid-gap: 35px;
   }
   .about__h3 {
     font-size: 25px;

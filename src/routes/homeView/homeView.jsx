@@ -18,6 +18,7 @@ import NavbarMobile from "../../componentes/navbarMobile/navbarMobile";
 import Tarjeta from "../../componentes/tarjeta/tarjeta";
 import Cliente from "../../componentes/cliente/cliente";
 import CartPremium from "../../componentes/cartPremium/cartPremium";
+import NavbarNoAuth from "../../componentes/navbarNoAuth/navbarNoAuth";
 
 function HomeView() {
   const navigate = useNavigate();
@@ -71,49 +72,7 @@ function HomeView() {
       {/* {context.estadoUsuario > 0 ?  : ""} */}
 
       {context.estadoUsuario === 0 ? (
-        <div className="navbar__noAuth">
-          <ul className="nabvar__ul">
-            <Link
-              className="navbar__item"
-              to={"header"}
-              spy={true}
-              smooth={true}
-              duration={500}
-            >
-              Home
-            </Link>
-            <Link
-              className="navbar__item"
-              to={"about"}
-              spy={true}
-              smooth={true}
-              duration={500}
-            >
-              ¿Como funciona?
-            </Link>
-            <Link
-              className="navbar__item"
-              to={"clientes"}
-              spy={true}
-              smooth={true}
-              duration={500}
-            >
-              Clientes
-            </Link>
-          </ul>
-          <div
-            onClick={() => signInWithPopup(context.auth, googleProvider)}
-            className="loggin"
-          >
-            {" "}
-            <FcGoogle className="loggin__google" />
-            {window.innerWidth > 900 ? (
-              <p>Acceder con Google</p>
-            ) : (
-              <p>Acceder</p>
-            )}
-          </div>
-        </div>
+        <NavbarNoAuth />
       ) : (
         <>
           <Navbar />

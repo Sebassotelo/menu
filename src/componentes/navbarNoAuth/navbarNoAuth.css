@@ -1,0 +1,133 @@
+.navbar__noAuth {
+  height: 60px;
+  width: 100%;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  display: grid;
+  grid-template-columns: 250px 1fr 250px;
+  align-items: center;
+  justify-items: center;
+  z-index: 100;
+}
+.nabvar__ul {
+  min-width: 550px;
+  max-width: 650px;
+  width: 80%;
+  grid-column: 2/3;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  justify-items: center;
+}
+
+.navbar__item {
+  width: 100%;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.loggin {
+  grid-column: 3/4;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid white;
+  padding: 5px 10px 5px 10px;
+  color: black;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+  align-items: center;
+  justify-items: center;
+  font-weight: 600;
+}
+
+.loggin__google {
+  font-size: 20px;
+}
+
+@media (max-width: 900px) {
+  .navbar__noAuth__mobile__container {
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.521);
+    backdrop-filter: blur(2px);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+  }
+  .navbar__noAuth__mobile {
+    height: 300px;
+    width: 100%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 4fr 1fr;
+    align-items: center;
+    justify-items: center;
+    z-index: 100;
+  }
+
+  .navNoAuth {
+    height: 60px;
+    width: 100%;
+    background-color: black;
+    position: fixed;
+    display: grid;
+    top: 0;
+    z-index: 100;
+    align-items: center;
+    justify-items: end;
+  }
+
+  .noAuth__icon {
+    font-size: 45px;
+    color: rgba(255, 255, 255, 0.712);
+    margin-right: 15px;
+  }
+  .navNoAuthClose {
+    color: white;
+    position: absolute;
+    font-size: 45px;
+    z-index: 150;
+    bottom: -50px;
+  }
+  .loggin__mobile {
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid white;
+    padding: 5px 10px 5px 10px;
+    color: black;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+    align-items: center;
+    justify-items: center;
+    font-weight: 600;
+  }
+  .nabvar__ul__mobile {
+    width: 90%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+  }
+  .navbar__item__mobile {
+    height: 100%;
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.507);
+    display: grid;
+    align-items: center;
+    font-family: "Manrope", sans-serif;
+  }
+}

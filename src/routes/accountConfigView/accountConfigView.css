@@ -66,6 +66,30 @@
   border: none;
 }
 
+.volver {
+  position: absolute;
+  justify-self: start;
+  padding: 5px 10px 5px 10px;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 10px;
+  background-color: rgba(255, 255, 255, 0.452);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.volver__icon {
+  font-size: 20px;
+  align-self: end;
+}
+
+.volver p {
+  font-size: 18px;
+  font-weight: 900;
+  align-self: center;
+}
+
 @media (max-width: 900px) {
   .account__config {
     display: grid;

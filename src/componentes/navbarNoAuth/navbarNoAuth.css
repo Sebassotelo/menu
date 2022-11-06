@@ -48,9 +48,16 @@
 .loggin__google {
   font-size: 20px;
 }
+.navbar__noAuth__mobile__container {
+  display: none;
+}
 
 @media (max-width: 900px) {
+  .navbar__noAuth {
+    display: none;
+  }
   .navbar__noAuth__mobile__container {
+    display: grid;
     height: 100vh;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.521);

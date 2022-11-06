@@ -9,6 +9,7 @@ import MenuView from "./routes/menuView/menuView";
 import HomeView from "./routes/homeView/homeView";
 import AccountView from "./routes/accountView/accountView";
 import AccountConfigView from "./routes/accountConfigView/accountConfigView";
+import ConfirmacionView from "./routes/confirmacionView/confirmacionView";
 
 function App() {
   return (
@@ -19,6 +20,10 @@ function App() {
           <Route path=":username" element={<MenuView />} />
           <Route path="account" element={<AccountView />} />
           <Route path="account/config" element={<AccountConfigView />} />
+          <Route
+            path="account/confirmacion-de-pago-0521"
+            element={<ConfirmacionView />}
+          />
         </Routes>
       </BrowserRouter>
       <section id="footer">

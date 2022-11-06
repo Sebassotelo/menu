@@ -3,6 +3,8 @@ import CarroContext from "../../context/carro/carroContext";
 import { onAuthStateChanged } from "firebase/auth";
 import "./accountConfigView.css";
 import toast, { Toaster } from "react-hot-toast";
+
+import { BsArrowReturnLeft } from "react-icons/bs";
 import {
   getFirestore,
   doc,
@@ -35,6 +37,7 @@ function AccountConfigView() {
   const [carga, setCarga] = useState(true);
 
   const firestore = getFirestore(firebaseApp);
+
   useEffect(() => {
     onAuthStateChanged(context.auth, inspectorSesion);
   }, [context.user]);
@@ -113,6 +116,11 @@ function AccountConfigView() {
     }
   };
 
+  const guardarUsuario = async () => {
+    const docRefer = doc(firestore, `users/${context.user.email}`);
+    updateDoc(docRefer, { cliente: [...context.user] });
+  };
+
   const fileHandler = async (e) => {
     setCarga(null);
     //detectar el archivo
@@ -130,7 +138,12 @@ function AccountConfigView() {
     <div className="account">
       <Navbar />
       {context.user ? <NavbarMobile /> : ""}
+
       <div className="account__config">
+        <div className="volver" onClick={() => navigate("/account")}>
+          <BsArrowReturnLeft className="volver__icon" />
+          <p>Volver</p>
+        </div>
         <Perfil />
         <form action="" className="account__form__edit" onSubmit={subirFoto}>
           <p>Suba su foto de perfil:</p>

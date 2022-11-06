@@ -2,7 +2,7 @@ p {
   font-size: 16px;
 }
 .cart__premium {
-  height: 520px;
+  height: 590px;
   width: 280px;
   border-radius: 15px;
   background-color: white;
@@ -40,4 +40,14 @@ p {
 
 .loggin__cart {
   margin-top: 25px;
+}
+
+.cart__descripcion__premium {
+  padding: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.349);
+}
+
+.cart__descripcion__premium p {
+  color: black;
+  font-size: 14px;
 }

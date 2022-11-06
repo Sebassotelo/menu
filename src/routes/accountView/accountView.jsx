@@ -85,25 +85,38 @@ function AccountView() {
     ciudad: "",
     pais: "",
   };
+
+  /*ESTADO CLIENTE
+  0 = No esta Auth
+  1 = Authenticado pero no creo nombre de usuario
+  2 = Auth y creo nombre de usuario
+  3 = Todo el 2 y completo la seccion perfil.
+  4 = Usuario Premium
+  */
+
   const buscarOCrearUsuario = async (e) => {
     const docRef = doc(firestore, `users/${e}`);
     const consulta = await getDoc(docRef);
-    console.log(consulta);
     if (consulta.exists()) {
       const infoDocu = consulta.data();
       setUsuario(infoDocu.username);
-      setEstadoUsuario(2);
+
       setLoader(true);
       setInfoPublica(infoDocu);
       if (infoDocu.username === "generico") {
         setUsuario(null);
         setEstadoUsuario(1);
+      } else {
+        setEstadoUsuario(2);
       }
-      if (context.infoPublica.instagram !== "") {
+      if (
+        infoDocu.username !== "generico" &&
+        context.infoPublica.instagram !== ""
+      ) {
         setEstadoUsuario(3);
       }
 
-      if (context.infoPublica.premium) {
+      if (infoDocu.username !== "generico" && context.infoPublica.premium) {
         setEstadoUsuario(4);
       }
       console.log("estado usuario", context.estadoUsuario);
@@ -111,11 +124,16 @@ function AccountView() {
     } else {
       const fecha = new Date();
       await setDoc(docRef, {
+        cliente: context.user.displayName,
         items: [...fake],
         username: "generico",
         perfil: configGenerico,
         urlFoto: "generico",
         premium: true,
+        premiumPago: "",
+        premiumVence: `${fecha.getDate() + 7}/${
+          fecha.getMonth() + 1
+        }/${fecha.getFullYear()}`,
         style: {},
         styleNoPremium: {},
         fechaDeCreacion: `${fecha.getDate()}/${
@@ -160,6 +178,25 @@ function AccountView() {
         {context.user ? <Navbar /> : ""}
         {context.user ? <NavbarMobile /> : ""}
         {context.estadoUsuario > 2 ? <Perfil /> : ""}
+        {context.infoPublica.premium ? (
+          <div className="premium">
+            <p>PREMIUM</p>
+          </div>
+        ) : (
+          <div className="free">
+            <p>FREE</p>
+          </div>
+        )}
+        {context.infoPublica.premiumPago === "" && (
+          <a
+            className="suscribirse__premium"
+            href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c938084843dc178018449db8fb70860"
+          >
+            <p>
+              Suscribirse a <span>Premium</span>{" "}
+            </p>
+          </a>
+        )}
         <div className="account__container">
           {context.estadoUsuario > 0 ? (
             <>
@@ -195,6 +232,27 @@ function AccountView() {
                     <span>Premium:</span>{" "}
                     {context.infoPublica.premium ? "Si" : "No"}
                   </p>
+                  {context.infoPublica.premium && (
+                    <p>
+                      {" "}
+                      <span>
+                        Vence: {context.infoPublica.premiumVence}
+                      </span>{" "}
+                    </p>
+                  )}
+                  {context.infoPublica.premium &&
+                    context.infoPublica.premiumPago !== "" && (
+                      <p>
+                        {" "}
+                        <span>Cancelar Subscripcion</span>:{" "}
+                        <a
+                          className="cancelar__suscripcion"
+                          href="https://www.mercadopago.com.ar/subscriptions"
+                        >
+                          Subscripciones de Mercadopago
+                        </a>
+                      </p>
+                    )}
                   <button
                     className="account__info__button"
                     onClick={() => {

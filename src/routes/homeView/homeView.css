@@ -113,10 +113,6 @@
   align-items: center;
   justify-items: center;
   grid-template-rows: 80px 1fr;
-  background-image: url(https://cdn.pixabay.com/photo/2018/03/02/13/38/vegetables-3193196_960_720.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
 }
 
 .about__h3 {
@@ -133,6 +129,7 @@
 }
 
 .home__clientes {
+  border-top: 1px solid rgba(255, 255, 255, 0.226);
   min-height: 400px;
   width: 100%;
   display: grid;

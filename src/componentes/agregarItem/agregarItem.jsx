@@ -141,17 +141,16 @@ function AgregarItem({ array, id, setArray }) {
                     required
                   />
                 </div>
-                {context.estadoUsuario === 4 && (
-                  <div>
-                    <p className="account__form__p">Foto del Producto:</p>
-                    <input
-                      type="file"
-                      className="account__form__input"
-                      onChange={fileHandler}
-                      id="inputFile"
-                    />
-                  </div>
-                )}
+
+                <div>
+                  <p className="account__form__p">Foto del Producto:</p>
+                  <input
+                    type="file"
+                    className="account__form__input"
+                    onChange={fileHandler}
+                    id="inputFile"
+                  />
+                </div>
               </div>
 
               {carga ? (

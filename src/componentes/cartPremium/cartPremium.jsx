@@ -41,8 +41,18 @@ function CartPremium({ title, precio, premium, extra }) {
         ) : (
           ""
         )}
-        <div className="loggin__cart">{extra}</div>
+
+        {extra && <div className="loggin__cart">{extra}</div>}
       </div>
+      {premium && (
+        <div className="cart__descripcion__premium">
+          <p>
+            Al contratar premium se usa el servicio de suscripcion de
+            MercadoPago. Este se puede cancelar en cualquier momento a travez de
+            esta misma aplicacion.
+          </p>
+        </div>
+      )}
     </div>
   );
 }

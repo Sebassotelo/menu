@@ -14,6 +14,7 @@ function NavbarNoAuth() {
   const { setUser, setEstadoUsuario } = useContext(CarroContext);
 
   const [show, setShow] = useState(false);
+  const [mobile, setMobile] = useState(false);
 
   useEffect(() => {
     if (show === false) {
@@ -21,10 +22,17 @@ function NavbarNoAuth() {
     } else {
       document.body.style.overflow = "hidden";
     }
-  }, [show]);
 
-  if (window.innerWidth > 900) {
-    return (
+    if (window.innerWidth < 900) {
+      setMobile(false);
+    } else {
+      setMobile(true);
+    }
+    console.log(window.innerWidth);
+  }, [show, window.innerWidth]);
+
+  return (
+    <>
       <div className="navbar__noAuth">
         <ul className="nabvar__ul">
           <Link
@@ -70,86 +78,79 @@ function NavbarNoAuth() {
         >
           {" "}
           <FcGoogle className="loggin__google" />
-          {window.innerWidth > 900 ? <p>Acceder con Google</p> : <p>Acceder</p>}
+          <p>Acceder con Google</p>
         </div>
       </div>
-    );
-  }
-  if (window.innerWidth <= 900) {
-    if (show) {
-      return (
-        <>
-          <div className="navbar__noAuth__mobile__container">
-            <div className="navbar__noAuth__mobile">
-              <ul className="nabvar__ul__mobile">
-                <Link
-                  className="navbar__item__mobile"
-                  to={"header"}
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  onClick={() => setShow(false)}
-                >
-                  Home
-                </Link>
-                <Link
-                  className="navbar__item__mobile"
-                  to={"about"}
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  onClick={() => setShow(false)}
-                >
-                  ¿Como funciona?
-                </Link>
-                <Link
-                  className="navbar__item__mobile"
-                  to={"precio"}
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  onClick={() => setShow(false)}
-                >
-                  Precios
-                </Link>
-                <Link
-                  className="navbar__item__mobile"
-                  to={"clientes"}
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  onClick={() => setShow(false)}
-                >
-                  Clientes
-                </Link>
-              </ul>
-              <div
-                onClick={() => {
-                  signInWithPopup(context.auth, googleProvider);
-                  setShow(false);
-                }}
-                className="loggin__mobile"
-              >
-                {" "}
-                <FcGoogle className="loggin__google" />
-                <p>Acceder con Google</p>
-              </div>
-              <VscClose
-                className="navNoAuthClose"
+
+      {show ? (
+        <div className="navbar__noAuth__mobile__container">
+          <div className="navbar__noAuth__mobile">
+            <ul className="nabvar__ul__mobile">
+              <Link
+                className="navbar__item__mobile"
+                to={"header"}
+                spy={true}
+                smooth={true}
+                duration={500}
                 onClick={() => setShow(false)}
-              />
+              >
+                Home
+              </Link>
+              <Link
+                className="navbar__item__mobile"
+                to={"about"}
+                spy={true}
+                smooth={true}
+                duration={500}
+                onClick={() => setShow(false)}
+              >
+                ¿Como funciona?
+              </Link>
+              <Link
+                className="navbar__item__mobile"
+                to={"precio"}
+                spy={true}
+                smooth={true}
+                duration={500}
+                onClick={() => setShow(false)}
+              >
+                Precios
+              </Link>
+              <Link
+                className="navbar__item__mobile"
+                to={"clientes"}
+                spy={true}
+                smooth={true}
+                duration={500}
+                onClick={() => setShow(false)}
+              >
+                Clientes
+              </Link>
+            </ul>
+            <div
+              onClick={() => {
+                signInWithPopup(context.auth, googleProvider);
+                setShow(false);
+              }}
+              className="loggin__mobile"
+            >
+              {" "}
+              <FcGoogle className="loggin__google" />
+              <p>Acceder con Google</p>
             </div>
+            <VscClose
+              className="navNoAuthClose"
+              onClick={() => setShow(false)}
+            />
           </div>
-        </>
-      );
-    } else {
-      return (
+        </div>
+      ) : (
         <div className="navNoAuth">
           <BiMenu className="noAuth__icon" onClick={() => setShow(true)} />
         </div>
-      );
-    }
-  }
+      )}
+    </>
+  );
 }
 
 export default NavbarNoAuth;

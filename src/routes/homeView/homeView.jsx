@@ -139,7 +139,7 @@ function HomeView() {
             numero={4}
             title={"Listo! Recibe los pedidos"}
             desc={
-              "Tus clientes al terminar, les va a copiar el pedido y les va a aparecer un link a tu WhatsApp. Solo tienen que entrar y pegar el pedido"
+              "Una vez terminado el pedido, hacen click en el Link a WhatsApp, y mandan el pedido ya hecho."
             }
           />
         </div>

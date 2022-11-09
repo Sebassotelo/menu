@@ -10,6 +10,8 @@ import HomeView from "./routes/homeView/homeView";
 import AccountView from "./routes/accountView/accountView";
 import AccountConfigView from "./routes/accountConfigView/accountConfigView";
 import ConfirmacionView from "./routes/confirmacionView/confirmacionView";
+import { useEffect } from "react";
+import Footer from "./componentes/footer/footer";
 
 function App() {
   return (
@@ -27,12 +29,7 @@ function App() {
         </Routes>
       </BrowserRouter>
       <section id="footer">
-        <p className="footer">
-          Creado por{" "}
-          <a href="https://www.sebassotelo.com.ar/" target={"_blank"}>
-            <span>Sebas Sotelo</span>
-          </a>{" "}
-        </p>
+        <Footer />
       </section>
     </CarroState>
   );

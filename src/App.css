@@ -38,22 +38,6 @@
   align-items: center;
   justify-items: center;
 }
-#footer {
-  background-color: black;
-  color: white;
-}
-.footer {
-  padding: 10px 0 10px 0;
-  text-align: center;
-}
-.footer a {
-  text-decoration: none;
-  color: rgb(255, 255, 255);
-}
-
-span {
-  font-weight: 600;
-}
 
 @media (max-width: 900px) {
   .App {
@@ -63,8 +47,5 @@ span {
 
   #perfil {
     width: 100%;
-  }
-  #footer {
-    padding-bottom: 60px;
   }
 }

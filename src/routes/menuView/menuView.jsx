@@ -64,7 +64,10 @@ function MenuView() {
     if (usuarioFirebase) {
       setUser(usuarioFirebase);
       setEstadoUsuario(1);
-      setPadding("60px");
+      if (window.innerWidth > 900) {
+        setPadding("60px");
+      }
+
       //Si hay usuario logueado, edit pasa a true
       edit = true;
       if (username === "null") {

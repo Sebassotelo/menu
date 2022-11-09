@@ -91,6 +91,9 @@
 }
 
 @media (max-width: 900px) {
+  .account {
+    padding-top: 0px;
+  }
   .account__config {
     display: grid;
     grid-gap: 40px;

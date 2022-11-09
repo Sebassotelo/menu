@@ -1,9 +1,4 @@
-.App {
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
-  display: grid;
-  padding-top: 50px;
+.app__container {
   background-color: #ffda99;
   background-color: #ff99a8;
   background-image: radial-gradient(
@@ -17,6 +12,12 @@
     radial-gradient(at 43% 23%, hsla(56, 70%, 78%, 1) 0px, transparent 50%),
     radial-gradient(at 60% 8%, hsla(256, 88%, 78%, 1) 0px, transparent 50%),
     radial-gradient(at 57% 31%, hsla(308, 87%, 79%, 1) 0px, transparent 50%);
+}
+.App {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  display: grid;
 }
 
 #perfil {
@@ -57,10 +58,13 @@ span {
 @media (max-width: 900px) {
   .App {
     width: 100vw;
-    padding-top: 50px;
+    padding-top: 0px;
   }
 
   #perfil {
     width: 100%;
+  }
+  #footer {
+    padding-bottom: 60px;
   }
 }

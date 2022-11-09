@@ -216,6 +216,9 @@
 }
 
 @media (max-width: 900px) {
+  .account {
+    padding-top: 0px;
+  }
   .account__container {
     width: 90%;
     max-width: 800px;

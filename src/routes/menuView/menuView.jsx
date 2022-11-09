@@ -107,23 +107,25 @@ function MenuView() {
       setLoader(true);
     }
   };
-  //  { paddingTop: padding }
+
   if (loader) {
     if (existe) {
       return (
-        <div className="App" style={context.style.fondo} id="app">
-          {context.user ? <Navbar /> : ""}
-          {context.user ? <NavbarMobile /> : ""}
+        <div style={{ paddingTop: padding }} className="app__container">
+          <div className="App" style={context.style.fondo} id="app">
+            {context.user ? <Navbar /> : ""}
+            {context.user ? <NavbarMobile /> : ""}
 
-          {context.estadoUsuario === 4 ? <EditarMenu /> : null}
-          <Carrito />
-          <section id="perfil">
-            <Perfil />
-          </section>
+            {context.estadoUsuario === 4 ? <EditarMenu /> : null}
+            <Carrito />
+            <section id="perfil">
+              <Perfil />
+            </section>
 
-          <section id="menu">
-            <Menu />
-          </section>
+            <section id="menu">
+              <Menu />
+            </section>
+          </div>
         </div>
       );
     } else {

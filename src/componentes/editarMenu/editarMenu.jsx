@@ -26,6 +26,7 @@ function EditarMenu() {
   const [show, setShow] = useState(false);
   const [loader, setLoader] = useState(false);
   const [fondo, setFondo] = useState(true);
+  const [paddi, setPaddi] = useState("0px");
 
   const [colorFondo, setColorFondo] = useState("");
   const [url, setUrl] = useState("");
@@ -44,6 +45,8 @@ function EditarMenu() {
   const [borderCarrito, setBorderCarrito] = useState("");
 
   const [colorFontPerfil, setColorFontPerfil] = useState("");
+
+  useEffect(() => {}, []);
 
   const style = {
     perfil: {

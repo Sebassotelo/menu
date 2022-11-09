@@ -18,13 +18,14 @@ import AgregarItem from "../../agregarItem/agregarItem";
 import toast, { Toaster } from "react-hot-toast";
 import ItemSeccion from "./itemSeccion/itemSeccion";
 
-function Secciones({ item, setArray }) {
+function Secciones({ item, setArray, arrayItems }) {
   const context = useContext(CarroContext);
   const { setMenuCompleto } = useContext(CarroContext);
   const firestore = getFirestore(firebaseApp);
   const [show, setShow] = useState(false);
   const [editarPrecio, setEditarPrecio] = useState(false);
   const [precioNuevo, setPrecioNuevo] = useState(null);
+  const [showPosicion, setShowPosicion] = useState(false);
 
   const editPrecio = async (e) => {
     //traemos los datos de base de datos
@@ -106,7 +107,6 @@ function Secciones({ item, setArray }) {
     });
     setArray(arrayOrdenado);
     toast.success("Item Eliminado");
-    console.log("obd eliminado", newArray);
   };
 
   const deleteSeccion = async () => {
@@ -132,6 +132,60 @@ function Secciones({ item, setArray }) {
     console.log(precioNuevo);
   };
 
+  const reorderPrimerLugar = () => {
+    const itemFiltrado = arrayItems.filter((e) => e.seccion === item.seccion);
+
+    if (itemFiltrado[0].seccion !== arrayItems[0].seccion) {
+      const seccFiltrada = arrayItems.filter(
+        (e, i) => e.seccion !== item.seccion
+      );
+
+      seccFiltrada.splice(0, 0, itemFiltrado[0]);
+
+      setArray(seccFiltrada);
+      const docRef = doc(firestore, `users/${context.user.email}`);
+      updateDoc(docRef, { items: [...seccFiltrada] });
+      toast.success("Seccion Guardada");
+    } else {
+      toast.error("Ya se encuentra en ese lugar");
+    }
+  };
+  const reorderSegundoLugar = () => {
+    const itemFiltrado = arrayItems.filter((e) => e.seccion === item.seccion);
+
+    if (itemFiltrado[0].seccion !== arrayItems[1].seccion) {
+      const seccFiltrada = arrayItems.filter(
+        (e, i) => e.seccion !== item.seccion
+      );
+
+      seccFiltrada.splice(1, 0, itemFiltrado[0]);
+
+      setArray(seccFiltrada);
+      const docRef = doc(firestore, `users/${context.user.email}`);
+      updateDoc(docRef, { items: [...seccFiltrada] });
+      toast.success("Seccion Guardada");
+    } else {
+      toast.error("Ya se encuentra en ese lugar");
+    }
+  };
+  const reorderTercerLugar = () => {
+    const itemFiltrado = arrayItems.filter((e) => e.seccion === item.seccion);
+    if (itemFiltrado[0].seccion !== arrayItems[2].seccion) {
+      const seccFiltrada = arrayItems.filter(
+        (e, i) => e.seccion !== item.seccion
+      );
+
+      seccFiltrada.splice(2, 0, itemFiltrado[0]);
+
+      setArray(seccFiltrada);
+      const docRef = doc(firestore, `users/${context.user.email}`);
+      updateDoc(docRef, { items: [...seccFiltrada] });
+      toast.success("Seccion Guardada");
+    } else {
+      toast.error("Ya se encuentra en ese lugar");
+    }
+  };
+
   {
     /* Mapeamos los items individuales */
   }
@@ -151,7 +205,6 @@ function Secciones({ item, setArray }) {
           </>
         )}
       </div>
-
       {show &&
         item.seccionItems.map((item, i) => {
           return (
@@ -170,7 +223,43 @@ function Secciones({ item, setArray }) {
         </button>
         <AgregarItem array={item} setArray={setArray} />
       </div>
-      <div></div>
+      <div className="ordenar__seccions">
+        {!showPosicion && (
+          <p onClick={() => setShowPosicion(true)}>Cambiar de Posicion</p>
+        )}
+        {showPosicion && (
+          <>
+            <div className="ordenar__p">
+              <p
+                onClick={() => {
+                  setShowPosicion(false);
+                  reorderPrimerLugar();
+                }}
+              >
+                1ero
+              </p>
+              <p
+                onClick={() => {
+                  setShowPosicion(false);
+                  reorderSegundoLugar();
+                }}
+              >
+                2do
+              </p>
+              <p
+                onClick={() => {
+                  setShowPosicion(false);
+                  reorderTercerLugar();
+                }}
+              >
+                3ero
+              </p>
+            </div>
+            <p onClick={() => setShowPosicion(false)}>Cancelar</p>{" "}
+          </>
+        )}
+      </div>
+      <Toaster position="top-center" className="notificacion" />
     </div>
   );
 }

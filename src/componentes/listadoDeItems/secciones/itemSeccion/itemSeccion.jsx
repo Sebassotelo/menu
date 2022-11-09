@@ -34,7 +34,7 @@ function ItemSeccion({
   };
 
   return (
-    <>
+    <div className="item__seccion__div">
       <MenuItem
         title={item.title}
         precio={item.precio}
@@ -85,7 +85,7 @@ function ItemSeccion({
           </button>
         </div>
       )}
-    </>
+    </div>
   );
 }
 

@@ -30,6 +30,7 @@
   grid-gap: 15px;
   align-items: center;
   justify-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.418);
 }
 
 .edit__item__container {
@@ -76,6 +77,36 @@
 .edit__precio {
 }
 
+.ordenar__seccions {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-gap: 15px;
+}
+.ordenar__seccions p {
+  background-color: white;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.425);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.ordenar__p {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+.ordenar__p p {
+  background-color: black;
+  padding: 10px;
+  border-radius: 15px;
+  color: white;
+  font-weight: 900;
+  cursor: pointer;
+}
 @media (max-width: 900px) {
   .array__verMas:hover {
     background-color: white;

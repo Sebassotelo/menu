@@ -167,6 +167,7 @@ function AccountView() {
       setArray(newArray);
       updateDoc(docRef, { items: [...newArray] });
       toast.success(`Seccion ${containerSeccion} agregada correctamente`);
+      e.target.inputAgregar.value = "";
     } else {
       toast.error(`Escriba un nombre para la seccion`);
     }
@@ -292,6 +293,7 @@ function AccountView() {
                   <input
                     className="account__form__input"
                     type="text"
+                    id="inputAgregar"
                     placeholder="Nombre de Seccion"
                     onChange={manejarSeccion}
                   />

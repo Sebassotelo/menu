@@ -148,7 +148,7 @@ function ConfirmacionView() {
       );
       setNewPremium(true);
     } else {
-      navigate(`/account`);
+      // navigate(`/account`);
     }
   };
 

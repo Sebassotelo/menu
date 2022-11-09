@@ -50,7 +50,15 @@ function ListadoDeItems({ arrayItems, setArray }) {
 
       {arrayItems &&
         arrayItems.map((item, i) => {
-          return <Secciones item={item} setArray={setArray} />;
+          return (
+            <>
+              <Secciones
+                item={item}
+                setArray={setArray}
+                arrayItems={arrayItems}
+              />
+            </>
+          );
         })}
       <Toaster position="top-center" className="notificacion" />
     </div>

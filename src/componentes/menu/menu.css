@@ -55,7 +55,7 @@
   -ms-flex-align: center;
   align-items: center;
   justify-items: center;
-  font-weight: 600;
+  font-weight: 900;
   cursor: pointer;
   -webkit-transition-duration: 0.3s;
   -o-transition-duration: 0.3s;
@@ -81,13 +81,13 @@
 .hambur {
   width: 100%;
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 25px;
 }
 
 .menu__title {
-  font-weight: 600;
+  font-weight: 900;
   font-size: 30px;
-  text-shadow: 1px 1px #797979;
+  padding: 0 0 5px 0;
 }
 
 .menu__seccionItems {

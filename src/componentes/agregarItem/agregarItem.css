@@ -83,7 +83,7 @@
 
 .add__item__popup {
   height: 40px;
-  width: 140px;
+  width: 150px;
   display: grid;
   align-items: center;
   justify-items: center;
@@ -94,7 +94,7 @@
 }
 .add__item__popup p {
   font-size: 16px;
-  font-weight: 800;
+  font-weight: 500;
   color: rgb(0, 0, 0);
 }
 

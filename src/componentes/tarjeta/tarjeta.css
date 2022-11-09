@@ -40,6 +40,10 @@
   align-items: center;
   justify-items: center;
 }
+.tarjeta__title h3 {
+  font-weight: 700;
+  font-size: 28px;
+}
 
 .tarjeta__text {
   margin-top: 20px;

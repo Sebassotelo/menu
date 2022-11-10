@@ -1,0 +1,96 @@
+textarea {
+  height: 0;
+  width: 0;
+}
+.contacto__form {
+  width: 480px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.479);
+  margin-bottom: 15px;
+  display: grid;
+  justify-items: center;
+}
+
+.contacto__h3 {
+  text-align: center;
+  margin: 10px 0 10px 0;
+  width: 200px;
+  font-size: 25px;
+  font-weight: 500;
+  border-bottom: 2px solid white;
+}
+
+.form__container {
+  min-height: 350px;
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  grid-gap: 10px;
+  position: relative;
+}
+
+.form__container__subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  color: black;
+}
+
+.form__container__input {
+  width: 90%;
+  border: none;
+  border-radius: 15px;
+  min-height: 40px;
+  padding-left: 15px;
+  outline: none;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.msj {
+  padding-top: 15px;
+  width: 90% !important;
+  min-height: 200px;
+  resize: none;
+}
+
+.form__container__submit {
+  background-color: white;
+  font-weight: 600;
+  height: 40px;
+  width: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.473);
+  border-radius: 15px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.btn__form__contact {
+  padding: 20px 0 20px 0;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-gap: 10px;
+}
+
+.btn__form__contact p {
+  color: black;
+  background-color: rgb(255, 255, 255);
+  padding: 5px 10px 5px 10px;
+  border-radius: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.452);
+  cursor: pointer;
+}
+
+.form__container__close {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.863);
+  font-size: 35px;
+  bottom: 10px;
+  right: 10px;
+}
+
+@media (max-width: 900px) {
+  .contacto__form {
+    width: 90%;
+  }
+}

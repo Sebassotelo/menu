@@ -32,6 +32,7 @@ import ListadoDeItems from "../../componentes/listadoDeItems/listadoDeItems";
 import AgregarItem from "../../componentes/agregarItem/agregarItem";
 import Perfil from "../../componentes/perfil/perfil";
 import NavbarMobile from "../../componentes/navbarMobile/navbarMobile";
+import Contacto from "../../componentes/contacto/contacto";
 
 function AccountView() {
   const navigate = useNavigate();
@@ -310,8 +311,10 @@ function AccountView() {
               </div>
             </div>
           )}
+
           <Toaster position="top-center" className="notificacion" />
         </div>
+        <Contacto />
       </div>
     );
   } else {

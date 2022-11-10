@@ -72,8 +72,11 @@ function Contacto() {
       ) : (
         <div className="btn__form__contact">
           {" "}
-          <h3>Tenes algun problema?</h3>
-          <p onClick={() => setShow(true)}>Mandanos un Mensaje</p>
+          <h3>Tenes alguna duda o problema?</h3>
+          <p className="btn__form__p" onClick={() => setShow(true)}>
+            Mandanos un Mensaje
+          </p>
+          <p>Te responderemos lo mas pronto posible</p>
         </div>
       )}
       <Toaster position="top-center" className="notificacion" />

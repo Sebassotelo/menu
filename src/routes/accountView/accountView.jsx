@@ -23,6 +23,8 @@ import {
   getDocs,
 } from "firebase/firestore";
 
+import { AiOutlineShoppingCart, AiOutlineClose } from "react-icons/ai";
+
 import { useNavigate } from "react-router-dom";
 
 import firebaseApp from "../../firebase/firebase";
@@ -48,6 +50,8 @@ function AccountView() {
   const [array, setArray] = useState(null);
   const [containerSeccion, setContainerSeccion] = useState("");
   const [loader, setLoader] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
+  const [nuevaSeccion, setNuevaSeccion] = useState(false);
 
   const firestore = getFirestore(firebaseApp);
 
@@ -204,65 +208,83 @@ function AccountView() {
             <>
               {context.usuario ? (
                 <div className="account__info">
-                  <div></div>
-                  <h2>Informacion:</h2>
-                  <p>
-                    <span>Correo de inicio de Sesion: </span>{" "}
-                    {context.user.email}
-                  </p>
-                  <p>
-                    <span>Usuario:</span> {context.usuario}
-                  </p>
-                  <p>
-                    <span>Instagram:</span>{" "}
-                    {context.infoPublica.perfil.usuarioInstagram}
-                  </p>
-                  <p>
-                    <span>WhatsApp:</span> {context.infoPublica.perfil.whatsapp}
-                  </p>
-                  <p>
-                    <span>Direccion:</span>{" "}
-                    {context.infoPublica.perfil.direccion}
-                  </p>
-                  <p>
-                    <span>Ciudad:</span> {context.infoPublica.perfil.ciudad}
-                  </p>
-                  <p>
-                    <span>Pais:</span> {context.infoPublica.perfil.pais}
-                  </p>
-                  <p>
-                    <span>Premium:</span>{" "}
-                    {context.infoPublica.premium ? "Si" : "No"}
-                  </p>
-                  {context.infoPublica.premium && (
-                    <p>
-                      {" "}
-                      <span>
-                        Vence: {context.infoPublica.premiumVence}
-                      </span>{" "}
-                    </p>
-                  )}
-                  {context.infoPublica.premium &&
-                    context.infoPublica.premiumPago !== "" && (
+                  {showInfo ? (
+                    <div className="account__info__container">
+                      <AiOutlineClose
+                        className="account__info__close"
+                        onClick={() => setShowInfo(false)}
+                      />
+                      <h2>Informacion:</h2>
                       <p>
-                        {" "}
-                        <span>Cancelar Subscripcion</span>:{" "}
-                        <a
-                          className="cancelar__suscripcion"
-                          href="https://www.mercadopago.com.ar/subscriptions"
-                        >
-                          Subscripciones de Mercadopago
-                        </a>
+                        <span>Correo de inicio de Sesion: </span>{" "}
+                        {context.user.email}
                       </p>
-                    )}
-                  <button
-                    className="account__info__button"
-                    onClick={() => {
-                      navigate("/account/config");
-                    }}
-                  >
-                    Editar
-                  </button>
+                      <p>
+                        <span>Usuario:</span> {context.usuario}
+                      </p>
+                      <p>
+                        <span>Instagram:</span>{" "}
+                        {context.infoPublica.perfil.usuarioInstagram}
+                      </p>
+                      <p>
+                        <span>WhatsApp:</span>{" "}
+                        {context.infoPublica.perfil.whatsapp}
+                      </p>
+                      <p>
+                        <span>Direccion:</span>{" "}
+                        {context.infoPublica.perfil.direccion}
+                      </p>
+                      <p>
+                        <span>Ciudad:</span> {context.infoPublica.perfil.ciudad}
+                      </p>
+                      <p>
+                        <span>Pais:</span> {context.infoPublica.perfil.pais}
+                      </p>
+                      <p>
+                        <span>Premium:</span>{" "}
+                        {context.infoPublica.premium ? "Si" : "No"}
+                      </p>
+
+                      {context.infoPublica.premium && (
+                        <p>
+                          {" "}
+                          <span>
+                            Vence: {context.infoPublica.premiumVence}
+                          </span>{" "}
+                        </p>
+                      )}
+                      {context.infoPublica.premium &&
+                        context.infoPublica.premiumPago !== "" && (
+                          <p>
+                            {" "}
+                            <span>Cancelar Subscripcion</span>:{" "}
+                            <a
+                              className="cancelar__suscripcion"
+                              href="https://www.mercadopago.com.ar/subscriptions"
+                            >
+                              Subscripciones de Mercadopago
+                            </a>
+                          </p>
+                        )}
+                      <button
+                        className="account__info__button"
+                        onClick={() => {
+                          navigate("/account/config");
+                        }}
+                      >
+                        Editar
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="account__info__container">
+                      <p
+                        className="mostrar__info__p"
+                        onClick={() => setShowInfo(true)}
+                      >
+                        Mostrar Informacion
+                      </p>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <div className="seccion__container">
@@ -284,23 +306,42 @@ function AccountView() {
 
           {context.user ? (
             <>
-              <div className="seccion__container">
-                <h2>Agregar Seccion</h2>
-                <form
-                  action=""
-                  className="seccion__form"
-                  onSubmit={agregarSeccion}
-                >
-                  <input
-                    className="account__form__input"
-                    type="text"
-                    id="inputAgregar"
-                    placeholder="Nombre de Seccion"
-                    onChange={manejarSeccion}
-                  />
-                  <button className="seccion__button">Agregar Seccion</button>
-                </form>
+              <div className="navbar__secciones__div">
+                {" "}
+                <h3 className="navbar__secciones__h3">Secciones</h3>
               </div>
+
+              {nuevaSeccion ? (
+                <div className="seccion__container">
+                  <AiOutlineClose
+                    className="account__info__close"
+                    onClick={() => setNuevaSeccion(false)}
+                    style={{ color: "black", margin: "7px 7px 0 0" }}
+                  />
+                  <h2>Agregar Seccion</h2>
+                  <form
+                    action=""
+                    className="seccion__form"
+                    onSubmit={agregarSeccion}
+                  >
+                    <input
+                      className="account__form__input"
+                      type="text"
+                      id="inputAgregar"
+                      placeholder="Nombre de Seccion"
+                      onChange={manejarSeccion}
+                    />
+                    <button className="seccion__button">Agregar Seccion</button>
+                  </form>
+                </div>
+              ) : (
+                <div
+                  className="add__seccion__nueva"
+                  onClick={() => setNuevaSeccion(true)}
+                >
+                  <p>Agregar Seccion Nueva</p>
+                </div>
+              )}
               <ListadoDeItems arrayItems={array} setArray={setArray} />
             </>
           ) : (

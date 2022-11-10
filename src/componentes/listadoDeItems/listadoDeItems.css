@@ -88,15 +88,6 @@
   margin: 0;
 }
 
-.navbar__secciones h3 {
-  font-size: 25px;
-  font-weight: 600;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.678);
-  width: 200px;
-  text-align: center;
-  color: black;
-}
-
 @media (max-width: 900px) {
   .arrayitem {
     min-width: 280px;

@@ -70,11 +70,38 @@
   grid-gap: 20px;
 }
 
+.account__info__container {
+  width: 100%;
+  display: grid;
+  grid-gap: 5px;
+  position: relative;
+}
+
 .account__info__button {
   height: 40px;
   border: none;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
+  width: 100%;
+}
+
+.mostrar__info__p {
+  justify-self: center;
+  border-bottom: none;
+  padding: 5px 10px 5px 10px;
+  background-color: white;
+  color: black;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.account__info__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 28px;
+  cursor: pointer;
 }
 
 .premium {
@@ -143,9 +170,28 @@
   border-radius: 15px;
   padding: 15px;
   grid-gap: 10px;
+  position: relative;
 }
 .seccion__container h2 {
   color: black;
+}
+
+.navbar__secciones__div {
+  display: grid;
+  width: 100%;
+  justify-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.479);
+}
+
+.navbar__secciones__h3 {
+  font-size: 25px;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.678);
+  width: 200px;
+  text-align: center;
+  color: black;
+  justify-self: center;
+  font-size: 32px;
 }
 .seccion__form {
   width: 200px;
@@ -163,6 +209,17 @@
   color: rgb(0, 0, 0);
   border: 1px solid rgba(0, 0, 0, 0.418);
   font-weight: 600;
+}
+
+.add__seccion__nueva {
+  justify-self: center;
+  padding: 5px 10px 5px 10px;
+  border-radius: 15px;
+  background-color: white;
+  color: black;
+  font-weight: 500;
+  border: 1px solid rgba(138, 5, 5, 0.945);
+  cursor: pointer;
 }
 
 .loader {
@@ -237,7 +294,7 @@
   }
   .seccion__container {
     justify-self: center;
-    width: 200px;
+    width: 250px;
     display: grid;
     align-items: center;
     justify-items: center;

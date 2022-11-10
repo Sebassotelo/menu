@@ -28,7 +28,6 @@ function ListadoDeItems({ arrayItems, setArray }) {
       {/*Mapeamos el items entero */}
 
       <div className="navbar__secciones">
-        <h3>Secciones</h3>
         <div className="menu__navbar secciones">
           {arrayItems &&
             arrayItems.map((a, i) => {

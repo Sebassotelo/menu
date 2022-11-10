@@ -88,7 +88,7 @@ textarea {
   position: absolute;
   color: rgba(255, 255, 255, 0.863);
   font-size: 35px;
-  bottom: 10px;
+  top: -40px;
   right: 10px;
   cursor: pointer;
 }

@@ -228,6 +228,14 @@
   justify-items: center;
 }
 
+.video__tutorial {
+  color: white;
+  background-color: black;
+  padding: 5px 10px 5px 10px;
+  border-radius: 15px;
+  text-decoration: none;
+}
+
 .lds-ripple {
   display: inline-block;
   position: relative;

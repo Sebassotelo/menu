@@ -52,6 +52,7 @@ function AccountView() {
   const [loader, setLoader] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
   const [nuevaSeccion, setNuevaSeccion] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
 
   const firestore = getFirestore(firebaseApp);
 
@@ -192,6 +193,17 @@ function AccountView() {
           <div className="free">
             <p>FREE</p>
           </div>
+        )}
+        {context.estadoUsuario < 2 && (
+          <iframe
+            width={window.innerWidth > 900 ? "560" : "95%"}
+            height={window.innerWidth > 900 ? "315" : "280"}
+            src="https://www.youtube.com/embed/qz8auRoB78U"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         )}
         {context.infoPublica.premiumPago === "" && (
           <a
@@ -354,6 +366,15 @@ function AccountView() {
           )}
 
           <Toaster position="top-center" className="notificacion" />
+        </div>
+        <div>
+          <a
+            href="https://www.youtube.com/watch?v=qz8auRoB78U&t=10s&ab_channel=SebasSotelo"
+            target={"_blank"}
+            className="video__tutorial"
+          >
+            Ver Video Tutorial
+          </a>
         </div>
         <Contacto />
       </div>

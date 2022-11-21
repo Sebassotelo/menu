@@ -132,63 +132,10 @@ function Secciones({ item, setArray, arrayItems }) {
     console.log(precioNuevo);
   };
 
-  const reorderPrimerLugar = () => {
-    const itemFiltrado = arrayItems.filter((e) => e.seccion === item.seccion);
-
-    if (itemFiltrado[0].seccion !== arrayItems[0].seccion) {
-      const seccFiltrada = arrayItems.filter(
-        (e, i) => e.seccion !== item.seccion
-      );
-
-      seccFiltrada.splice(0, 0, itemFiltrado[0]);
-
-      setArray(seccFiltrada);
-      const docRef = doc(firestore, `users/${context.user.email}`);
-      updateDoc(docRef, { items: [...seccFiltrada] });
-      toast.success("Seccion Guardada");
-    } else {
-      toast.error("Ya se encuentra en ese lugar");
-    }
-  };
-  const reorderSegundoLugar = () => {
-    const itemFiltrado = arrayItems.filter((e) => e.seccion === item.seccion);
-
-    if (itemFiltrado[0].seccion !== arrayItems[1].seccion) {
-      const seccFiltrada = arrayItems.filter(
-        (e, i) => e.seccion !== item.seccion
-      );
-
-      seccFiltrada.splice(1, 0, itemFiltrado[0]);
-
-      setArray(seccFiltrada);
-      const docRef = doc(firestore, `users/${context.user.email}`);
-      updateDoc(docRef, { items: [...seccFiltrada] });
-      toast.success("Seccion Guardada");
-    } else {
-      toast.error("Ya se encuentra en ese lugar");
-    }
-  };
-  const reorderTercerLugar = () => {
-    const itemFiltrado = arrayItems.filter((e) => e.seccion === item.seccion);
-    if (itemFiltrado[0].seccion !== arrayItems[2].seccion) {
-      const seccFiltrada = arrayItems.filter(
-        (e, i) => e.seccion !== item.seccion
-      );
-
-      seccFiltrada.splice(2, 0, itemFiltrado[0]);
-
-      setArray(seccFiltrada);
-      const docRef = doc(firestore, `users/${context.user.email}`);
-      updateDoc(docRef, { items: [...seccFiltrada] });
-      toast.success("Seccion Guardada");
-    } else {
-      toast.error("Ya se encuentra en ese lugar");
-    }
-  };
-
   {
     /* Mapeamos los items individuales */
   }
+
   return (
     <div className="arrayitem" id={item.seccion}>
       <h2 className="arrayitem__title">{item.seccion}:</h2>
@@ -223,42 +170,7 @@ function Secciones({ item, setArray, arrayItems }) {
         </button>
         <AgregarItem array={item} setArray={setArray} />
       </div>
-      <div className="ordenar__seccions">
-        {!showPosicion && (
-          <p onClick={() => setShowPosicion(true)}>Cambiar de Posicion</p>
-        )}
-        {showPosicion && (
-          <>
-            <div className="ordenar__p">
-              <p
-                onClick={() => {
-                  setShowPosicion(false);
-                  reorderPrimerLugar();
-                }}
-              >
-                1ero
-              </p>
-              <p
-                onClick={() => {
-                  setShowPosicion(false);
-                  reorderSegundoLugar();
-                }}
-              >
-                2do
-              </p>
-              <p
-                onClick={() => {
-                  setShowPosicion(false);
-                  reorderTercerLugar();
-                }}
-              >
-                3ero
-              </p>
-            </div>
-            <p onClick={() => setShowPosicion(false)}>Cancelar</p>{" "}
-          </>
-        )}
-      </div>
+
       <Toaster position="top-center" className="notificacion" />
     </div>
   );

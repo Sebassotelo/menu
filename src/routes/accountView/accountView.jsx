@@ -62,12 +62,6 @@ function AccountView() {
     fetchTareas();
   }, [context.user]);
 
-  const fetchTareas = async () => {
-    const tareasFetchadas = await buscarOCrearUsuario(context.user.email);
-    setMenuCompleto(tareasFetchadas.items);
-    setArray(tareasFetchadas.items);
-  };
-
   const inspectorSesion = (usuarioFirebase) => {
     //en caso de que haya seison iniciada
     if (usuarioFirebase) {
@@ -99,6 +93,11 @@ function AccountView() {
   3 = Todo el 2 y completo la seccion perfil.
   4 = Usuario Premium
   */
+  const fetchTareas = async () => {
+    const tareasFetchadas = await buscarOCrearUsuario(context.user.email);
+    setMenuCompleto(tareasFetchadas.items);
+    setArray(tareasFetchadas.items);
+  };
 
   const buscarOCrearUsuario = async (e) => {
     const docRef = doc(firestore, `users/${e}`);

@@ -88,7 +88,7 @@
   justify-self: start !important;
 }
 .reordenar__icon:active {
-  color: rgba(6, 160, 180, 0.671);
+  color: rgba(123, 39, 202, 0.671);
 }
 
 @media (max-width: 900px) {

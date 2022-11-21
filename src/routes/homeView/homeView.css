@@ -1,16 +1,12 @@
 .home {
-  background-color: hsla(289, 0%, 0%, 1);
+  background-color: hsla(291, 0%, 100%, 1);
   background-image: radial-gradient(
-      at 44% 40%,
-      hsla(272, 95%, 71%, 1) 0px,
+      at 21% 15%,
+      hsla(246, 96%, 78%, 1) 0px,
       transparent 50%
     ),
-    radial-gradient(at 30% 25%, hsla(285, 70%, 71%, 1) 0px, transparent 50%),
-    radial-gradient(at 85% 96%, hsla(186, 0%, 0%, 1) 0px, transparent 50%),
-    radial-gradient(at 10% 49%, hsla(44, 81%, 78%, 1) 0px, transparent 50%),
-    radial-gradient(at 85% 70%, hsla(313, 86%, 61%, 1) 0px, transparent 50%),
-    radial-gradient(at 43% 39%, hsla(240, 37%, 30%, 1) 0px, transparent 50%),
-    radial-gradient(at 84% 78%, hsla(309, 94%, 69%, 1) 0px, transparent 50%);
+    radial-gradient(at 42% 91%, hsla(305, 100%, 71%, 0.67) 0px, transparent 50%),
+    radial-gradient(at 82% 32%, hsla(284, 100%, 65%, 0.8) 0px, transparent 50%);
   color: white;
 
   width: 100%;
@@ -88,7 +84,7 @@
 .title__p {
   font-size: 20px;
   font-weight: 800;
-  color: rgb(255, 184, 52);
+  color: rgb(88, 0, 0);
 }
 
 .header__img {
@@ -117,8 +113,9 @@
 
 .about__h3 {
   font-size: 30px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid rgb(0, 0, 0);
   padding: 15px;
+  color: black;
 }
 
 .about__tarjeta {

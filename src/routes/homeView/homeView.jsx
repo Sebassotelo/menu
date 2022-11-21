@@ -104,7 +104,12 @@ function HomeView() {
       </section>
 
       <section id="about" className="home__about">
-        <h3 className="about__h3">¿Como Funciona Menus?</h3>
+        <h3
+          className="about__h3"
+          style={{ color: "white", borderColor: "white" }}
+        >
+          ¿Como Funciona Menus?
+        </h3>
         <div className="about__tarjeta">
           <Tarjeta
             numero={1}

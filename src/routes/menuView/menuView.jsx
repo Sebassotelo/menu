@@ -57,7 +57,12 @@ function MenuView() {
   useEffect(() => {
     llamada();
     onAuthStateChanged(context.auth, inspectorSesion);
-    document.title = `Menus | ${username}`;
+
+    if (window.location.href === "https://www.jstore.com.ar/") {
+      document.title = `Catalogo | ${username}`;
+    } else {
+      document.title = `Menus | ${username}`;
+    }
   }, []);
 
   const inspectorSesion = (usuarioFirebase) => {

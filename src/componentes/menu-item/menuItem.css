@@ -30,10 +30,10 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .item__info {
-  grid-column: 2/3;
   padding: 10px;
   -webkit-user-select: none;
   -moz-user-select: none;

@@ -34,6 +34,10 @@ function HomeView() {
     onAuthStateChanged(context.auth, inspectorSesion);
     console.log("estado usuario", context.estadoUsuario);
     document.title = "Menus | Tu menu online";
+
+    // if (window.location.href === "http://localhost:3000/") {
+    //   navigate("menu");
+    // }
   }, []);
 
   const inspectorSesion = (usuarioFirebase) => {

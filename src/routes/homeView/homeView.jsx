@@ -35,9 +35,9 @@ function HomeView() {
     console.log("estado usuario", context.estadoUsuario);
     document.title = "Menus | Tu menu online";
 
-    // if (window.location.href === "http://localhost:3000/") {
-    //   navigate("menu");
-    // }
+    if (window.location.href === "https://www.jstore.com.ar/") {
+      navigate("/SrasMedias");
+    }
   }, []);
 
   const inspectorSesion = (usuarioFirebase) => {

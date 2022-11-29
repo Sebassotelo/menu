@@ -3,7 +3,7 @@
   width: 100%;
   border-radius: 5px;
   display: grid;
-  grid-template-columns: 2.3fr 1fr;
+  grid-template-columns: 1fr 2.3fr 1fr;
   -webkit-box-shadow: rgb(38 50 56 / 16%) 0px 8px 16px,
     rgb(0 0 0 / 30%) 0px 4px 5px -4px, rgb(255 255 255 / 50%) 0px 2px 5px inset,
     rgb(0 0 0 / 20%) 0px -1px 3px inset;
@@ -21,12 +21,19 @@
   opacity: 0.3;
 }
 
-.menu__background img {
-  -o-object-fit: cover;
-  object-fit: cover;
+.item__img {
+  align-self: center;
+  justify-self: center;
+  height: 90%;
+  width: 90%;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .item__info {
+  grid-column: 2/3;
   padding: 10px;
   -webkit-user-select: none;
   -moz-user-select: none;

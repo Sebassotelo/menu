@@ -116,6 +116,10 @@ function MenuItem({ title, precio, id, img, desc }) {
     <>
       {" "}
       <div className="menu__item" style={context.style.compProd}>
+        <div
+          className="item__img"
+          style={{ backgroundImage: `url(${img})` }}
+        ></div>
         <div className="item__info" onClick={showPopUp} id="itemInfo">
           <h3>{title}</h3>
           <p>{desc}</p>

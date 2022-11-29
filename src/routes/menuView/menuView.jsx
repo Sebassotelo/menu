@@ -28,6 +28,7 @@ import firebaseApp from "../../firebase/firebase";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import EditarMenu from "../../componentes/editarMenu/editarMenu";
+import Loader from "../../componentes/loader/Loader";
 
 function MenuView() {
   const googleProvider = new GoogleAuthProvider();
@@ -171,16 +172,7 @@ function MenuView() {
       );
     }
   } else {
-    return (
-      <div className="cargando">
-        <div className="loader">
-          <div class="lds-ripple">
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-      </div>
-    );
+    return <Loader />;
   }
 }
 

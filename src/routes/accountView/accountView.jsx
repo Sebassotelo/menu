@@ -35,6 +35,7 @@ import AgregarItem from "../../componentes/agregarItem/agregarItem";
 import Perfil from "../../componentes/perfil/perfil";
 import NavbarMobile from "../../componentes/navbarMobile/navbarMobile";
 import Contacto from "../../componentes/contacto/contacto";
+import Loader from "../../componentes/loader/Loader";
 
 function AccountView() {
   const navigate = useNavigate();
@@ -379,16 +380,7 @@ function AccountView() {
       </div>
     );
   } else {
-    return (
-      <div className="cargando">
-        <div className="loader">
-          <div class="lds-ripple">
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-      </div>
-    );
+    return <Loader />;
   }
 }
 

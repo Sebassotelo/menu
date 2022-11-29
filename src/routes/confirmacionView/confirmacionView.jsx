@@ -23,6 +23,7 @@ import firebaseApp from "../../firebase/firebase";
 
 import Navbar from "../../componentes/navbar/navbar";
 import NavbarMobile from "../../componentes/navbarMobile/navbarMobile";
+import Loader from "../../componentes/loader/Loader";
 
 function ConfirmacionView() {
   const navigate = useNavigate();
@@ -194,16 +195,7 @@ function ConfirmacionView() {
       </div>
     );
   } else {
-    return (
-      <div className="cargando">
-        <div className="loader">
-          <div class="lds-ripple">
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-      </div>
-    );
+    return <Loader />;
   }
 }
 

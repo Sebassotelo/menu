@@ -16,7 +16,7 @@ function Contacto() {
         "service_kl6yrj9",
         "template_ivb177r",
         e.target,
-        "5J8Yfd_wn58OC_4xb"
+        "3v7W1-5pYl5Q_8HJz"
       )
       .then(() => toast.success("Mensaje Enviado"))
       .catch((err) => toast.error("Mensaje no Enviado"));

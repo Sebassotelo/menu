@@ -35,6 +35,9 @@ function Secciones({ item, setArray, arrayItems }) {
 
     //Filtrado del item a editar y el resto de items
     const itemFiltrado = item.seccionItems.filter((item, i) => item.id === e);
+    const indexItemFiltrado = item.seccionItems.findIndex(
+      (item, i) => item.id === e
+    );
     const otrosItems = item.seccionItems.filter((item, i) => item.id !== e);
 
     //Verificamos si hay cambios que hacer
@@ -45,34 +48,36 @@ function Secciones({ item, setArray, arrayItems }) {
       itemFiltrado[0].img = urlNueva;
     }
 
-    console.log(itemFiltrado);
-
     //creamos el nuevo array con el item ya editado y traemos las otras secciones
-    const newArray = [...otrosItems, itemFiltrado[0]];
+    otrosItems.splice(indexItemFiltrado, 0, itemFiltrado[0]);
+
     const otraSecciones = infoDocu.items.filter(
       (a, i) => a.seccion !== item.seccion
     );
 
+    //Vemos que index es la seccion actual
+    const lugarArray = infoDocu.items.findIndex(
+      (e) => e.seccion === item.seccion
+    );
+
     //Creamos el array completo de las secciones
-    const newSeccion = [
-      ...otraSecciones,
-      {
-        seccion: item.seccion,
-        seccionItems: newArray,
-        id: item.id,
-      },
-    ];
+    otraSecciones.splice(lugarArray, 0, {
+      seccion: item.seccion,
+      seccionItems: otrosItems,
+      id: item.id,
+    });
 
     //Actualizamos la base de datos
     if (precioNuevo || urlNueva) {
-      updateDoc(docRef, { items: [...newSeccion] });
+      updateDoc(docRef, { items: [...otraSecciones] });
 
+      setArray(otraSecciones);
       setPrecioNuevo(null);
-      setArray(newSeccion);
+      setUrlNueva(null);
       toast.success("Item Actualizado");
     } else {
       setPrecioNuevo(null);
-      console.log(precioNuevo);
+      setUrlNueva(null);
       toast.error("Ingrese un Valor valido");
     }
   };

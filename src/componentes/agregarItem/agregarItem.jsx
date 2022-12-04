@@ -57,18 +57,8 @@ function AgregarItem({ array, id, setArray }) {
       },
     ];
 
-    const arrayOrdenado = newArray.sort((a, b) => {
-      if (a.seccion < b.seccion) {
-        return -1;
-      } else if (a.seccion > b.seccion) {
-        return 1;
-      } else {
-        return 0;
-      }
-    });
-
     //seteamos el estado y updateamos la base de datos
-    setArray(arrayOrdenado);
+    setArray(newArray);
     updateDoc(docRef, { items: [...newArray] });
     toast.success("Item Agregado");
     popup();

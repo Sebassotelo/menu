@@ -22,6 +22,7 @@ function ItemSeccion({
   deleteItem,
   editPrecio,
   setPrecioNuevo,
+  setUrlNueva,
 }) {
   const context = useContext(CarroContext);
   const { setMenuCompleto } = useContext(CarroContext);
@@ -31,6 +32,10 @@ function ItemSeccion({
 
   const cambioPrecio = (e) => {
     setPrecioNuevo(e.target.value);
+  };
+
+  const cambioUrl = (e) => {
+    setUrlNueva(e.target.value);
   };
 
   return (
@@ -46,23 +51,42 @@ function ItemSeccion({
       {editarPrecio ? (
         <div className="edit__delete__item">
           <div className="edit__item__container">
-            <form
-              className="edit__precio"
-              onSubmit={() => {
-                editPrecio(item.id);
-                setEditarPrecio(!editarPrecio);
-              }}
-            >
-              {" "}
-              <input
-                type="number"
-                placeholder="Precio"
-                onChange={cambioPrecio}
-              />
-              <button type="submit" className="guardar__edit">
-                Guardar
-              </button>
-            </form>
+            <div className="edit__input__container">
+              <form
+                className="edit__precio"
+                onSubmit={() => {
+                  editPrecio(item.id);
+                  setEditarPrecio(!editarPrecio);
+                }}
+              >
+                {" "}
+                <input
+                  type="number"
+                  placeholder="Precio"
+                  onChange={cambioPrecio}
+                />
+                <button type="submit" className="guardar__edit">
+                  Guardar
+                </button>
+              </form>
+              <form
+                className="edit__precio"
+                onSubmit={() => {
+                  editPrecio(item.id);
+                  setEditarPrecio(!editarPrecio);
+                }}
+              >
+                {" "}
+                <input
+                  type="text"
+                  placeholder="Url Imagen"
+                  onChange={cambioUrl}
+                />
+                <button type="submit" className="guardar__edit">
+                  Guardar
+                </button>
+              </form>
+            </div>
 
             <button
               className="cancelar__edit"
@@ -81,7 +105,7 @@ function ItemSeccion({
             className="delete__item"
             onClick={() => setEditarPrecio(!editarPrecio)}
           >
-            Editar Precio
+            Editar Producto
           </button>
         </div>
       )}

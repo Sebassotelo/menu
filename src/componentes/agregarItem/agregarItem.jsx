@@ -28,6 +28,7 @@ function AgregarItem({ array, id, setArray }) {
     const title = e.target.inputTitle.value;
     const desc = e.target.inputDesc.value;
     const precio = e.target.inputPrecio.value;
+    const urlFoto = e.target.inputFoto.value;
 
     //traemos los datos de base de datos
     const docRef = doc(firestore, `users/${context.user.email}`);
@@ -49,7 +50,7 @@ function AgregarItem({ array, id, setArray }) {
             desc: desc,
             precio: precio,
             id: +new Date(),
-            img: url,
+            img: urlFoto,
           },
         ],
         id: +new Date(),
@@ -76,6 +77,7 @@ function AgregarItem({ array, id, setArray }) {
     e.target.inputTitle.value = "";
     e.target.inputDesc.value = "";
     e.target.inputPrecio.value = "";
+    e.target.inputFoto.value = "";
     e.target.inputFile.value = null;
   };
 
@@ -130,6 +132,14 @@ function AgregarItem({ array, id, setArray }) {
                 id="inputDesc"
                 required
               />
+              <p className="account__form__p">URL de la Foto:</p>
+              <input
+                type="text"
+                placeholder="Descripcion"
+                className="account__form__input"
+                id="inputFoto"
+                required
+              />
               <div className="input__precio">
                 <div>
                   <p className="account__form__p">Precio:</p>
@@ -141,7 +151,7 @@ function AgregarItem({ array, id, setArray }) {
                     required
                   />
                 </div>
-
+                {/* 
                 <div>
                   <p className="account__form__p">Foto del Producto:</p>
                   <input
@@ -150,7 +160,7 @@ function AgregarItem({ array, id, setArray }) {
                     onChange={fileHandler}
                     id="inputFile"
                   />
-                </div>
+                </div> */}
               </div>
 
               {carga ? (

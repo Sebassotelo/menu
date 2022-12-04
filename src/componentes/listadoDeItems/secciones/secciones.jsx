@@ -25,7 +25,7 @@ function Secciones({ item, setArray, arrayItems }) {
   const [show, setShow] = useState(false);
   const [editarPrecio, setEditarPrecio] = useState(false);
   const [precioNuevo, setPrecioNuevo] = useState(null);
-  const [showPosicion, setShowPosicion] = useState(false);
+  const [urlNueva, setUrlNueva] = useState(null);
 
   const editPrecio = async (e) => {
     //traemos los datos de base de datos
@@ -33,20 +33,27 @@ function Secciones({ item, setArray, arrayItems }) {
     const consulta = await getDoc(docRef);
     const infoDocu = consulta.data();
 
+    //Filtrado del item a editar y el resto de items
     const itemFiltrado = item.seccionItems.filter((item, i) => item.id === e);
     const otrosItems = item.seccionItems.filter((item, i) => item.id !== e);
 
+    //Verificamos si hay cambios que hacer
     if (precioNuevo) {
       itemFiltrado[0].precio = precioNuevo;
+    }
+    if (urlNueva) {
+      itemFiltrado[0].img = urlNueva;
     }
 
     console.log(itemFiltrado);
 
+    //creamos el nuevo array con el item ya editado y traemos las otras secciones
     const newArray = [...otrosItems, itemFiltrado[0]];
     const otraSecciones = infoDocu.items.filter(
       (a, i) => a.seccion !== item.seccion
     );
 
+    //Creamos el array completo de las secciones
     const newSeccion = [
       ...otraSecciones,
       {
@@ -55,24 +62,18 @@ function Secciones({ item, setArray, arrayItems }) {
         id: item.id,
       },
     ];
-    if (precioNuevo) {
+
+    //Actualizamos la base de datos
+    if (precioNuevo || urlNueva) {
       updateDoc(docRef, { items: [...newSeccion] });
-      const arrayOrdenado = newSeccion.sort((a, b) => {
-        if (a.seccion < b.seccion) {
-          return -1;
-        } else if (a.seccion > b.seccion) {
-          return 1;
-        } else {
-          return 0;
-        }
-      });
+
       setPrecioNuevo(null);
-      setArray(arrayOrdenado);
-      toast.success("Precio Actualizado");
+      setArray(newSeccion);
+      toast.success("Item Actualizado");
     } else {
       setPrecioNuevo(null);
       console.log(precioNuevo);
-      toast.error("Ingrese un Precio valido");
+      toast.error("Ingrese un Valor valido");
     }
   };
 
@@ -96,16 +97,7 @@ function Secciones({ item, setArray, arrayItems }) {
     ];
 
     updateDoc(docRef, { items: [...newArray] });
-    const arrayOrdenado = newArray.sort((a, b) => {
-      if (a.seccion < b.seccion) {
-        return -1;
-      } else if (a.seccion > b.seccion) {
-        return 1;
-      } else {
-        return 0;
-      }
-    });
-    setArray(arrayOrdenado);
+    setArray(newArray);
     toast.success("Item Eliminado");
   };
 
@@ -161,6 +153,7 @@ function Secciones({ item, setArray, arrayItems }) {
               deleteItem={deleteItem}
               editPrecio={editPrecio}
               setPrecioNuevo={setPrecioNuevo}
+              setUrlNueva={setUrlNueva}
             />
           );
         })}

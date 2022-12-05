@@ -90,16 +90,18 @@ function Secciones({ item, setArray, arrayItems }) {
 
     const deleteItem = item.seccionItems.filter((item) => item.id != e);
 
-    const pepe = infoDocu.items.filter((a, i) => a.seccion !== item.seccion);
+    const newArray = infoDocu.items.filter(
+      (a, i) => a.seccion !== item.seccion
+    );
+    const lugarArray = infoDocu.items.findIndex(
+      (a) => a.seccion === item.seccion
+    );
 
-    const newArray = [
-      ...pepe,
-      {
-        seccion: item.seccion,
-        seccionItems: deleteItem,
-        id: +new Date(),
-      },
-    ];
+    newArray.splice(lugarArray, 0, {
+      seccion: item.seccion,
+      seccionItems: deleteItem,
+      id: +new Date(),
+    });
 
     updateDoc(docRef, { items: [...newArray] });
     setArray(newArray);

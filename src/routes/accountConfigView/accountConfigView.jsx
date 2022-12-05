@@ -194,7 +194,7 @@ function AccountConfigView() {
         </form>
 
         <form action="" className="account__form__edit" onSubmit={setearPerfil}>
-          <p>Usuario Instagram:</p>
+          <p>Usuario Instagram: (ej: _sebassotelo)</p>
           <input
             type="text"
             className="account__form__input__edit"

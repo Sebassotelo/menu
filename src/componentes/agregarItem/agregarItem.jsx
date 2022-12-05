@@ -37,25 +37,25 @@ function AgregarItem({ array, id, setArray }) {
 
     //filtramos la propiedad .items y creamos un array nuevo
 
-    const pepe = infoDocu.items.filter((it) => it.seccion != array.seccion);
+    const newArray = infoDocu.items.filter((it) => it.seccion != array.seccion);
+    const lugarArray = infoDocu.items.findIndex(
+      (a) => a.seccion === array.seccion
+    );
     console.log(array.seccion);
-    const newArray = [
-      ...pepe,
-      {
-        seccion: array.seccion,
-        seccionItems: [
-          ...array.seccionItems,
-          {
-            title: title,
-            desc: desc,
-            precio: precio,
-            id: +new Date(),
-            img: urlFoto,
-          },
-        ],
-        id: +new Date(),
-      },
-    ];
+    newArray.splice(lugarArray, 0, {
+      seccion: array.seccion,
+      seccionItems: [
+        {
+          title: title,
+          desc: desc,
+          precio: precio,
+          id: +new Date(),
+          img: urlFoto,
+        },
+        ...array.seccionItems,
+      ],
+      id: +new Date(),
+    });
 
     //seteamos el estado y updateamos la base de datos
     setArray(newArray);

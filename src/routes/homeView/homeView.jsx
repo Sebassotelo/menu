@@ -172,7 +172,7 @@ function HomeView() {
             }
           />
 
-          <CartPremium title={"PREMIUM"} precio={"699"} premium={true} />
+          <CartPremium title={"PREMIUM"} precio={"0"} premium={true} />
         </div>
       </section>
 

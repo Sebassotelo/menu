@@ -205,16 +205,6 @@ function AccountView() {
             allowfullscreen
           ></iframe>
         )}
-        {context.infoPublica.premiumPago === "" && (
-          <a
-            className="suscribirse__premium"
-            href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c938084843dc178018449db8fb70860"
-          >
-            <p>
-              Suscribirse a <span>Premium</span>{" "}
-            </p>
-          </a>
-        )}
         <div className="account__container">
           {context.estadoUsuario > 0 ? (
             <>
@@ -257,14 +247,6 @@ function AccountView() {
                         {context.infoPublica.premium ? "Si" : "No"}
                       </p>
 
-                      {context.infoPublica.premium && (
-                        <p>
-                          {" "}
-                          <span>
-                            Vence: {context.infoPublica.premiumVence}
-                          </span>{" "}
-                        </p>
-                      )}
                       {context.infoPublica.premium &&
                         context.infoPublica.premiumPago !== "" && (
                           <p>

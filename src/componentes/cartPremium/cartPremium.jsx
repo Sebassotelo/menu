@@ -7,7 +7,6 @@ function CartPremium({ title, precio, premium, extra }) {
       <div className="cart__title">
         <h3 className="cart__h3">{title}</h3>
         <p className="cart__p">${precio}ARS Por mes</p>
-        {premium && <p className="cart__p">7 dias gratis</p>}
       </div>
 
       <div className="body__cart">
